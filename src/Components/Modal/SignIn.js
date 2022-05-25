@@ -1,14 +1,12 @@
-import React from 'react';
-import ShowExample from "../../Pages/SignInModal"
-
+import React from "react";
+import ShowExample from "../../Pages/SignInModal";
 
 const SignIn = () => {
   return (
     <div>
-        <ShowExample />
-
+      <ShowExample />
     </div>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;
