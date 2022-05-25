@@ -1,0 +1,335 @@
+.home {
+  margin-top: 140px;
+  font-family: "Jost", sans-serif;
+  color: #000;
+}
+.banner {
+  background-image: url(../Assets/Images/seamless_bg.png);
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px 50px 0 120px;
+}
+.banner_img {
+  width: 48.3vh;
+  height: auto;
+}
+.banner_content > p:first-child {
+  font-size: 3.5rem;
+  font-weight: bolder;
+  margin-block-start: 1.2em;
+}
+.banner > div:nth-child(2) {
+  padding: 100px 20px;
+}
+.banner_content > p:nth-child(2) {
+  padding-right: 150px;
+  text-align: justify;
+  margin-block-end: 2em;
+  font-size: 18px;
+}
+.btnn {
+  background-color: #bc9a43;
+  padding: 15px 20px;
+  border: 1px solid #bc9a43;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 17px;
+  font-family: "Jost", sans-serif;
+}
+.btnn > span {
+  padding-left: 5px;
+}
+.chat_icon {
+  top: 500px;
+  right: 40px;
+  position: relative;
+}
+.chat_icon > span img {
+  position: fixed;
+  z-index: 10;
+  background-color: transparent;
+}
+.sub_banner {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 120px 50px;
+  background-color: #ffffff;
+}
+.sub_banner > div {
+  width: 375px;
+  height: auto;
+}
+a {
+  text-decoration: none !important;
+}
+.img_header {
+  margin-block-start: 1em !important;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: justify;
+}
+.img_body {
+  text-align: justify;
+  font-size: 18px;
+}
+.view_banner {
+  padding: 0px 50px 120px 50px;
+  background-color: #ffffff;
+}
+.view_banner > div:nth-child(2) {
+  display: flex;
+  justify-content: space-evenly;
+}
+.view_banner > div:nth-child(2) > div {
+  width: 278px;
+  height: auto;
+}
+.view_banner > div:nth-child(2) > div > a > p {
+  font-weight: bold;
+  text-align: justify;
+  font-size: 18px;
+  color: #000;
+  margin-block-start: 1em;
+}
+.product_content {
+  padding: 10px 60px;
+}
+a {
+  text-decoration: none;
+}
+.product_content > p:first-child {
+  float: left;
+  font-weight: bold;
+  font-size: 30px;
+}
+.product_content > p:nth-child(2) {
+  margin-block-start: 0.7em;
+  float: right;
+  color: #bc9a43;
+  cursor: pointer;
+}
+
+.mini_banner {
+  background-color: #4b3e1b;
+  height: auto;
+  margin: 120px 0;
+}
+.mini_banner > div:nth-child(2) {
+  position: relative;
+}
+.lady_one {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  left: 150px;
+  z-index: 10;
+}
+.mask_group {
+  width: 300px;
+  height: auto;
+}
+.mini_banner > div:first-child {
+  padding: 100px 50px 20px 120px;
+}
+.mini_banner > div:first-child > p:first-child {
+  font-size: 2.8rem;
+  font-weight: bolder;
+  color: #ffffff;
+  font-family: "Jost", sans-serif;
+}
+.mini_banner > div:first-child > p:nth-child(2) {
+  color: #ffffff;
+  margin-block-end: 2em;
+  font-size: 18px;
+}
+@media only screen and (min-width: 992px) {
+  .mini_banner {
+    height: 570px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1300px) {
+  .sub_banner > div {
+    width: 250px;
+    height: auto;
+  }
+
+  .sub_banner > div > img {
+    width: 250px;
+    height: auto;
+  }
+  .view_banner > div:nth-child(2) > div > a > img,
+  .view_banner > div:nth-child(2) > div {
+    width: 200px;
+    height: 227px;
+  }
+  .lady_one,
+  .mask_group {
+    width: 250px;
+  }
+  .mini_banner > div:nth-child(2) {
+    padding-top: 80px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1100px)  {
+  .banner {
+    height: fit-content;
+  }
+  .banner > div:nth-child(2) {
+    padding: 30px 20px 70px;
+  }
+.banner_content > p:nth-child(2) {
+padding-right: 70px;
+}
+}
+
+@media only screen and (max-width: 991px) {
+  .banner {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 20px 50px;
+    text-align: center;
+  }
+  .banner > div:nth-child(2) {
+    padding: 0;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .banner_content > p:nth-child(2) {
+    text-align: center;
+    padding-right: 0px;
+  }
+  .banner > div:nth-child(1) {
+    text-align: center;
+  }
+  .chat_icon {
+    top: 500px;
+    right: 70px;
+    position: absolute;
+  }
+
+  .sub_banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+  }
+  .sub_banner > div {
+    padding-bottom: 30px;
+  }
+  .view_banner > div:nth-child(2) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .view_banner > div:nth-child(2) > div {
+    padding-bottom: 30px;
+  }
+  .view_banner > div:nth-child(2) > div {
+    width: 375px;
+    height: auto;
+  }
+  .view_banner > div:nth-child(2) > div > a > img {
+    width: 375px;
+    height: 400px;
+  }
+  .lady_one,
+  .mask_group {
+    width: 180px;
+  }
+  .mini_banner > div:nth-child(2) {
+    padding-top: 80px;
+  }
+  .mini_banner > div:first-child {
+    padding: 80px 20px 50px 50px;
+  }
+  .mini_banner > div:first-child > p:first-child {
+    font-size: 2rem;
+  }
+  .lady_one {
+    left: 100px;
+  }
+  .mini_banner {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .home {
+    margin-top: 80px;
+  }
+  .banner_content > p:first-child {
+    font-size: 2.5rem;
+    font-weight: bolder;
+  }
+  .banner_img {
+    width: 30vh;
+    height: auto;
+  }
+  .sub_banner > div,
+  .sub_banner > div > img {
+    width: 278px;
+    height: auto;
+  }
+  .view_banner > div:nth-child(2) > div > a > img,
+  .view_banner > div:nth-child(2) > div {
+    width: 278px;
+    height: auto;
+  }
+  .view_banner > div:nth-child(2) > div > a > img {
+    width: 278px;
+    height: 300px;
+  }
+  .product_content > p:first-child {
+    font-size: 25px;
+    float: none;
+    text-align: center;
+  }
+  .product_content > p:nth-child(2) {
+    margin-block-start: 0em;
+    float: none;
+    text-align: center;
+  }
+
+  .mini_banner {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .mini_banner > div:nth-child(2) {
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
+  .mini_banner > div:first-child {
+    text-align: center;
+    padding: 50px 20px 50px 20px;
+  }
+  .chat_icon {
+    top:550px;
+  }
+  
+}
+@media only screen and (max-width: 500px) {
+  .banner {
+    padding: 20px;
+  }
+
+  .product_content {
+    padding: 10px;
+  }
+  .mask_group {
+    width: 130px;
+    position: relative;
+    left: -40px;
+  }
+  .lady_one {
+    width: 130px;
+    left: 40px;
+  }
+}

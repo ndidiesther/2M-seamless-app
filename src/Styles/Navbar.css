@@ -1,0 +1,225 @@
+.navigation {
+  position: fixed !important;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0rem;
+  background-color: #fff;
+  color: black;
+  box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+  z-index:10000;
+}
+.navigation > div:first-child {
+  padding-left: 40px;
+}
+.navigation > div:first-child > a > img {
+  padding-left: 30px;
+}
+.brand-name {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+.navigation-menu {
+  margin-left: auto;
+}
+
+.navigation-menu ul {
+  display: flex;
+  padding: 0;
+}
+.navigation-menu li {
+  list-style-type: none;
+  margin: 0 1rem;
+}
+
+.hamburger {
+  border: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  display: none;
+}
+.hamburger:hover {
+  background-color: #bc9a43;
+}
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .navigation-menu.expanded ul {
+    display: block;
+  }
+
+  .navigation-menu ul {
+    display: none;
+    margin-block-start: 0px;
+  }
+  .navigation-menu li {
+    text-align: center;
+    margin: 0;
+  }
+  .navigation-menu li a {
+    color: black;
+    width: 100%;
+    padding: 0.2rem;
+  }
+
+  .menu > ul {
+    transition: 0.5s;
+    background-color: #f6f8fa;
+    color: white;
+    z-index: 111111;
+    line-height: normal;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+    font-size: 18px;
+    font-family: "Jost", sans-serif;
+  }
+  .menu > ul {
+    padding-top: 30px;
+    text-align: center;
+    padding-inline-start: 0px;
+  }
+  .menu > ul li {
+    list-style-type: none;
+    padding-bottom: 20px;
+    cursor: pointer;
+  }
+  .menu > ul li a {
+    text-decoration: none;
+  }
+  .menu > ul li a:hover {
+    color: #bc9a43;
+  }
+
+.log_li, .log_li span {
+      padding-top: 20px;
+      color:red;
+  }
+ 
+  .social_list > a > i {
+    padding-right: 20px;
+  }
+  .hr_mb {
+      color:#D1D1D1;
+      height:2px !important;
+      margin: 1rem 3rem;
+  }
+}
+
+.navbar {
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
+  position: fixed !important;
+  z-index: 100;
+  padding-top: 0px !important;
+}
+.top-nav {
+  background-color: #282828;
+  padding: 15px 60px;
+  color: #ffffff;
+}
+.nav-icons > span > a i {
+  font-size: 22px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.nav-icons > span {
+  padding-right: 30px;
+}
+.nav-icons > span:nth-child(4),
+.nav-icons > span:nth-child(5) {
+  font-weight: bold;
+  color: #fcfbf7;
+  cursor: pointer;
+}
+.nav-icons > span:hover {
+  color: #bc9a43;
+}
+.main-nav {
+  padding: 15px 20px 8px 20px;
+  background-color: #fcfbf7;
+}
+.nav-list,
+.nav-sublist {
+  padding-top: 15px;
+}
+.nav-list > ul li {
+  list-style-type: none;
+  display: inline;
+  padding-right: 20px;
+  cursor: pointer;
+}
+.nav-list > ul li a {
+  text-decoration: none;
+  color: #000;
+}
+.nav-list > ul li:nth-child(3) > span a {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #282828;
+}
+
+.nav-logo > div {
+  text-align: center;
+  cursor: pointer;
+}
+.site_name {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+.nav-sublist {
+  padding-right: 20px;
+}
+.nav-sublist > span {
+  float: right;
+}
+.nav-sublist > span > ul li {
+  padding-right: 30px;
+  list-style-type: none;
+  display: inline;
+  cursor: pointer;
+}
+.nav-sublist > span > ul li a {
+  text-decoration: none;
+  color: #000;
+}
+.nav-sublist > span > ul li > img {
+  width: 20px;
+  height: auto;
+}
+.nav-sublist > span > ul li:nth-child(2) > img {
+  width: 18px;
+}
+.navigation {
+  display: none;
+}
+@media only screen and (max-width: 991px) {
+  .nav-sublist {
+    display: none;
+  }
+  .nav-logo > div {
+    float: right;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .navbar {
+    display: none !important;
+  }
+  .navigation {
+    display: block;
+  }
+}
