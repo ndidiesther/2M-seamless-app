@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Checkbox from '@mui/material/Checkbox';
+
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
 
 const SignInBox = () => {
   return (
     <div className="todo-list">
       <span className="todo-item">
-        <input type="checkbox" />
+        <Checkbox {...label} />
         <span className="check-item">Remember me</span>
       </span>
 

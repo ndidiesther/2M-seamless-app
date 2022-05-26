@@ -15,6 +15,7 @@ export const ButtonContainer = styled.button`
   width:100%;
   cursor: pointer;
   margin: 0.2rem 0.5rem 0.2rem 0;
+  font-weight: bold;
   transition: all 0.5s ease-in-out;
   &:hover {
     background: ${props => props.cart ? "green" : 'transparent'};

@@ -6,7 +6,7 @@ import "../../Styles/Modal.css";
 const Input = ({placeholder}) => {
   return (
     <React.Fragment>
-      <Box
+      <Box className="box_input"
         sx={{
           display: "flex",
           alignItems: "center",

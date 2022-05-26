@@ -187,11 +187,19 @@
 .nav-sublist > span {
   float: right;
 }
-.nav-sublist > span > ul li {
+.nav-sublist > span > ul li, .nav-mini > ul li {
   padding-right: 30px;
   list-style-type: none;
   display: inline;
   cursor: pointer;
+}
+.nav-mini {
+  float: right;
+  display: none;
+}
+.nav-mini > button {
+  color:#ffffff;
+  font-weight: bold;
 }
 .nav-sublist > span > ul li a {
   text-decoration: none;
@@ -207,12 +215,24 @@
 .navigation {
   display: none;
 }
+.gf_btn {
+  border:none;
+  background-color: transparent;
+}
 @media only screen and (max-width: 991px) {
   .nav-sublist {
     display: none;
   }
   .nav-logo > div {
     float: right;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .top-nav {
+    padding-right: 40px;
+  }
+  .nav-mini {
+    display: block;
   }
 }
 @media only screen and (max-width: 767px) {
