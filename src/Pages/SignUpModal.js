@@ -10,6 +10,7 @@ import { useState } from "react";
 
 function SignUpModal({ modalShow2, setModalShow, setModalShow2, ...props }) {
   const closeModalHandler = () => setModalShow2(false);
+  const [signUpStep, setSignupStep] = useState(1);
 
   return (
     <Modal
@@ -19,9 +20,31 @@ function SignUpModal({ modalShow2, setModalShow, setModalShow2, ...props }) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+      {signUpStep === 1 ? (
+        <FirstStep {...{ setSignupStep, setModalShow2, setModalShow }} />
+      ) : (
+        <SecondStep {...{ setSignupStep, setModalShow2, setModalShow }} />
+      )}
+      <Modal.Footer>
+        {/* <Button onClick={props.onHide}>Close</Button> */}
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
+export default SignUpModal;
+
+const FirstStep = ({
+  setSignupStep,
+  setModalShow2,
+  setModalShow,
+  ...restProps
+}) => {
+  return (
+    <>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter" className="modal-title">
-          <h2>SignUp</h2>
+          <h2>First Signup</h2>
           <p>Welcome back, enter your details to log in</p>
         </Modal.Title>
       </Modal.Header>
@@ -29,7 +52,9 @@ function SignUpModal({ modalShow2, setModalShow, setModalShow2, ...props }) {
         <Input placeholder="Username or email address *" />
         <PasswordInput />
         <SignInBox /> <br /> <br />
-        <ButtonContainer>Log In</ButtonContainer>
+        <ButtonContainer onClick={() => setSignupStep(2)}>
+          Continue 1
+        </ButtonContainer>
         <br /> <br />
         <div className="account_signup">
           Don't have an account?
@@ -46,11 +71,47 @@ function SignUpModal({ modalShow2, setModalShow, setModalShow2, ...props }) {
           </button>
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        {/* <Button onClick={props.onHide}>Close</Button> */}
-      </Modal.Footer>
-    </Modal>
+    </>
   );
-}
+};
 
-export default SignUpModal;
+const SecondStep = ({
+  setSignupStep,
+  setModalShow2,
+  setModalShow,
+  ...restProps
+}) => {
+  return (
+    <>
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter" className="modal-title">
+          <h2>Second Signup</h2>
+          <p>Welcome back, enter your details to log in</p>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Input placeholder="Username or email address *" />
+        <PasswordInput />
+        <SignInBox /> <br /> <br />
+        <ButtonContainer onClick={() => setSignupStep(1)}>
+          Continue 2
+        </ButtonContainer>
+        <br /> <br />
+        <div className="account_signup">
+          Don't have an account?
+          {/* <span>
+            <Link to="">Sign Up</Link>{" "}
+          </span> */}
+          <button
+            onClick={() => {
+              setModalShow2(false);
+              setModalShow(true);
+            }}
+          >
+            Sign Up
+          </button>
+        </div>
+      </Modal.Body>
+    </>
+  );
+};
