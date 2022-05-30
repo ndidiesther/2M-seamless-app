@@ -3,7 +3,6 @@ import { Modal } from "react-bootstrap";
 import "../Styles/Modal.css";
 import PasswordInput from "../Components/Modal/PasswordInput";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
-import SignInBox from "../Components/Modal/SignInBox";
 import { useState } from "react";
 import CountrySelector from "./Country";
 import Sex from "../Components/Modal/Sex";

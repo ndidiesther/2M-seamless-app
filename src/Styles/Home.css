@@ -38,6 +38,7 @@
   font-weight: bold;
   font-size: 17px;
   font-family: "Jost", sans-serif;
+  outline: 0;
 }
 .btnn > span {
   padding-left: 5px;
@@ -254,7 +255,8 @@ padding-right: 70px;
     left: 100px;
   }
   .mini_banner {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 80px;
   }
 }
 
@@ -333,3 +335,72 @@ padding-right: 70px;
     left: 40px;
   }
 }
+
+/*********Gender Modal *******/
+.gender-title  > h2{
+  position: relative;
+  top:-30px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.select_gender {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+.select_gender > a > button {
+  background-color: #ECEBE6;
+  padding: 30px 10px 0 10px;
+  border:1px solid #ECEBE6;
+  width:270px;
+  height:auto;
+  margin:20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  outline: 0;
+}
+.select_gender > a > button > img {
+  width:161px;
+  height: 215px;
+  text-align: center;
+}
+.select_gender > a > button > p {
+  position: relative;
+  top:60px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.active{
+  border: 5px solid #bc9a43 !important;
+  }
+.my-modal {
+  width: 700px !important;    /* Occupy the 90% of the screen width */
+  max-width: 700px !important;
+} 
+.gender_body {
+  top:-25px;
+}
+.gender_p {
+  color: #bc9a43;
+}
+.selected_p {
+  color:#000;
+}
+@media only screen and (max-width: 760px) {
+  .select_gender {
+    flex-direction: column;
+  }
+  .select_gender > button {
+    width:300px;
+  }
+  .my-modal {
+    margin-top: 150px !important;
+    width: 400px !important;
+    max-width: 400px !important;
+  }
+}
+
