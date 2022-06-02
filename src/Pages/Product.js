@@ -1,5 +1,6 @@
 import React from "react";
 import "../Styles/styles.css";
+import Test from "../Pages/Test"
 
 import Bag from "../Assets/Images/Bag.png";
 import Vector from "../Assets/Images/Vector.png";
@@ -66,11 +67,13 @@ const Product = () => {
           </div>
         </div>
       </div>
+     
       <div className="col-12 view_product">
         <div className="product_con col-12">
           <p>Trending Styles For You...</p>
           <p>View More</p>
         </div>
+        <Test />
         <StylesForFemale />
       </div>
     </div>

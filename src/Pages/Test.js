@@ -1,33 +1,59 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+// import React, { useState } from "react";
 
-export default function BasicSelect() {
-  const [age, setAge] = React.useState('');
+// const FileUploader = () => {
+//   const [file, setFile] = useState();
+//     function handleChange(e) {
+//         console.log(e.target.files);
+//         setFile(URL.createObjectURL(e.target.files[0]));
+//     }
+//   const hiddenFileInput = React.useRef(null);
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+//   const handleClick = (event) => {
+//     hiddenFileInput.current.click();
+//   };
+//   // const handleChange = event => {
+//   //   const fileUploaded = event.target.files[0];
+//   //   props.handleFile(fileUploaded);
+//   // };
+//   return (
+//     <div>
+//       <button onClick={handleClick}>Upload a file</button>
+//       <input
+//         type="file"
+//         ref={hiddenFileInput}
+//         onChange={handleChange}
+//         style={{ display: "none" }}
+//       />
+//            <img src={file} />
+//     </div>
+//   );
+// }
 
+// export default FileUploader;
+
+import React, { useCallback, useState } from 'react';
+
+
+function Test() {
+  const [images, setImages] = useState([]);
+  const onDrop = useCallback((acceptedFiles) => {
+    acceptedFiles.map((file, index) => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        setImages((prevState) => [
+          ...prevState,
+          { id: index, src: e.target.result },
+        ]);
+      };
+      reader.readAsDataURL(file);
+      return file;
+    });
+  }, []);
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
+    <div className="App">
+
+    </div>
   );
 }
+
+export default Test

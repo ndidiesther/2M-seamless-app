@@ -3,6 +3,7 @@ import "../Styles/styles.css";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import { Form } from "react-bootstrap";
 import StylesForFemale from "../Components/Styles/StylesForFemale";
+import { Link } from "react-router-dom";
 
 const FemaleStyles = () => {
   return (
@@ -10,10 +11,12 @@ const FemaleStyles = () => {
       <div className=" col-12 female_styles">
         <div className=" col-12 styles_header">
           <div>
-            <button className="female_backarrow">
-              <i className="fa-solid fa-arrow-left"></i>
-              <span>Select a Style</span>
-            </button>
+            <Link to="/">
+              <button className="female_backarrow">
+                <i className="fa-solid fa-arrow-left"></i>
+                <span>Select a Style</span>
+              </button>
+            </Link>
           </div>
           <div>
             <ButtonContainer>Upload Your Style</ButtonContainer>

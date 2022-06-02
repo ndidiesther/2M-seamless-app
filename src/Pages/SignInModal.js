@@ -42,7 +42,7 @@ function SignInModal({ modalShow, setModalShow, setModalShow2, ...props }) {
               setModalShow2(true);
             }}
           >
-            Sign In
+            Sign Up
           </button>
         </div>
       </Modal.Body>

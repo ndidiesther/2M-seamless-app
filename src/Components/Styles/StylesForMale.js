@@ -13,7 +13,7 @@ const StylesForMale = () => {
       <div className="col-12 styles_for_male">
         <div>
           <div>
-            <Link to="">
+            <Link to="/product">
               <img src={FirstStyle} />
               <p className="styles_name">
                 <span>Plain Kaftan</span>
@@ -22,7 +22,7 @@ const StylesForMale = () => {
             </Link>
           </div>
           <div>
-            <Link to="">
+            <Link to="/product">
               <img src={SecondStyle} />
               <p className="styles_name">
                 <span>African Print Shirt</span>
@@ -31,7 +31,7 @@ const StylesForMale = () => {
             </Link>
           </div>
           <div>
-            <Link to="">
+            <Link to="/product">
               <img src={ThirdStyle} />
               <p className="styles_name">
                 <span>Cashmere Jacket</span>

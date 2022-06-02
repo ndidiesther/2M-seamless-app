@@ -216,7 +216,10 @@
   position: relative;
   top: 40px;
 }
-.product_para > span:first-child {
+.product_para > a > button {
+  outline: 0;
+}
+.product_para > a > button span:first-child {
   position: absolute;
   border-radius: 50%;
   padding: 7px 12px;
@@ -226,10 +229,12 @@
   top: 5px;
 }
 .product_para > span:nth-child(2) {
-  padding-left: 52px;
+  padding-left: 20px;
   font-size: 2.3rem;
   font-weight: bold;
   opacity: 0.7;
+  position: absolute;
+  top:-10px;
 }
 .productImg_div {
   padding-top: 50px;
@@ -389,7 +394,7 @@ a {
   }
   .product_img {
     width: 400px;
-    height: 530px;
+    height: 470px;
   }
   .div_btn > a > button:first-child {
     padding: 10px 38px;
@@ -431,6 +436,9 @@ a {
   }
   .p_div {
     padding-top: 0px !important;
+  }
+  .product_para > span:nth-child(2) {
+    top:0;
   }
 }
 @media only screen and (max-width: 991px) {
@@ -492,6 +500,9 @@ a {
     display: block;
     padding-bottom: 20px;
   }
+  .product_para > span:nth-child(2) {
+    position: unset;
+  }
 }
 @media only screen and (max-width: 500px) {
   .div_btn {
@@ -500,12 +511,13 @@ a {
     align-items: center;
     justify-content: center;
   }
-  .div_btn > button {
+  .div_btn > a button {
     margin: 0 0 20px 0;
   }
-  .div_btn > button:first-child {
+  .div_btn > a button:first-child {
     margin-right: 0;
   }
+
 
   .product_con > p:first-child,
   .product_con > p:nth-child(2) {
@@ -542,6 +554,12 @@ a {
     padding-right: 0;
     width: 70px;
   }
+  .clearfix {
+    align-items: unset;
+  }
+  .product_para > span:nth-child(2) {
+    padding-left: 0;
+  }
 }
 
 /**********Customize Styles *******/
@@ -561,7 +579,7 @@ a {
   padding-top: 40px;
 }
 .form_label,
-.fabric_pickup > p {
+.fabric_pickup > p, .input_measurement > p {
   color: #000 !important;
   font-family: "Jost", sans-serif !important;
   font-size: 1.3rem !important;
@@ -576,9 +594,9 @@ a {
 .form_button {
   padding-top: 40px;
 }
-.form_button > button {
+/* .form_button > button {
   width: 400px;
-}
+} */
 textarea {
   width: 100%;
   height: 80px;
@@ -592,7 +610,7 @@ textarea {
   outline: none;
   color: #0e172c;
 }
-.fabric_pickup, .select_size {
+.fabric_pickup, .select_size, .input_measurement {
   padding-top: 40px;
 }
 .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
@@ -610,6 +628,46 @@ textarea {
   border:0;
   color: #bc9a43;
 }
+.CSRModal{
+  width: 800px !important;
+  max-width: 800px !important;
+  }
+  .CSRModal > div {
+  background-color: transparent !important;
+}
+.input_mdiv {
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  padding-bottom: 20px;
+}
+.input_mdiv > span {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-right: 30px;
+}
+.input_mdiv > span > input {
+  width: 100px;
+  padding: 15px 20px;
+  text-align: center;
+  outline: none;
+  border: 1px solid #bc9a43;
+}
+.form_div {
+  margin-bottom: 60px;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 
 @media only screen and (max-width: 991px) {
@@ -617,5 +675,12 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 0;
+  }
+  .customize_form > div:nth-child(2){
+    top:20px;
+  }
+  .form_div {
+    margin-bottom: 0px;
   }
 }

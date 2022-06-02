@@ -6,7 +6,7 @@ import Test from "../Pages/Test"
 const FemaleForm = () => {
   return (
     <>
-      <div className="col-12 product">
+      <div className="col-12 product form_div">
         <div className="customize_form">
           <div>
             <SpecificStyle />
