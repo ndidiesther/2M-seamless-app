@@ -12,6 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { Modal } from "react-bootstrap";
 import ChartImage from "../../Assets/Images/size_chart.png";
+import { useNavigate } from "react-router-dom";
 
 const PickUpLocation = () => {
   return (
@@ -97,37 +98,39 @@ const InputMeasurement = () => {
         </span>
         <span>
           <label>Bust</label>
-          <input  type="number"/>
+          <input type="number" />
         </span>
         <span>
           <label>Waist</label>
-          <input  type="number" />
+          <input type="number" />
         </span>
       </div>
       <div className="input_mdiv">
         <span>
           <label>Hip</label>
-          <input  type="number"/>
+          <input type="number" />
         </span>
         <span>
           <label>Blouse Length</label>
-          <input  type="number" />
+          <input type="number" />
         </span>
         <span>
           <label>Skirt Length</label>
-          <input  type="number" />
+          <input type="number" />
         </span>
       </div>
     </div>
   );
 };
 
-const Form = () => {
+const Form = ({ orderImage, styleName, chooseSex }) => {
   const [yesFabric, setyesFabric] = useState(false);
   const [noFabric, setnoFabric] = useState(false);
 
   const [yesMeasurement, setyesMeasurement] = useState(false);
   const [noMeasurement, setnoMeasurement] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -222,7 +225,15 @@ const Form = () => {
       </div>
 
       <div className="form_button">
-        <ButtonContainer>Proceed</ButtonContainer>
+        <ButtonContainer
+          onClick={() =>
+            navigate("/orderdetails", {
+              state: { src: orderImage, stylename: styleName, id: chooseSex },
+            })
+          }
+        >
+          Proceed
+        </ButtonContainer>
       </div>
     </>
   );

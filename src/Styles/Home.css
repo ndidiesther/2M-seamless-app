@@ -117,34 +117,42 @@ a {
   background-color: #4b3e1b;
   height: auto;
   margin: 120px 0;
+  overflow: hidden;
 }
 .mini_banner > div:nth-child(2) {
   position: relative;
+  padding-top: 9px;
 }
 .lady_one {
   position: absolute;
-  width: 300px;
+  width: 303px;
   height: auto;
   left: 150px;
   z-index: 10;
 }
 .mask_group {
-  width: 300px;
+  width: 320px;
   height: auto;
 }
 .mini_banner > div:first-child {
-  padding: 100px 50px 20px 120px;
+  padding: 0px 100px 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 570px;
 }
-.mini_banner > div:first-child > p:first-child {
+.mini_banner > div:first-child > div > p:first-child {
   font-size: 2.8rem;
   font-weight: bolder;
   color: #ffffff;
   font-family: "Jost", sans-serif;
 }
-.mini_banner > div:first-child > p:nth-child(2) {
+.mini_banner > div:first-child > div > p:nth-child(2) {
   color: #ffffff;
   margin-block-end: 2em;
   font-size: 18px;
+  text-align: justify;
 }
 @media only screen and (min-width: 992px) {
   .mini_banner {
@@ -161,29 +169,34 @@ a {
     width: 250px;
     height: auto;
   }
+  .banner_content > p:first-child {
+    font-size: 3rem;
+  }
   .view_banner > div:nth-child(2) > div > a > img,
   .view_banner > div:nth-child(2) > div {
     width: 200px;
     height: 227px;
   }
-  .lady_one,
+  .lady_one {
+    width: 295px;
+  }
   .mask_group {
-    width: 250px;
+    width: 312px;
   }
   .mini_banner > div:nth-child(2) {
-    padding-top: 80px;
+    padding-top: 25px;
   }
 }
-@media only screen and (min-width: 992px) and (max-width: 1100px)  {
+@media only screen and (min-width: 992px) and (max-width: 1100px) {
   .banner {
     height: fit-content;
   }
   .banner > div:nth-child(2) {
-    padding: 30px 20px 70px;
+    padding: 100px 20px 70px;
   }
-.banner_content > p:nth-child(2) {
-padding-right: 70px;
-}
+  .banner_content > p:nth-child(2) {
+    padding-right: 70px;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -191,13 +204,16 @@ padding-right: 70px;
     display: flex;
     flex-direction: column-reverse;
     height: auto;
-    padding: 20px 50px;
+    padding: 20px 50px 0;
     text-align: center;
   }
   .banner > div:nth-child(2) {
     padding: 0;
     text-align: center;
     padding-bottom: 30px;
+  }
+  .mini_banner > div:first-child > div > p:first-child {
+    font-size: 2.6rem;
   }
   .banner_content > p:nth-child(2) {
     text-align: center;
@@ -211,7 +227,10 @@ padding-right: 70px;
     right: 70px;
     position: absolute;
   }
-
+  .banner_img {
+    width: 40vh;
+    height: auto;
+  }
   .sub_banner {
     display: flex;
     flex-direction: column;
@@ -240,13 +259,15 @@ padding-right: 70px;
   }
   .lady_one,
   .mask_group {
-    width: 180px;
+    width: 250px;
   }
   .mini_banner > div:nth-child(2) {
-    padding-top: 80px;
+    padding-top: 50px;
   }
+
   .mini_banner > div:first-child {
     padding: 80px 20px 50px 50px;
+    height: auto;
   }
   .mini_banner > div:first-child > p:first-child {
     font-size: 2rem;
@@ -306,16 +327,26 @@ padding-right: 70px;
   }
   .mini_banner > div:nth-child(2) {
     padding-top: 0;
-    padding-bottom: 50px;
   }
   .mini_banner > div:first-child {
     text-align: center;
-    padding: 50px 20px 50px 20px;
+    padding: 50px 30px;
   }
   .chat_icon {
-    top:550px;
+    top: 550px;
   }
-  
+  .mini_banner > div:first-child > div > p:first-child {
+    font-size: 2.4rem;
+  }
+  .lady_one {
+    width: 180px;
+    left: 50px;
+  }
+  .mask_group {
+    width: 180px;
+    position: relative;
+    left: -35px;
+  }
 }
 @media only screen and (max-width: 500px) {
   .banner {
@@ -332,18 +363,26 @@ padding-right: 70px;
   }
   .lady_one {
     width: 130px;
-    left: 40px;
+    left: 25px;
+  }
+  .mini_banner > div:first-child > div > p:first-child {
+    font-size: 2rem;
+  }
+  .mini_banner > div:first-child {
+    padding: 50px 20px;
   }
 }
 
 /*********Gender Modal *******/
-.gender-title  > h2{
+.gender-title > h2 {
   position: relative;
-  top:-30px;
+  top: -30px;
   font-weight: bold;
   letter-spacing: 0.05em;
 }
-
+.my-modal > div {
+  padding: 10px !important;
+}
 .select_gender {
   display: flex;
   align-items: center;
@@ -351,12 +390,12 @@ padding-right: 70px;
   flex-direction: row;
 }
 .select_gender > a > button {
-  background-color: #ECEBE6;
+  background-color: #ecebe6;
   padding: 30px 10px 0 10px;
-  border:1px solid #ECEBE6;
-  width:270px;
-  height:auto;
-  margin:20px;
+  border: 1px solid #ecebe6;
+  width: 270px;
+  height: auto;
+  margin: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -364,38 +403,38 @@ padding-right: 70px;
   outline: 0;
 }
 .select_gender > a > button > img {
-  width:161px;
+  width: 161px;
   height: 215px;
   text-align: center;
 }
 .select_gender > a > button > p {
   position: relative;
-  top:60px;
+  top: 60px;
   font-weight: bold;
   font-size: 18px;
 }
-.active{
+.active {
   border: 5px solid #bc9a43 !important;
-  }
+}
 .my-modal {
-  width: 700px !important;    /* Occupy the 90% of the screen width */
+  width: 700px !important; /* Occupy the 90% of the screen width */
   max-width: 700px !important;
-} 
+}
 .gender_body {
-  top:-25px;
+  top: -25px;
 }
 .gender_p {
   color: #bc9a43;
 }
 .selected_p {
-  color:#000;
+  color: #000;
 }
 @media only screen and (max-width: 760px) {
   .select_gender {
     flex-direction: column;
   }
   .select_gender > button {
-    width:300px;
+    width: 300px;
   }
   .my-modal {
     margin-top: 150px !important;
@@ -403,4 +442,20 @@ padding-right: 70px;
     max-width: 400px !important;
   }
 }
-
+@media only screen and (max-width: 580px) {
+  .my-modal {
+    width: 97% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 90px 0 0 !important;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .my-modal {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .gender-title > h2 {
+    top: 0;
+  }
+}

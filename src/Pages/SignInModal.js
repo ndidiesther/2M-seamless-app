@@ -10,6 +10,7 @@ function SignInModal({ modalShow, setModalShow, setModalShow2, ...props }) {
 
   return (
     <Modal
+      dialogClassName={"LoginModal"}
       show={modalShow}
       onHide={closeModalHandler}
       size="lg"
@@ -26,8 +27,8 @@ function SignInModal({ modalShow, setModalShow, setModalShow2, ...props }) {
         <Input placeholder="Username or email address*" />
         <PasswordInput />
         <SignInBox />
-        <ButtonContainer>Log In</ButtonContainer>
-    
+        <ButtonContainer className="btn_login">Log In</ButtonContainer>
+
         <div className="account_signup">
           Don't have an account?
           {/* <Link to=""> */}

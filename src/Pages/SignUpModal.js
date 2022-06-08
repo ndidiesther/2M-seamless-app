@@ -13,6 +13,7 @@ function SignUpModal({ modalShow2, setModalShow, setModalShow2, ...props }) {
 
   return (
     <Modal
+      dialogClassName={"SignUpModal"}
       show={modalShow2}
       onHide={closeModalHandler}
       size="lg"
@@ -117,7 +118,9 @@ const SecondStep = ({
         <CountrySelector />
 
         <Sex />
-        <p className="terms_p">By signing up, you agree to the Terms & Conditions of 2m seamless</p>
+        <p className="terms_p">
+          By signing up, you agree to the Terms & Conditions of 2m seamless
+        </p>
         <ButtonContainer
           onClick={() => {
             setModalShow2(false);

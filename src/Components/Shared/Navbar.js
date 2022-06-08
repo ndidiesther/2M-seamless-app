@@ -47,7 +47,7 @@ export default function Navbar({ setModalShow, setModalShow2 }) {
                 <i className="fa-solid fa-bars"></i>
               </li>
               <li>
-                <Link to=""> Home - Classic </Link>
+                <Link to="/"> Home - Classic </Link>
               </li>
               <li>
                 <span>
@@ -61,8 +61,10 @@ export default function Navbar({ setModalShow, setModalShow2 }) {
           </div>
           <div className="nav-logo col-lg-2 col-sm-6 col-xs-6">
             <div>
-              <img src={Logo} />
-              <p className="site_name">2M Seamless</p>
+              <Link to="/">
+                <img src={Logo} />
+                <p className="site_name">2M Seamless</p>
+              </Link>
             </div>
           </div>
           <div className=" nav-sublist col-lg-5">

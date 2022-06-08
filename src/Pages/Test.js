@@ -1,59 +1,27 @@
-// import React, { useState } from "react";
+import React from "react";
+import "../Styles/styles.css";
+import StylesForFemale from "../Components/Styles/StylesForFemale";
+import SpecificStyle from "../Components/Styles/SpecificStyle";
+// import Test from "../Pages/Test";
 
-// const FileUploader = () => {
-//   const [file, setFile] = useState();
-//     function handleChange(e) {
-//         console.log(e.target.files);
-//         setFile(URL.createObjectURL(e.target.files[0]));
-//     }
-//   const hiddenFileInput = React.useRef(null);
+import Form from "../Components/Form/Form";
 
-//   const handleClick = (event) => {
-//     hiddenFileInput.current.click();
-//   };
-//   // const handleChange = event => {
-//   //   const fileUploaded = event.target.files[0];
-//   //   props.handleFile(fileUploaded);
-//   // };
-//   return (
-//     <div>
-//       <button onClick={handleClick}>Upload a file</button>
-//       <input
-//         type="file"
-//         ref={hiddenFileInput}
-//         onChange={handleChange}
-//         style={{ display: "none" }}
-//       />
-//            <img src={file} />
-//     </div>
-//   );
-// }
+export default function Product() {
+    return (
+      <div className="product col-12">
+        <div className="product_banner col-12">
+          <SpecificStyle />
 
-// export default FileUploader;
+        </div>
 
-import React, { useCallback, useState } from 'react';
-
-
-function Test() {
-  const [images, setImages] = useState([]);
-  const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.map((file, index) => {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        setImages((prevState) => [
-          ...prevState,
-          { id: index, src: e.target.result },
-        ]);
-      };
-      reader.readAsDataURL(file);
-      return file;
-    });
-  }, []);
-  return (
-    <div className="App">
-
-    </div>
-  );
-}
-
-export default Test
+        <div className="col-12 view_product">
+          <div className="product_con col-12">
+            <p>Trending Styles For You...</p>
+            <p>View More</p>
+          </div>
+          {/* <Test /> */}
+          <StylesForFemale />
+        </div>
+      </div>
+    );
+  } 

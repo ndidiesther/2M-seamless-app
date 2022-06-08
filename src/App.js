@@ -9,25 +9,29 @@ import SignUpModal from "./Pages/SignUpModal";
 import FemaleStyles from "./Pages/FemaleStyles";
 import Product from "./Pages/Product";
 import MaleStyles from "./Pages/MaleStyles";
-import FemaleForm from "./Pages/FemaleForm";
-import MaleForm from "./Pages/MaleForm";
+import CustomizeForm from "./Pages/CustomizeForm";
+import OrderStyle from "./Components/Styles/OrderStyle"
+import OrderDetails from "./Pages/OrderDetails";
+
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
   const [modalShow2, setModalShow2] = useState(false);
 
-  console.log(modalShow);
+
+  // console.log(modalShow);
 
   return (
     <React.Fragment>
       <Navbar {...{ setModalShow, setModalShow2 }} />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="femalestyle" element= {<FemaleStyles />} />
+        <Route path="femalestyle" element= {<FemaleStyles  />} />
         <Route path="malestyle" element={<MaleStyles />} />
         <Route path="product" element={<Product />} />
-        <Route path="femaleform" element={<FemaleForm />} />
-        <Route path="maleform" element={<MaleForm />} />
+        <Route path="customizeform" element={<CustomizeForm />} />
+        <Route path="orderstyle" element={<OrderStyle />} />
+        <Route path="orderdetails" element={<OrderDetails />}/>
       </Routes>
       <Footer />
  
@@ -35,6 +39,8 @@ function App() {
       <SignInModal {...{ modalShow, setModalShow, setModalShow2 }} />
 
       <SignUpModal {...{ modalShow2, setModalShow, setModalShow2 }} />
+
+    
 
   
     </React.Fragment>
