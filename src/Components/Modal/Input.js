@@ -18,9 +18,9 @@ const StyledTextField = styled(TextField)`
     color: black !important;
   }
   .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
-  .MuiOutlinedInput-notchedOutline {
-  border: 2px solid #bc9a43 !important;
-}
+    .MuiOutlinedInput-notchedOutline {
+    border: 2px solid #bc9a43 !important;
+  }
 `;
 
 const Input = ({ placeholder }) => {
@@ -34,10 +34,22 @@ const Input = ({ placeholder }) => {
           "& > :not(style)": { m: 1 },
         }}
       >
-        <StyledTextField
+        {/* <StyledTextField
           id="demo-helper-text-misaligned-no-helper"
           label={placeholder}
           style={{ width: 450 }}
+        /> */}
+        <TextField
+          sx={{
+            "& .MuiOutlinedInput-root.Mui-focused": {
+              "& > fieldset": {
+                borderColor: "orange",
+              },
+            },
+          }}
+          id="outlined-basic"
+          label="outlined"
+          variant="outlined"
         />
         <p>Paragraph</p>
       </Box>
