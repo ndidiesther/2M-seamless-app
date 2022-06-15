@@ -39,6 +39,7 @@ const Input = ({ placeholder }) => {
           label={placeholder}
           style={{ width: 450 }}
         />
+        <p>Paragraph</p>
       </Box>
     </React.Fragment>
   );
