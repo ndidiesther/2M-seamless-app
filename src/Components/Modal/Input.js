@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import "../../Styles/Modal.css";
 
-const Input = ({ placeholder }) => {
+const Input = ({ placeholder, focused }) => {
   return (
     <React.Fragment>
       <Box
@@ -14,11 +14,17 @@ const Input = ({ placeholder }) => {
           "& > :not(style)": { m: 1 },
         }}
       >
-        <TextField
+        <TextField 
           sx={{
             ".MuiOutlinedInput-root.Mui-focused": {
               "& > fieldset": {
                 borderColor: "#bc9a43",
+              },
+            },
+            "&.MuiOutlinedInput-root:hover": {
+              "& > fieldset": {
+                borderColor: "#bc9a43",
+                borderWidth:"2px"
               },
             },
             ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
@@ -35,6 +41,7 @@ const Input = ({ placeholder }) => {
           id="demo-helper-text-misaligned-no-helper"
           label={placeholder}
           style={{ width: 450 }}
+          focused={focused}
         />
       </Box>
     </React.Fragment>

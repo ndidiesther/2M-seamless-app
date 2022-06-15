@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 import Input from "../Components/Modal/Input";
+import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 
 const PaymentModal = ({ paymentModal, setPaymentModal, ...props }) => {
   const closeModalHandler = () => setPaymentModal(false);
@@ -23,13 +24,14 @@ const PaymentModal = ({ paymentModal, setPaymentModal, ...props }) => {
       </Modal.Header>
       <Modal.Body>
         <h3>Card Details</h3>
-        <Input placeholder="Card Number*" />
-        <Input placeholder="Card Holder*" />
+        <Input placeholder="Card Number*" focused />
+        <Input placeholder="Card Holder*" focused  />
         
         <div className="payment_input">
-            <Input className='expiry_date' placeholder="Expiry Date*" />
-            <Input placeholder="CVV*" />
+            <Input className='expiry_date' placeholder="Expiry Date*" focused  />
+            <Input placeholder="CVV*" focused  />
         </div>
+        <ButtonContainer>Pay</ButtonContainer>
       </Modal.Body>
       <Modal.Footer>
         {/* <Button onClick={props.onHide}>Close</Button> */}

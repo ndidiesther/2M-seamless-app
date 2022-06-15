@@ -64,6 +64,7 @@ function ShowAndHidePassword() {
               "&.MuiOutlinedInput-root:hover": {
                 "& > fieldset": {
                   borderColor: "#bc9a43",
+                  borderWidth:"2px"
                 },
               },
               "css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
