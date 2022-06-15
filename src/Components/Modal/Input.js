@@ -21,7 +21,7 @@ const Input = ({ placeholder, focused }) => {
                 borderColor: "#bc9a43",
               },
             },
-            "&.MuiOutlinedInput-root:hover": {
+            ".MuiOutlinedInput-root:hover": {
               "& > fieldset": {
                 borderColor: "#bc9a43",
                 borderWidth:"2px"
