@@ -27,7 +27,7 @@ const PaymentModal = ({ paymentModal, setPaymentModal, ...props }) => {
         <Input placeholder="Card Holder*" />
         
         <div className="payment_input">
-            <Input placeholder="Expiry Date*" />
+            <Input className='expiry_date' placeholder="Expiry Date*" />
             <Input placeholder="CVV*" />
         </div>
       </Modal.Body>

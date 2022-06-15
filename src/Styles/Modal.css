@@ -42,6 +42,10 @@
   font-size: 19px;
 }
 
+
+.css-qmvhj5>:not(style) {
+  margin-right:0 !important
+}
 .btn-close {
   position: absolute;
   top: 20px;
