@@ -7,6 +7,27 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Box } from "@mui/material";
+import styled from "styled-components";
+
+
+const StyledOutlinedInput = styled(OutlinedInput)`
+  &
+    .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
+    .MuiOutlinedInput-notchedOutline {
+    border-color: #bc9a43 !important;
+  }
+
+  & .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+    border: 2px solid rgba(0, 0, 0, 0.23) !important;
+  }
+  & .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: #000 !important;
+  }
+  .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border: 2px solid #bc9a43 !important;
+}
+`;
 
 function ShowAndHidePassword() {
   const [passwordType, setPasswordType] = useState("password");
@@ -34,7 +55,7 @@ function ShowAndHidePassword() {
           <InputLabel htmlFor="outlined-adornment-password">
             Password*
           </InputLabel>
-          <OutlinedInput
+          <StyledOutlinedInput
             id="outlined-adornment-password"
             type={passwordType}
             onChange={handlePasswordChange}
