@@ -1,14 +1,17 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "../Styles/styles.css";
+import "../Styles/Navbar.css";
 import StylesForFemale from "../Components/Styles/StylesForFemale";
 import SpecificStyle from "../Components/Styles/SpecificStyle";
 import Bag from "../Assets/Images/Bag.png";
 import Vector from "../Assets/Images/Vector.png";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import { useLocation, useNavigate } from "react-router-dom";
-import SimilarMaleStyles from "../Components/Styles/SimilarMaleStyles"
+import SimilarMaleStyles from "../Components/Styles/SimilarMaleStyles";
+import AddToCart from "./AddToCart";
 
 export default function Product({}) {
+  const [showCart, setShowCart] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,6 +19,7 @@ export default function Product({}) {
   let orderImage = location.state?.src;
   let chooseSex = location.state?.id;
   let styleName = location.state?.stylename;
+
   // console.log(location.state.stylename)
   // console.log(location.state.id);
   // console.log(location.state)
@@ -25,7 +29,11 @@ export default function Product({}) {
   return (
     <div className="product col-12">
       <div className="product_banner col-12">
-        <SpecificStyle orderImage={orderImage} chooseSex ={chooseSex} styleName={styleName} />
+        <SpecificStyle
+          orderImage={orderImage}
+          chooseSex={chooseSex}
+          styleName={styleName}
+        />
 
         <div className="p_div">
           <div className="p_description">
@@ -55,16 +63,25 @@ export default function Product({}) {
               <ButtonContainer
                 onClick={() =>
                   navigate("/customizeform", {
-                    state: { src: orderImage, stylename: styleName, id: chooseSex},
+                    state: {
+                      src: orderImage,
+                      stylename: styleName,
+                      id: chooseSex,
+                    },
                   })
                 }
               >
                 Customize
               </ButtonContainer>
 
-              <button>
+              <ButtonContainer
+                cart
+                onClick={() => {
+                  setShowCart(!showCart);
+                }}
+              >
                 <img src={Bag} /> <span>Add to Cart</span>
-              </button>
+              </ButtonContainer>
             </div>
             <div className="vector_div">
               <span>
@@ -91,9 +108,13 @@ export default function Product({}) {
           <p>Similar Styles...</p>
           <p>View More</p>
         </div>
-        {/* <Test /> */}{" "}
+
         {location.state.id === 1 ? <SimilarMaleStyles /> : <StylesForFemale />}
-        {/* <StylesForFemale /> */}
+      </div>
+      <div className={showCart ? "cart-menu-expanded" : "cart-menu"}>
+        <div>
+          <AddToCart {...{ setShowCart }} />
+        </div>
       </div>
     </div>
   );

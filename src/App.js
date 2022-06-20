@@ -12,6 +12,7 @@ import MaleStyles from "./Pages/MaleStyles";
 import CustomizeForm from "./Pages/CustomizeForm";
 import OrderStyle from "./Components/Styles/OrderStyle"
 import OrderDetails from "./Pages/OrderDetails";
+import CartItem from "./Components/Add To Cart/CartItem";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="customizeform" element={<CustomizeForm />} />
         <Route path="orderstyle" element={<OrderStyle />} />
         <Route path="orderdetails" element={<OrderDetails />}/>
+        <Route path="cartitem" element={<CartItem />}/>
       </Routes>
       <Footer />
  

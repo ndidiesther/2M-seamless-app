@@ -12,7 +12,14 @@ const StylesForFemale = () => {
         <div>
           <img
             onClick={() =>
-              navigate("/product", { state: { src: FirstStyle, id: 2, stylename:"Ankara Bohemian Gown" } })
+              navigate("/product", {
+                state: {
+                  src: FirstStyle,
+                  id: 2,
+                  stylename: "Ankara Bohemian Gown",
+                  price: "#166,076.00",
+                },
+              })
             }
             src={FirstStyle}
           />
@@ -24,7 +31,14 @@ const StylesForFemale = () => {
         <div>
           <img
             onClick={() =>
-              navigate("/product", { state: { src: SecondStyle, id: 2, stylename:"Ankara Bohemian Gown" } })
+              navigate("/product", {
+                state: {
+                  src: SecondStyle,
+                  id: 2,
+                  stylename: "Ankara Bohemian Gown",
+                  price: "#166,076.00",
+                },
+              })
             }
             src={SecondStyle}
           />
@@ -36,7 +50,14 @@ const StylesForFemale = () => {
         <div>
           <img
             onClick={() =>
-              navigate("/product", { state: { src: ThirdStyle, id: 2, stylename:"Ankara Bohemian Gown" } })
+              navigate("/product", {
+                state: {
+                  src: ThirdStyle,
+                  id: 2,
+                  stylename: "Ankara Bohemian Gown",
+                  price: "#166,076.00",
+                },
+              })
             }
             src={ThirdStyle}
           />

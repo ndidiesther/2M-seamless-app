@@ -23,7 +23,7 @@ const PaymentModal = ({ paymentModal, setPaymentModal, ...props }) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h3>Card Details</h3>
+        <h4>Card Details</h4>
         <Input placeholder="Card Number*" focused />
         <Input placeholder="Card Holder*" focused  />
         

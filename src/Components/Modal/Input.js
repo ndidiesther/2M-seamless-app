@@ -27,6 +27,7 @@ const Input = ({ placeholder, focused }) => {
                 borderWidth:"2px"
               },
             },
+            
             ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
               border: "2px solid rgba(0, 0, 0, 0.23)",
             },

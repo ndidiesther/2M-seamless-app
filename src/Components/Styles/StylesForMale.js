@@ -17,7 +17,12 @@ const StylesForMale = () => {
             <img
               onClick={() =>
                 navigate("/product", {
-                  state: { src: FirstStyle, id: 1, stylename: "Plain Kaftan" },
+                  state: {
+                    src: FirstStyle,
+                    id: 1,
+                    stylename: "Plain Kaftan",
+                    price: "#166,076.00",
+                  },
                 })
               }
               src={FirstStyle}
@@ -35,6 +40,7 @@ const StylesForMale = () => {
                     src: SecondStyle,
                     id: 1,
                     stylename: "African Print Shirt",
+                    price: "#166,076.00",
                   },
                 })
               }
@@ -53,6 +59,7 @@ const StylesForMale = () => {
                     src: ThirdStyle,
                     id: 1,
                     stylename: "Cashmere Jacket",
+                    price: "#166,076.00",
                   },
                 })
               }

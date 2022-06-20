@@ -293,13 +293,10 @@
   padding-top: 15px;
 }
 
-.div_btn > button:first-child {
-  background-color: #bc9a43;
+.div_btn > button {
   padding: 20px 45px;
   outline: none;
   height: 70px;
-  color: #ffffff;
-  border: 1px solid #bc9a43;
   font-size: 17px;
   font-weight: bold;
   font-family: "Jost", sans-serif;
@@ -307,12 +304,9 @@
   width: fit-content;
 }
 .div_btn > button:nth-child(2) {
-  background-color: #fcfbf7;
   padding: 18px 25px;
   height: 70px;
   outline: none;
-  color: #000000;
-  border: 1px solid #bc9a43;
   font-size: 17px;
   font-weight: bold;
   font-family: "Jost", sans-serif;
@@ -407,7 +401,7 @@ a {
   }
   .div_btn > button:nth-child(2) {
     padding: 10px 20px;
-    height: 50px;
+    /* height: 50px; */
   }
   .sProduct {
     width: 400px;
@@ -516,10 +510,11 @@ a {
     align-items: center;
     justify-content: center;
   }
-  .div_btn > a button {
+  .div_btn >  button {
     margin: 0 0 20px 0;
   }
-  .div_btn > a button:first-child {
+
+  .div_btn > button:first-child {
     margin-right: 0;
   }
 
@@ -727,21 +722,21 @@ input[type="number"] {
 }
 .item_input > input {
   border: 1px solid #bc9a43;
-  padding:12px 15px;
+  padding: 12px 15px;
   outline: 0;
-  width:400px;
+  width: 400px;
   margin-bottom: 20px;
 }
 .payment_input {
- display: flex;
- align-items: center;
- flex-direction: row;
- width:400px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 400px;
 }
-.payment_input > div, .payment_input > input {
+.payment_input > div,
+.payment_input > input {
   width: 200px !important;
 }
 .expiry_date {
-  width:200px !important;
+  width: 200px !important;
 }
-

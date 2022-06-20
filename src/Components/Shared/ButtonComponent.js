@@ -4,12 +4,13 @@ import styled from "styled-components";
 export const ButtonContainer = styled.button`
   text-transform: capitalize;
   font-size: 1rem;
-  background: #BC9A43;
+  background: ${(props) =>
+    props.cart ? "transparent" : "#BC9A43"};
   border: 0.05rem solid #BC9A43;
   border-color: ${(props) =>
-    props.cart ? "blue" : "#BC9A43"};
-  color: ${(props) => (props.cart ? "Black" : "white")};
-  border-radius: ${(props) => (props.cart ? "0.5rem" : "0")};
+    props.cart ? "#BC9A43" : "#BC9A43"};
+  color: ${(props) => (props.cart ? "#BC9A43" : "white")};
+  border-radius: ${(props) => (props.cart ? "0" : "0")};
   /* border-radius: 0.5rem; */
   padding: 1rem 0.5rem;
   width:100%;
@@ -18,7 +19,7 @@ export const ButtonContainer = styled.button`
   font-weight: bold;
   transition: all 0.5s ease-in-out;
   &:hover {
-    background: ${props => props.cart ? "green" : 'transparent'};
+    background: ${props => props.cart ? "transparent" : 'transparent'};
     color: #BC9A43;
   }
   &:focus {
