@@ -13,20 +13,23 @@ import CustomizeForm from "./Pages/CustomizeForm";
 import OrderStyle from "./Components/Styles/OrderStyle"
 import OrderDetails from "./Pages/OrderDetails";
 import CartItem from "./Components/Add To Cart/CartItem";
+import ForgetPassword from "./Pages/ForgetPassword"
 
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
   const [modalShow2, setModalShow2] = useState(false);
+  const [genderModal, setGenderModal] = useState(false);
+  const [forgetPasswordModal, setForgetPasswordModal] = useState(false);
 
 
   // console.log(modalShow);
 
   return (
     <React.Fragment>
-      <Navbar {...{ setModalShow, setModalShow2 }} />
+      <Navbar {...{ setModalShow, setGenderModal }} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home {...{genderModal, setGenderModal}} />} />
         <Route path="femalestyle" element= {<FemaleStyles  />} />
         <Route path="malestyle" element={<MaleStyles />} />
         <Route path="product" element={<Product />} />
@@ -38,9 +41,11 @@ function App() {
       <Footer />
  
 
-      <SignInModal {...{ modalShow, setModalShow, setModalShow2 }} />
+      <SignInModal {...{ modalShow, setModalShow, setModalShow2, setForgetPasswordModal }} />
 
       <SignUpModal {...{ modalShow2, setModalShow, setModalShow2 }} />
+
+      <ForgetPassword {...{forgetPasswordModal, setForgetPasswordModal}} />
 
     
 

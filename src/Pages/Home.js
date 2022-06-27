@@ -5,8 +5,8 @@ import Hero from "../Components/Home/Hero";
 import TrendingStyles from "../Components/Shared/TrendingStyles";
 import Gender from "./Gender";
 
-const Home = () => {
-  const [genderModal, setGenderModal] = useState(false);
+const Home = ({genderModal, setGenderModal}) => {
+
   return (
     <div>
       <Hero {...{ setGenderModal }} />

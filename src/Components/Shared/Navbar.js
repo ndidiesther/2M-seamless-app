@@ -6,7 +6,7 @@ import Stroke from "../../Assets/Images/Stroke.png";
 import Search from "../../Assets/Images/Search.png";
 import Bag from "../../Assets/Images/Bag.png";
 
-export default function Navbar({ setModalShow, setModalShow2 }) {
+export default function Navbar({ setModalShow, setGenderModal }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
@@ -35,7 +35,13 @@ export default function Navbar({ setModalShow, setModalShow2 }) {
           <span className="nav-mini">
             {" "}
             {/* <Login /> */}
-            <button className="gf_btn" onClick={() => setModalShow(true)}>
+            <button
+              className="gf_btn"
+              onClick={() => {
+                setModalShow(true);
+                setGenderModal(false);
+              }}
+            >
               Login
             </button>
           </span>
@@ -159,6 +165,7 @@ export default function Navbar({ setModalShow, setModalShow2 }) {
                       setModalShow(true);
                       // console.log("true");
                       setIsNavExpanded(false);
+                      setGenderModal(false);
                     }
                   }}
                 >

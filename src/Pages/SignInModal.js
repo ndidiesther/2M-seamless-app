@@ -3,9 +3,48 @@ import { Modal } from "react-bootstrap";
 import "../Styles/Modal.css";
 import PasswordInput from "../Components/Modal/PasswordInput";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
-import SignInBox from "../Components/Modal/SignInBox";
+import Checkbox from "@mui/material/Checkbox";
 
-function SignInModal({ modalShow, setModalShow, setModalShow2, ...props }) {
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+const SignInBox = ({ setForgetPasswordModal, setModalShow }) => {
+  return (
+    <div className="todo-list">
+      <span className="todo-item">
+        <Checkbox
+          sx={{
+            color: "",
+            "&.Mui-checked": {
+              color: " #bc9a43",
+            },
+          }}
+          {...label}
+        />
+
+        <span className="check-item">Remember me</span>
+      </span>
+
+      <span>
+        <button
+          onClick={() => {
+            setModalShow(false);
+            setForgetPasswordModal(true);
+          }}
+        >
+          Forgot Password?
+        </button>
+      </span>
+    </div>
+  );
+};
+
+function SignInModal({
+  modalShow,
+  setModalShow,
+  setModalShow2,
+  setForgetPasswordModal,
+  ...props
+}) {
   const closeModalHandler = () => setModalShow(false);
 
   return (
@@ -26,7 +65,7 @@ function SignInModal({ modalShow, setModalShow, setModalShow2, ...props }) {
       <Modal.Body>
         <Input placeholder="Username or email address*" />
         <PasswordInput />
-        <SignInBox />
+        <SignInBox {...{ setForgetPasswordModal, setModalShow }} />
         <ButtonContainer className="btn_login">Log In</ButtonContainer>
 
         <div className="account_signup">
