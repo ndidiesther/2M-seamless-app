@@ -3,6 +3,7 @@ import ProductImg from "../../Assets/Images/product.png";
 import sProductImg from "../../Assets/Images/sproduct.png";
 import "../../Styles/styles.css";
 import { Link, useLocation } from "react-router-dom";
+import Form from "../Form/Form";
 
 const SpecificStyle = (props) => {
   const location = useLocation();
@@ -16,24 +17,32 @@ const SpecificStyle = (props) => {
   reader.readAsDataURL(state.name);
 
   return (
-    <div className="clearfix">
-      <p className="product_para">
-        <Link to="/femalestyle">
-          <button className="male_backarrow">
-            <i className="fa-solid fa-arrow-left"></i>
-          </button>
-        </Link>
+    <div className="col-12 product form_div">
+      <div className="order_details">
+        <div className="clearfix">
+          <p className="product_para">
+            <Link to="/femalestyle">
+              <button className="male_backarrow">
+                <i className="fa-solid fa-arrow-left"></i>
+              </button>
+            </Link>
 
-        <span>Ankara Bohemian Gown</span>
-      </p>
-      <div className="productImg_div">
-        <img className="product_img" ref={ImageRef} src={orderImage} />
-      </div>
-      <div className="sProduct">
-        <img src={sProductImg} />
-        <img src={sProductImg} />
-        <img src={sProductImg} />
-        <img src={sProductImg} />
+            <span>Ankara Bohemian Gown</span>
+          </p>
+          <div className="productImg_div">
+            <img className="product_img" ref={ImageRef} src={orderImage} />
+          </div>
+          <div className="sProduct">
+            <img src={sProductImg} />
+            <img src={sProductImg} />
+            <img src={sProductImg} />
+            <img src={sProductImg} />
+          </div>
+        </div>
+        <div>
+          <Form />
+        </div>
+
       </div>
     </div>
   );

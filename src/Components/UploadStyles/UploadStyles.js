@@ -130,6 +130,7 @@ const UploadStyles = ({
   return (
     <div className="upload_styles">
       <Modal
+        dialogClassName={"UploadModal"}
         show={uploadStyles}
         onHide={closeModalHandler}
         size="lg"
@@ -171,13 +172,17 @@ const UploadStyles = ({
               </div>
             </Container>
           ) : null}
-          <ButtonContainer
+
+          <div className="upload_button">
+          <ButtonContainer 
             onClick={() =>
               navigate("/orderstyle", { state: { name: selectedImages[0] } })
             }
           >
             Proceed
           </ButtonContainer>
+          </div>
+        
         </Modal.Body>
         <Modal.Footer>
           {/* <Button onClick={props.onHide}>Close</Button> */}

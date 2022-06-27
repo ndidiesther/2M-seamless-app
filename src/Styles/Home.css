@@ -350,7 +350,7 @@ a {
 }
 @media only screen and (max-width: 500px) {
   .banner {
-    padding: 20px;
+    padding: 20px 20px 0;
   }
 
   .product_content {
@@ -412,6 +412,8 @@ a {
   top: 60px;
   font-weight: bold;
   font-size: 18px;
+  font-family: "Jost", sans-serif !important;
+  letter-spacing: 0.03em;
 }
 .active {
   border: 5px solid #bc9a43 !important;
@@ -457,5 +459,17 @@ a {
   }
   .gender-title > h2 {
     top: 0;
+  }
+  .select_gender > a > button {
+    width:230px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  .select_gender > a > button > img{
+    width:150px;
+    height: auto;
+  }
+  .select_gender > a > button > p{
+    top:50px;
   }
 }

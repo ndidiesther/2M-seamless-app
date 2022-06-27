@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import "../../Styles/Modal.css";
+import { inputLabelClasses } from "@mui/material/InputLabel";
 
 const Input = ({ placeholder, focused }) => {
   return (
@@ -14,7 +15,18 @@ const Input = ({ placeholder, focused }) => {
           "& > :not(style)": { m: 1 },
         }}
       >
-        <TextField 
+        <TextField
+        InputLabelProps={{
+          sx: {
+            // set the color of the label when not shrinked
+            color: "",
+            [`&.${inputLabelClasses.shrink}`]: {
+              // set the color of the label when shrinked (usually when the TextField is focused)
+              color: "#000"
+            }
+          }
+        }}
+        
           sx={{
             ".MuiOutlinedInput-root.Mui-focused": {
               "& > fieldset": {
@@ -24,10 +36,10 @@ const Input = ({ placeholder, focused }) => {
             ".MuiOutlinedInput-root:hover": {
               "& > fieldset": {
                 borderColor: "#bc9a43",
-                borderWidth:"2px"
+                borderWidth: "2px",
               },
             },
-            
+
             ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
               border: "2px solid rgba(0, 0, 0, 0.23)",
             },
@@ -35,9 +47,10 @@ const Input = ({ placeholder, focused }) => {
               {
                 border: "2px solid #bc9a43",
               },
-            "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
-              color: "#000",
-            },
+             
+            // "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+            //   color: "#000",
+            // },
           }}
           id="demo-helper-text-misaligned-no-helper"
           label={placeholder}

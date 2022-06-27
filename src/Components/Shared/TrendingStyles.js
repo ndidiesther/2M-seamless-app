@@ -34,7 +34,7 @@ const TrendingStyles = ({ paragraph }) => {
             </Link>
           </div>
           <div>
-            <Link to="product">
+            <Link to="">
               <img src={ImageSeven} />
               <p>Ankara Bohemian Gown</p>
             </Link>
