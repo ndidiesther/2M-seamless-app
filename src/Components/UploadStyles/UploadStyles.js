@@ -176,7 +176,7 @@ const UploadStyles = ({
           <div className="upload_button">
           <ButtonContainer 
             onClick={() =>
-              navigate("/orderstyle", { state: { name: selectedImages[0] } })
+              navigate("/orderstyle", { state: { src: selectedImages[0], id:'10' } })
             }
           >
             Proceed

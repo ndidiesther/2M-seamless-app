@@ -77,7 +77,9 @@ const SelectSize = () => {
             ></Modal.Title>
           </Modal.Header>
           <Modal.Body className="gender_body">
-            <img src={ChartImage} />
+            <div  className="chartimg">
+              <img src={ChartImage} />
+            </div>
           </Modal.Body>
           <Modal.Footer>
             {/* <Button onClick={props.onHide}>Close</Button> */}
@@ -149,7 +151,15 @@ const Form = ({ orderImage, styleName, chooseSex }) => {
             name="row-radio-buttons-group"
           >
             <FormControlLabel
-              control={<Radio />}
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#bc9a43",
+                    },
+                  }}
+                />
+              }
               label="Yes I do"
               checked={!!yesFabric}
               onChange={(e) => {
@@ -158,7 +168,15 @@ const Form = ({ orderImage, styleName, chooseSex }) => {
               }}
             />
             <FormControlLabel
-              control={<Radio />}
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#bc9a43",
+                    },
+                  }}
+                />
+              }
               label="No I don't"
               checked={!!noFabric}
               onChange={(e) => {
@@ -184,7 +202,15 @@ const Form = ({ orderImage, styleName, chooseSex }) => {
             name="row-radio-buttons-group"
           >
             <FormControlLabel
-              control={<Radio />}
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#bc9a43",
+                    },
+                  }}
+                />
+              }
               label="Yes I do"
               checked={!!yesMeasurement}
               onChange={(e) => {
@@ -193,7 +219,15 @@ const Form = ({ orderImage, styleName, chooseSex }) => {
               }}
             />
             <FormControlLabel
-              control={<Radio />}
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#bc9a43",
+                    },
+                  }}
+                />
+              }
               label="No I don't"
               checked={!!noMeasurement}
               onChange={(e) => {

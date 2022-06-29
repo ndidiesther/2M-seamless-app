@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import UploadStyles from "../UploadStyles/UploadStyles";
-import { ButtonContainer } from "../Shared/ButtonComponent";
+import UploadButton from "../UploadStyles/UploadButton";
 
 const SelectStyles = () => {
-  const [uploadStyles, setUploadStyle] = useState(false);
-
   return (
     <>
       <div className=" col-12 styles_header">
@@ -18,12 +15,9 @@ const SelectStyles = () => {
           </Link>
         </div>
         <div>
-          <ButtonContainer onClick={() => setUploadStyle(true)}>
-            Upload Your Style
-          </ButtonContainer>
+          <UploadButton />
         </div>
       </div>
-      <UploadStyles {...{ uploadStyles, setUploadStyle }} />
     </>
   );
 };

@@ -4,6 +4,7 @@ import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import { Form } from "react-bootstrap";
 import StylesForMale from "../Components/Styles/StylesForMale";
 import SelectStyles from "../Components/Styles/SelectStyles";
+import UploadButton from "../Components/UploadStyles/UploadButton";
 
 const MaleStyles = () => {
   return (
@@ -19,7 +20,7 @@ const MaleStyles = () => {
             <button>Grunge</button>
             <button>Suits</button>
           </div>
-          <div className="col-lg-6 col-md-5 col-mdx-12">
+          <div className="selectstyle col-lg-6 col-md-5 col-mdx-12">
             <div>
               <Form.Select
                 aria-label="Default select example"
@@ -39,7 +40,10 @@ const MaleStyles = () => {
         </div>
         <StylesForMale />
         <div className="load_more">
-          <ButtonContainer>Load More Styles</ButtonContainer>
+          <ButtonContainer cart>Load More Styles</ButtonContainer>
+        </div>
+        <div className="other_uploadbtn">
+          <UploadButton />
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   z-index: 10000;
 }
 
@@ -25,6 +25,7 @@
   background-color: #fff;
   box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
   padding: 20px 50px;
+  overflow-y: scroll;
 }
 
 .side-menu__overlay {
@@ -43,6 +44,9 @@
 .cart-content {
   display: flex;
   justify-content: space-between;
+  border-top: 1px solid #bc9a43;
+  border-bottom: 1px solid #bc9a43;
+  padding: 20px 0;
 }
 .cart-header > span:first-child {
   float: left;
@@ -71,6 +75,7 @@
 .cart_price > span:first-child {
   display: block;
   float: right;
+  cursor: pointer;
 }
 .cart_price > span:last-child {
   display: block;
@@ -236,4 +241,105 @@
   .cart-coupon {
       float: none;
   }
+}
+@media only screen and (max-width: 767px) {
+.cartItem_img > img{
+  width:80px;
+  height: 80px;
+}
+.cart-list > div:nth-child(2) {
+  width:fit-content;
+}
+.cart-item {
+  padding: 15px 20px;
+  margin-top: 100px;
+}
+.cart-summary {
+  width: 100%;
+}
+}
+@media only screen and (max-width: 550px) {
+  .side-menu__content {
+    padding: 20px;
+  }
+  .cart_img > img {
+    width:80px;
+    height: 80px;
+  }
+  .cart_name {
+    padding-left: 15px;
+  }
+  .cart-quantity {
+    padding-top: 30px;
+  }
+  .cart_price > span:last-child {
+    padding-top: 55px;
+  }
+  .progress_bar > span:first-child {
+    width: 80%;
+  }
+  .cart-list > div:nth-child(2) {
+    width: 80px;
+  }
+
+}
+@media only screen and (max-width: 450px) {
+.cart-content {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cart_img > img, .cart_name{
+  float: none;
+}
+.cart_name {
+  padding-left: 0;
+  padding-top: 15px;
+}
+.cart_price > span:last-child {
+  padding-top: 0;
+}
+.cart-quantity {
+  padding-top: 15px;
+}
+.cart_price > span:first-child {
+  position: relative;
+  top:-165px;
+  left:80px
+}
+.cart_img, .cart_name, .cart_price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.cart-list {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cart-list > div:nth-child(2) {
+  width:fit-content;
+}
+.cart-list > div {
+  padding-bottom: 15px;
+}
+.coupon_input {
+  padding: 12px 10px;
+  width:150px;
+}
+.coupon_btn {
+  padding: 11.8px 7px;
+}
+}
+@media only screen and (max-width: 330px) {
+.cart-coupon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.coupon_input {
+  margin-bottom: 10px;
+}
 }

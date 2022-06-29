@@ -31,7 +31,7 @@ const CartItem = ({ chooseSex }) => {
         <div className="cart-details">
           <div>
             <div className="cart-list">
-              <div className="cart_img">
+              <div className="cart_img cartItem_img">
                 <img ref={ImageRef} src={orderImage} />
               </div>
               <div>

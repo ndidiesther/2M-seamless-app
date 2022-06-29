@@ -1,46 +1,23 @@
-import React, { useRef } from "react";
-import ProductImg from "../../Assets/Images/product.png";
-import sProductImg from "../../Assets/Images/sproduct.png";
+import React, { useEffect, useRef } from "react";
 import "../../Styles/styles.css";
 import { Link, useLocation } from "react-router-dom";
 import Form from "../Form/Form";
+import ImageUploaded from "../UploadStyles/ImageUploaded";
 
-const SpecificStyle = (props) => {
+
+
+
+const SpecificStyle = () => {
   const location = useLocation();
-  const ImageRef = useRef();
   const { state } = location;
-  const orderImage = location.state.name;
-  const reader = new FileReader();
-  reader.addEventListener("load", (e) => {
-    ImageRef.current.src = e.target.result;
-  });
-  reader.readAsDataURL(state.name);
-
+  let orderImage = location.state?.src;
+  let chooseSex = location.state?.id;
   return (
     <div className="col-12 product form_div">
       <div className="order_details">
-        <div className="clearfix">
-          <p className="product_para">
-            <Link to="/femalestyle">
-              <button className="male_backarrow">
-                <i className="fa-solid fa-arrow-left"></i>
-              </button>
-            </Link>
-
-            <span>Ankara Bohemian Gown</span>
-          </p>
-          <div className="productImg_div">
-            <img className="product_img" ref={ImageRef} src={orderImage} />
-          </div>
-          <div className="sProduct">
-            <img src={sProductImg} />
-            <img src={sProductImg} />
-            <img src={sProductImg} />
-            <img src={sProductImg} />
-          </div>
-        </div>
+        <ImageUploaded  orderImage={orderImage} chooseSex={chooseSex}/>
         <div>
-          <Form />
+          <Form orderImage={orderImage} chooseSex={chooseSex} />
         </div>
 
       </div>

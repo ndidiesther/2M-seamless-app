@@ -189,7 +189,23 @@
 .upload_button {
   margin-top: 40px;
 }
-
+@media only screen and (max-width: 767px) {
+.UploadModal {
+  margin-top: 70px !important;
+  width: unset !important;
+  max-width: unset !important;
+}
+}
+@media only screen and (max-width: 550px)  {
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container img {
+  height: auto;
+}
+}
 @media only screen and (max-width: 500px) {
   .modal {
     padding: 0 !important;
