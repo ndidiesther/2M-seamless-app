@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext} from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Shared/Navbar";
@@ -15,18 +15,22 @@ import OrderDetails from "./Pages/OrderDetails";
 import CartItem from "./Components/Add To Cart/CartItem";
 import ForgetPassword from "./Pages/ForgetPassword"
 
+export const CartContext = createContext();
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
   const [modalShow2, setModalShow2] = useState(false);
   const [genderModal, setGenderModal] = useState(false);
   const [forgetPasswordModal, setForgetPasswordModal] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  const [subTotalValue, setSubTotalValue] = useState();
 
 
   // console.log(modalShow);
 
   return (
-    <React.Fragment>
+    <>
+    <CartContext.Provider value={{cartItems, setCartItems, subTotalValue, setSubTotalValue}}>
       <Navbar {...{ setModalShow, setGenderModal }} />
       <Routes>
         <Route exact path="/" element={<Home {...{genderModal, setGenderModal}} />} />
@@ -49,8 +53,8 @@ function App() {
 
     
 
-  
-    </React.Fragment>
+      </CartContext.Provider>
+    </>
   );
 }
 

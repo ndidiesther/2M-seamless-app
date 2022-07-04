@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import "../../Styles/styles.css";
 import { Link } from "react-router-dom";
 
-const SpecificStyle = ({ orderImage, chooseSex, styleName, orderSumary }) => {
+const SpecificStyle = ({ orderImage, chooseSex, styleName, orderSumary, stylePrice }) => {
   const ImageRef = useRef();
   const ImageRef1 = useRef();
   const ImageRef2 = useRef();

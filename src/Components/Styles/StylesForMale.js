@@ -21,7 +21,8 @@ const StylesForMale = () => {
                     src: FirstStyle,
                     id: 1,
                     stylename: "Plain Kaftan",
-                    price: "#166,076.00",
+                    price: "166076.00",
+                    uniqueId: 6,
                   },
                 })
               }
@@ -40,7 +41,8 @@ const StylesForMale = () => {
                     src: SecondStyle,
                     id: 1,
                     stylename: "African Print Shirt",
-                    price: "#166,076.00",
+                    price: "166076.00",
+                    uniqueId: 7,
                   },
                 })
               }
@@ -59,7 +61,8 @@ const StylesForMale = () => {
                     src: ThirdStyle,
                     id: 1,
                     stylename: "Cashmere Jacket",
-                    price: "#166,076.00",
+                    price: "166076.00",
+                    uniqueId: 8,
                   },
                 })
               }
@@ -82,6 +85,8 @@ const StylesForMale = () => {
                     src: FourthStyle,
                     id: 1,
                     stylename: "One Piece Senator",
+                    price: "166076.00",
+                    uniqueId: 9,
                   },
                 })
               }
@@ -100,6 +105,8 @@ const StylesForMale = () => {
                     src: FifthStyle,
                     id: 1,
                     stylename: "Two Piece African Print",
+                    price: "166076.00",
+                    uniqueId: 10,
                   },
                 })
               }
@@ -118,6 +125,8 @@ const StylesForMale = () => {
                     src: SixthStyle,
                     id: 1,
                     stylename: "Two Piece Senator",
+                    price: "166076.00",
+                    uniqueId: 11,
                   },
                 })
               }

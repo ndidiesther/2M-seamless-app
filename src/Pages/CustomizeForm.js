@@ -10,6 +10,7 @@ const CustomizeForm = () => {
   let orderImage = location.state?.src;
   let chooseSex = location.state?.id;
   let styleName = location.state?.stylename;
+  let amount = location.state?.stylePrice;
 
   // console.log(location.state.id)
   useEffect(() => {

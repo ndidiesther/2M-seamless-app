@@ -17,7 +17,8 @@ const StylesForFemale = () => {
                   src: FirstStyle,
                   id: 2,
                   stylename: "Ankara Bohemian Gown",
-                  price: "#166,076.00",
+                  price: "166076.00",
+                  uniqueId: 3,
                 },
               })
             }
@@ -36,7 +37,8 @@ const StylesForFemale = () => {
                   src: SecondStyle,
                   id: 2,
                   stylename: "Ankara Bohemian Gown",
-                  price: "#166,076.00",
+                  price: "166076.00",
+                  uniqueId: 4,
                 },
               })
             }
@@ -55,7 +57,8 @@ const StylesForFemale = () => {
                   src: ThirdStyle,
                   id: 2,
                   stylename: "Ankara Bohemian Gown",
-                  price: "#166,076.00",
+                  price: "166076.00",
+                  uniqueId: 5,
                 },
               })
             }
