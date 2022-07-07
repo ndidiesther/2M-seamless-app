@@ -43,7 +43,6 @@ const AddToCart = ({ setShowCart }) => {
       if (item.id == id) {
         item.itemQty = item.itemQty + 1;
         return item;
-        updatePrice(id);
       } else {
         return item;
       }
@@ -67,7 +66,7 @@ const AddToCart = ({ setShowCart }) => {
   };
   useEffect(() => {
     const subTotal = cartItems.reduce((total, item) => {
-      console.log(item);
+      // console.log(item);
       total = total + parseFloat(item.totalPrice);
 
       return total;
@@ -75,7 +74,7 @@ const AddToCart = ({ setShowCart }) => {
     // console.log(subTotal);
     setSubTotalValue(subTotal.toFixed(2));
     // console.log(typeof(subTotalValue));
-    console.log(subTotal.toFixed(2))
+    // console.log(subTotal.toFixed(2))
   }, [cartItems]);
 
   return (

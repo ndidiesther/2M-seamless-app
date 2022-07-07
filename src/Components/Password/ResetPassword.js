@@ -1,14 +1,18 @@
 import React from "react";
-import Input from "../Components/Modal/Input";
-import { ButtonContainer } from "../Components/Shared/ButtonComponent";
+import PasswordInput from "../Modal/PasswordInput";
+import { ButtonContainer } from "../Shared/ButtonComponent";
 import { Modal } from "react-bootstrap";
 
-function ForgetPassword({ forgetPasswordModal, setForgetPasswordModal, setOtpInput }) {
-  const closeModalHandler = () => setForgetPasswordModal(false);
+const ResetPassword = ({
+  resetPassword,
+  setResetPassword,
+  setPasswordSuccessful,
+}) => {
+  const closeModalHandler = () => setResetPassword(false);
   return (
     <div>
       <Modal
-        show={forgetPasswordModal}
+        show={resetPassword}
         onHide={closeModalHandler}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -19,21 +23,21 @@ function ForgetPassword({ forgetPasswordModal, setForgetPasswordModal, setOtpInp
             id="contained-modal-title-vcenter"
             className="modal-title"
           >
-            <h2>Forgot password</h2>
-            <p>Enter the email address linked to your account</p>
+            <h2>New Password</h2>
+            <p>Enter a new password</p>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Input placeholder="Email address*" />
-
+          <PasswordInput placeholder="New Password*" /> <br />
+          <PasswordInput placeholder="Reenter Password*" /> <br />
           <ButtonContainer
             onClick={() => {
-              setForgetPasswordModal(false);
-              setOtpInput(true);
+              setResetPassword(false);
+              setPasswordSuccessful(true);
             }}
             className="btn_login"
           >
-            Submit
+            Finish
           </ButtonContainer>
         </Modal.Body>
         <Modal.Footer>
@@ -42,6 +46,6 @@ function ForgetPassword({ forgetPasswordModal, setForgetPasswordModal, setOtpInp
       </Modal>
     </div>
   );
-}
+};
 
-export default ForgetPassword;
+export default ResetPassword;

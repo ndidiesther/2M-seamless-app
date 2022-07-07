@@ -64,7 +64,7 @@ function SignInModal({
       </Modal.Header>
       <Modal.Body>
         <Input placeholder="Username or email address*" />
-        <PasswordInput />
+        <PasswordInput placeholder="Password*" />
         <SignInBox {...{ setForgetPasswordModal, setModalShow }} />
         <ButtonContainer className="btn_login">Log In</ButtonContainer>
 

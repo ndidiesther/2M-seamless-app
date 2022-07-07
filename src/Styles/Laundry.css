@@ -1,0 +1,336 @@
+.laundryHome {
+  margin-top: 140px;
+  font-family: "Jost", sans-serif;
+  color: #000;
+}
+.laundryBanner {
+  background: #f1f1f1;
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px 0px 0 60px;
+}
+.laundryBanner_img {
+  width: 78vh;
+  height: auto;
+}
+.laundryBanner_content > p:first-child {
+  font-size: 3.5rem;
+  font-weight: bolder;
+  margin-block-start: 1.2em;
+}
+.laundryBanner > div:nth-child(1) {
+  padding: 60px 0;
+}
+.laundryBanner > div:nth-child(2) {
+  padding: 40px 20px;
+}
+.laundryBanner_content > p:nth-child(2) {
+  padding-right: 210px;
+  text-align: justify;
+  margin-block-end: 2em;
+  font-size: 18px;
+}
+.laundryAbout {
+  padding: 80px 0px 80px 60px;
+}
+.laundryAbout > div:nth-child(2) {
+  padding: 160px 120px 0px 40px;
+}
+
+.aboutDetails > P:first-child {
+  color: #bc9a43;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  margin-block-end: 0px;
+}
+.aboutDetails > p:nth-child(2) {
+  font-weight: bold;
+  font-size: 25px;
+  letter-spacing: 0.02em;
+}
+.aboutDetails > p:nth-child(3) {
+  font-size: 17px;
+}
+
+.laundryServices {
+  padding: 0px 0px 80px 60px;
+}
+
+.laundryServices > p:first-child,
+.laundryGallery > p:first-child {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #bc9a43;
+  font-size: 16px;
+  margin-block-end: 0.4em;
+}
+.laundryServices > p:nth-child(2),
+.laundryGallery > p:nth-child(2) {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+.first_services {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
+.first_services > div > p,
+.second_services > div > p {
+  text-align: center;
+  font-weight: bold;
+  margin-block-start: 1.5em;
+}
+.second_services {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 20px;
+}
+.laundry_subbanner {
+  background-image: url(../Assets/Images/Laundry_footer.png);
+  height: 60vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.laundry_subbanner > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 60vh;
+}
+.laundry_subbanner > div > p:first-child {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+}
+.laundry_subbanner > div > p:nth-child(2) {
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-block-end: 2.3em;
+}
+.laundryGallery {
+  padding: 80px 0px 80px 60px;
+}
+.laundryGallery > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* width: fit-content; */
+}
+.laundryGallery > div > div:first-child,
+.laundryGallery > div > div:first-child > img {
+  width: 370px;
+  height: 370px;
+  position: relative;
+}
+.laundryGallery > div > div:nth-child(2),
+.laundryGallery > div > div:nth-child(2) > img {
+  width: 600px;
+  height: 420px;
+}
+.laundryGallery > div > div:nth-child(3),
+.laundryGallery > div > div:nth-child(3) > img {
+  width: 370px;
+  height: 370px;
+  position: relative;
+}
+.slideLeft {
+  position: absolute;
+  top: 150px;
+  left: 80px;
+  z-index: 100;
+  padding: 7px 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #212121;
+  cursor: pointer;
+}
+.slideRight {
+  position: absolute;
+  top: 150px;
+  right: 80px;
+  z-index: 100;
+  padding: 7px 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #212121;
+  cursor: pointer;
+}
+.laundry-menu {
+  display: none;
+}
+.laundry-menu-expanded {
+  display: block;
+}
+.laundry-form {
+    border: 1px solid #bc9a43 !important;
+    margin-left: 0 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+   
+}
+.laundry_header > span {
+    float: right;
+}
+.laundry_header > div > p:first-child {
+    font-weight: bold;
+    padding-top: 40px;
+    font-size: 28px;
+}
+.laundry_header > div > p:nth-child(2){
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+.laundry-content > div {
+    padding-bottom: 10px;
+}
+.select_amount > span i {
+    color:#ffffff
+}
+.addItem > button {
+    background-color: #bc9a43;
+    outline: 0;
+    padding: 18px 20px;
+    color:#ffffff;
+    border: 1px solid #bc9a43;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.addItem {
+    width: 20%;
+    float: left;
+}
+.select_amount {
+    margin-top: 16px;
+    margin-left: 40px;
+
+}
+
+ .select_amount, .laundry_cart > div > select {
+float: left;
+display: inline;
+}
+.laundry_cart > div:first-child {
+    float: left;
+    width: 80%;
+    border: 1px solid #bc9a43;
+    padding-bottom: 10px;
+}
+
+.select-cloth {
+    width:60% !important;
+    display: inline !important;
+    border:none !important;
+    border-right: 1.5px solid #bc9a43 !important;
+    border-radius: 0 !important;
+}
+.displayItem {
+    display: flex;
+    padding-top: 30px;
+    flex-wrap: wrap;
+
+}
+.displayItem > div {
+    background-color: #F2EBD9;
+    padding: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    
+}
+.displayItem > div > span:first-child {
+    font-weight: bold;
+}
+.displayItem > div > span:nth-child(2) {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.displayItem > div > span:nth-child(3) {
+    background-color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.laundry_details {
+  padding-bottom: 150px;
+}
+.laundry-footer > div {
+  float: right;
+  width:30%;
+}
+.laundry-footer > div:nth-child(2) {
+  padding-right: 20px;
+}
+
+
+ @media only screen and (min-width: 1150px) and (max-width: 1300px) {
+  .laundryBanner_content > p:first-child {
+    font-size: 3rem;
+  }
+  .laundryBanner_img {
+    width: 68vh;
+  }
+  .laundryBanner_content > p:nth-child(2) {
+    padding-right: 150px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1150px) {
+  .laundryBanner {
+    height: fit-content;
+  }
+  .laundryBanner_content > p:nth-child(2) {
+    padding-right: 70px;
+  }
+  .laundryBanner_img {
+    width: 60vh;
+  }
+  .laundryBanner_content > p:first-child {
+    font-size: 2.8rem;
+  }
+  .laundryBanner > div:nth-child(2) {
+    padding: 40px 0px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .laundryBanner {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 20px 50px 0;
+    text-align: center;
+  }
+  .laundryBanner > div:nth-child(2) {
+    padding: 0;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .laundryBanner_content > p:nth-child(2) {
+    text-align: center;
+    padding-right: 0px;
+  }
+  .LaundryBanner > div:nth-child(1) {
+    text-align: center;
+  }
+
+  .laundryBanner_img {
+    width: 40vh;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .laundryHome {
+    margin-top: 80px;
+  }
+}

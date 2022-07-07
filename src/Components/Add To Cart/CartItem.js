@@ -34,7 +34,7 @@ const CartItem = ({ chooseSex }) => {
         return item;
       }
     });
-    console.log(changePrice);
+    // console.log(changePrice);
   };
 
   const incrementItem = (id) => {
@@ -42,7 +42,6 @@ const CartItem = ({ chooseSex }) => {
       if (item.id == id) {
         item.itemQty = item.itemQty + 1;
         return item;
-        updatePrice(id);
       } else {
         return item;
       }
@@ -73,8 +72,8 @@ const CartItem = ({ chooseSex }) => {
     }, 0);
     // console.log(subTotal);
     setSubTotalValue(subTotal.toFixed(2));
-    // console.log(typeof(subTotalValue));
-    console.log(subTotal.toFixed(2));
+    // // console.log(typeof(subTotalValue));
+    // console.log(subTotal.toFixed(2));
   }, [cartItems]);
 
   // console.log(location.state.id)

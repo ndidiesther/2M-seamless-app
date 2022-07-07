@@ -1,14 +1,14 @@
 import React from "react";
-import Input from "../Components/Modal/Input";
-import { ButtonContainer } from "../Components/Shared/ButtonComponent";
+import Input from "../Modal/Input";
+import { ButtonContainer } from "../Shared/ButtonComponent";
 import { Modal } from "react-bootstrap";
 
-function ForgetPassword({ forgetPasswordModal, setForgetPasswordModal, setOtpInput }) {
-  const closeModalHandler = () => setForgetPasswordModal(false);
+const OtpInput = ({ otpInput, setOtpInput, setResetPassword }) => {
+  const closeModalHandler = () => setOtpInput(false);
   return (
     <div>
       <Modal
-        show={forgetPasswordModal}
+        show={otpInput}
         onHide={closeModalHandler}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -19,17 +19,18 @@ function ForgetPassword({ forgetPasswordModal, setForgetPasswordModal, setOtpInp
             id="contained-modal-title-vcenter"
             className="modal-title"
           >
-            <h2>Forgot password</h2>
-            <p>Enter the email address linked to your account</p>
+            <h2>Enter OTP</h2>
+            <p>An OTP was sent to your email</p>
+            <p className="otp_p">Enter OTP below</p>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Input placeholder="Email address*" />
+          <Input placeholder="OTP*" />
 
           <ButtonContainer
             onClick={() => {
-              setForgetPasswordModal(false);
-              setOtpInput(true);
+              setOtpInput(false);
+              setResetPassword(true);
             }}
             className="btn_login"
           >
@@ -42,6 +43,6 @@ function ForgetPassword({ forgetPasswordModal, setForgetPasswordModal, setOtpInp
       </Modal>
     </div>
   );
-}
+};
 
-export default ForgetPassword;
+export default OtpInput;

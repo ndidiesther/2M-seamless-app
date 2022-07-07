@@ -61,7 +61,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 </span>
               </li>
               <li>
-                <Link to=""> Laundry</Link>
+                <Link to="/laundry"> Laundry</Link>
               </li>
             </ul>
           </div>

@@ -56,17 +56,13 @@ export default function Product({}) {
     // console.log(item.price)
   };
   useEffect(() => {
-    if(chooseSex == undefined || chooseSex == null) {
-      navigate("/")
+    if (chooseSex == undefined || chooseSex == null) {
+      navigate("/");
     }
-  
-   
-  }, [])
-  
+  }, []);
 
   return (
     <>
-    
       <div className="product col-12">
         <div className="product_banner col-12">
           <SpecificStyle
