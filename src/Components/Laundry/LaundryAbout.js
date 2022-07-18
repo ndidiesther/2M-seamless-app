@@ -9,10 +9,9 @@ const LaundryAbout = () => {
   const { laundryDetails, setLaundryDetails } = cartContext;
 
   const showLaundryDetails = () => {
-    setLaundryDetails(!laundryDetails)
-  }
+    setLaundryDetails(!laundryDetails);
+  };
 
- 
   return (
     <>
       <div className="col-12 laundryHome">
@@ -27,7 +26,7 @@ const LaundryAbout = () => {
                 Welcome to 2M Seamless laundry services. We offer cleaning at
                 its best and we also so make delivery seamless
               </p>
-              <button className="btnn" onClick={showLaundryDetails} >
+              <button className="btnn" onClick={showLaundryDetails}>
                 Do Laundry
                 <span>
                   <i className="fa-solid fa-arrow-right"></i>
@@ -40,22 +39,27 @@ const LaundryAbout = () => {
           </div>
         </div>
         <div className="col-12 laundryAbout">
-          <div className="col-5">
-            <img src={LaundryBanner} />
+          <div className="col-lg-5 col-xs-12 col-sm-12 col-md-5">
+            <div>
+              <img src={LaundryBanner} />
+            </div>
           </div>
-          <div className="col-7 aboutDetails">
-            <p>About</p>
-            <p>
-              Welcome to 2mseamless Laundry
-            </p>
-            <p>
-              Welcome to 2M Seamless laundry services. <br /> Here our clients are
-              royals and are meant to be treated with care. <br /> We offer clenaing at
-              its best and a we also so make delivery seamless
-            </p>
+          <div className="col-lg-7 col-xs-12 col-sm-12 col-md-7 aboutDetails">
+            <div>
+              <p>About</p>
+              <p>Welcome to 2mseamless Laundry</p>
+              <p>
+                Welcome to 2M Seamless laundry services. <br /> Here our clients
+                are royals and are meant to be treated with care. <br /> We
+                offer cleaning at its best and a we also so make delivery
+                seamless
+              </p>
+            </div>
           </div>
         </div>
-        <div className={laundryDetails ? "laundry-menu-expanded" : "laundry-menu"} >
+        <div
+          className={laundryDetails ? "laundry-menu-expanded" : "laundry-menu"}
+        >
           <div>
             <LaundryDetails {...{ setLaundryDetails }} />
           </div>

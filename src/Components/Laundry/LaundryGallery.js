@@ -6,7 +6,7 @@ import ThirdWorkImage from "../../Assets/Images/work3.png";
 const LaundryGallery = () => {
   return (
     <>
-      <div className="laundryGallery">
+      <div className="col-12 laundryGallery">
         <p>Gallery</p>
         <p>Our Works</p>
         <div>

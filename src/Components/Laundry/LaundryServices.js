@@ -16,7 +16,7 @@ const LaundryServices = () => {
   };
   return (
     <>
-      <div className="laundryServices">
+      <div className="col-12 laundryServices">
         <p>Services</p>
         <p>What we do</p>
         <div className="first_services">
@@ -44,7 +44,7 @@ const LaundryServices = () => {
           </div>
         </div>
       </div>
-      <div className="laundry_subbanner">
+      <div className="col-12 laundry_subbanner">
         <div>
           <p>Get your laundry done and delivered</p>
           <p>We offer cleaning at its best and make delivery seamless</p>

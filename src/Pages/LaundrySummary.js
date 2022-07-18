@@ -80,7 +80,7 @@ const LaundrySummary = ({ setLaundrySummary }) => {
     <div className="col-12">
       <div className="col-12 side-menu ">
         {/* <div className="side-menu__overlay" /> */}
-        <div className="side-menu__content">
+        <div className="side-menu__content laundry_sum">
           <div className="laundrySummary_header">
             <button
               onClick={() => setLaundrySummary(false)}
