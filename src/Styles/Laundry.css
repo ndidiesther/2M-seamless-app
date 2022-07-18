@@ -172,108 +172,434 @@
   display: block;
 }
 .laundry-form {
-    border: 1px solid #bc9a43 !important;
-    margin-left: 0 !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    padding-top: 0.7rem !important;
-    padding-bottom: 0.7rem !important;
-   
+  border: 1px solid #bc9a43 !important;
+  margin-left: 0 !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  padding-top: 0.7rem !important;
+  padding-bottom: 0.7rem !important;
 }
 .laundry_header > span {
-    float: right;
+  float: right;
 }
 .laundry_header > div > p:first-child {
-    font-weight: bold;
-    padding-top: 40px;
-    font-size: 28px;
+  font-weight: bold;
+  padding-top: 40px;
+  font-size: 28px;
 }
-.laundry_header > div > p:nth-child(2){
-    font-size: 18px;
-    padding-bottom: 20px;
+.laundry_header > div > p:nth-child(2) {
+  font-size: 18px;
+  padding-bottom: 20px;
 }
 .laundry-content > div {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 .select_amount > span i {
-    color:#ffffff
+  color: #ffffff;
 }
 .addItem > button {
-    background-color: #bc9a43;
-    outline: 0;
-    padding: 18px 20px;
-    color:#ffffff;
-    border: 1px solid #bc9a43;
-    font-weight: bold;
-    margin-left: 10px;
+  background-color: #bc9a43;
+  outline: 0;
+  padding: 18px 20px;
+  color: #ffffff;
+  border: 1px solid #bc9a43;
+  font-weight: bold;
+  margin-left: 10px;
 }
 .addItem {
-    width: 20%;
-    float: left;
+  width: 20%;
+  float: left;
 }
 .select_amount {
-    margin-top: 16px;
-    margin-left: 40px;
-
+  margin-top: 16px;
+  margin-left: 40px;
 }
 
- .select_amount, .laundry_cart > div > select {
-float: left;
-display: inline;
+.select_amount,
+.laundry_cart > div > select {
+  float: left;
+  display: inline;
 }
 .laundry_cart > div:first-child {
-    float: left;
-    width: 80%;
-    border: 1px solid #bc9a43;
-    padding-bottom: 10px;
+  float: left;
+  width: 80%;
+  border: 1px solid #bc9a43;
+  padding-bottom: 10px;
 }
 
 .select-cloth {
-    width:60% !important;
-    display: inline !important;
-    border:none !important;
-    border-right: 1.5px solid #bc9a43 !important;
-    border-radius: 0 !important;
+  width: 60% !important;
+  display: inline !important;
+  border: none !important;
+  border-right: 1.5px solid #bc9a43 !important;
+  border-radius: 0 !important;
 }
 .displayItem {
-    display: flex;
-    padding-top: 30px;
-    flex-wrap: wrap;
-
+  display: flex;
+  padding-top: 30px;
+  flex-wrap: wrap;
 }
 .displayItem > div {
-    background-color: #F2EBD9;
-    padding: 10px;
-    margin-left: 15px;
-    margin-bottom: 10px;
-    
+  background-color: #f2ebd9;
+  padding: 10px;
+  margin-left: 15px;
+  margin-bottom: 10px;
 }
 .displayItem > div > span:first-child {
-    font-weight: bold;
+  font-weight: bold;
 }
 .displayItem > div > span:nth-child(2) {
-    padding-left: 30px;
-    padding-right: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .displayItem > div > span:nth-child(3) {
-    background-color: #ffffff;
-    padding: 3px 8px;
-    border-radius: 50%;
-    cursor: pointer;
+  background-color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 50%;
+  cursor: pointer;
 }
+/*********Laundry Details*******/
 .laundry_details {
   padding-bottom: 150px;
 }
 .laundry-footer > div {
   float: right;
-  width:30%;
+  width: 30%;
 }
 .laundry-footer > div:nth-child(2) {
   padding-right: 20px;
 }
+.laundry_textarea {
+  height: 50px;
+  padding: 10px 18px;
+}
+.delivery_address {
+  padding-bottom: 20px !important;
+}
+.laundrySummary-menu-expanded {
+  display: block;
+}
+.laundrySummary-menu {
+  display: none;
+}
+.laundry_contact {
+  padding-bottom: 30px !important;
+}
+.backArrow {
+  outline: 0;
+  background-color: transparent;
+  border: 0;
+  padding-top: 10px;
+}
+.backArrow > i {
+  padding: 9px 12px;
+  border: 1px solid #dfdfdf;
+  background: #dfdfdf;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.laundrySummary_header > div > p:first-child {
+  font-weight: bold;
+  padding-top: 30px;
+  font-size: 28px;
+}
+.laundrySummary-content > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.laundrySummary-content > div:first-child {
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.laundrySummary-content > div:not(:first-child) {
+  background-color: #f2f2f2;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+}
+/* .laundrySummary-content > div > div {
+  width: 100%;
+} */
+/* .laundrySummary-content > div > div:first-child {
+  width: 700px;
+}
+.laundrySummary-content > div > div:nth-child(2) {
+  width: 600px;
+}
+.laundrySummary-content > div > div:nth-child(3) {
+  width: 50px;
+} */
+
+.laundrySummary-content > div:first-child {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #bc9a43;
+}
+.laundrySummary-content > div > div {
+  font-weight: bold;
+}
+.service_type {
+  font-size: 14px;
+  font-weight: lighter;
+}
+.cloth_type {
+  font-size: 18px;
+  font-weight: bold;
+}
+.summary_items {
+  font-size: 20px;
+}
+.laundrySummary-footer {
+  padding-top: 200px;
+}
+.laundrySummary-footer > div {
+  display: block;
+  width: 100%;
+  float: left;
+  font-size: 20px;
+}
+.laundrySummary-footer > div > span:first-child {
+  float: left;
+}
+.laundrySummary-footer > div > span:last-child {
+  float: right;
+  font-weight: bold;
+}
+.laundrySummary-footer > div:last-child > span {
+  font-weight: bold;
+}
+.laundrySummary-footer > div:first-child {
+  border-top: 1px solid #bc9a43;
+  padding-top: 20px;
+}
+.laundrySummary-footer > div:nth-child(3) {
+  padding-bottom: 20px;
+}
+.laundrySummary-footer > div:last-child {
+  border-top: 1px solid #bc9a43;
+  padding: 20px 0 40px;
+}
+.laundrySummary-footer > div:not(:last-child) {
+  padding-bottom: 10px;
+}
+.laundry_summary {
+  padding-bottom: 600px;
+}
+
+/********Laundry Upload ************/
+.laundryUpload-menu-expanded,
+.laundryPayment-menu-expanded {
+  display: block;
+}
+.laundryUpload-menu,
+.laundryPayment-menu {
+  display: none;
+}
+.UploadContainer > div > img {
+  width: 300px;
+  height: auto;
+}
+.UploadContainer > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.payment-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.payment_modal {
+  z-index: 10000000000000;
+  position: fixed;
+}
+
+/***********Laundry History ********/
+.laundryhistory {
+  margin: 140px 0;
+  padding: 20px 0 0 60px;
+  display: flex;
+  align-items: stretch;
+}
+.laundryhistory > div {
+  margin: 10px;
+}
+.profilename > p:first-child {
+  font-weight: bold;
+  text-align: center;
+  margin-block-start: 1em;
+  margin-block-end: 0.2em;
+  font-size: 22px;
+}
+.profilename > p:nth-child(2) {
+  text-align: center;
+  font-size: 18px;
+}
+.laundryhistory > div > p {
+  font-weight: bold;
+}
+.laundryhistory > div:first-child {
+  width: 242px;
+}
+.laundryhistory > div:nth-child(2) {
+  flex-grow: 9;
+}
+.historydetails {
+  display: flex;
+  background-color: #ededed;
+  margin-top: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+.historydetails > div {
+  margin: 10px 20px;
+}
+.laundryhistory > div:nth-child(2) > span {
+  position: relative;
+  font-weight: bold;
+}
+.laundryhistory > div:nth-child(2) > span > span:last-child {
+  float: right;
+  color: #bc9a43;
+}
+.historydetails > div:first-child > p:first-child {
+  font-weight: bold;
+  margin-block-end: 0.3em;
+}
+.historydetails > div:nth-child(2) > p:first-child {
+  font-weight: bold;
+  margin-block-end: 0.3em;
+}
+.historydetails > div:nth-child(2) > p:last-child,
+.historydetails > div:first-child > p:last-child {
+  font-size: 14px;
+}
+.historydetails > div:nth-child(2) > p:last-child > span:first-child {
+  padding-right: 10px;
+}
+.historydetails > div:nth-child(3) > p {
+  font-weight: bold;
+  margin-block-start: 1em;
+}
+.hr-sepe {
+  position: absolute;
+  top:10px;
+  width: 60px;
+  padding: 1px 10px;
+  height: 1px !important;
+  background-color: #bc9a43;
+  opacity: 1;
+}
+
+.historydetails > div:nth-child(4) > span {
+  padding-right: 60px;
+  position: relative;
+
+}
+.historydetails > div:nth-child(4) > span:last-child {
+  padding-right:0
+}
+.historydetails > div:nth-child(4) > span > img {
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+/*********Edit Profile ************/
+.editProfile {
+  text-align: center;
+}
+
+.editProfile > p:first-child {
+  font-weight: bold;
+  font-size: 35px;
+  margin-block-start: 0;
+  margin-block-end: 0em;
+}
+.upload_profileImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload_profileImg > div:first-child {
+  margin-right: 40px;
+  
+}
+.upload_profileImg > div:first-child  > div {
+  width:160px;
+  height: 170px;
+}
+.upload_profileImg > div:first-child > div img {
+  width:160px;
+  height: 170px;
+}
+.profile_btn {
+  background-color: #bc9a43;
+  padding: 10px 15px;
+  margin-top: 10px;
+  outline: 0;
+  border: 1px solid #bc9a43;
+  color: #ffffff;
+  font-weight: bold;
+}
+.profile_btn > img {
+  margin: 0 10px;
+}
+.img_media {
+  width:150px !important;
+  height: 165px !important;
+}
+.name_input, .password_input, .country_input {
+  display: flex;
+  width: 100%;
+}
+.name_input > div, .password_input > div, .country_input > div {
+  width: 50%;
+  padding: 0 10px;
+}
+.sex_input > div {
+  padding:0 10px !important;
+}
+.ProfileModal {
+  width: 800px !important;
+  max-width: 800px !important;
+}
+.sex_input > div > div > div {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+.sex_input > div > div > div label {
+  margin-right: 0px !important;
+  margin-left:  0px !important;
+  font-size: 15px;
+}
+.sex_input > div > div > label {
+  padding: 0 !important;
+}
+.country_input {
+  padding: 10px 0;
+}
+.country_input > div {
+  padding-right: 0;
+}
+.update_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+.update_btn > button {
+  width: 300px;
+}
 
 
- @media only screen and (min-width: 1150px) and (max-width: 1300px) {
+@media only screen and (min-width: 600px) {
+  .laundry_payment > div {
+    width: 229px !important;
+  }
+}
+
+@media only screen and (min-width: 1150px) and (max-width: 1300px) {
   .laundryBanner_content > p:first-child {
     font-size: 3rem;
   }

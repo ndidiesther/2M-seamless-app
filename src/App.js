@@ -18,6 +18,8 @@ import Laundry from "./Pages/Laundry";
 import OtpInput from "./Components/Password/OtpInput";
 import ResetPassword from "./Components/Password/ResetPassword";
 import PasswordSuccessful from "./Components/Password/PasswordSuccessful";
+import LaundrySummary from "./Pages/LaundrySummary";
+import LaundryHistory from "./Pages/LaundryHistory";
 
 export const CartContext = createContext();
 
@@ -32,6 +34,11 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [subTotalValue, setSubTotalValue] = useState();
   const [laundryDetails, setLaundryDetails] = useState(false);
+  const [laundrySummary, setLaundrySummary] = useState(false);
+  const [laundryUpload, setLaundryUpload] = useState(false);
+  const [laundryPayment, setLaundryPayment] = useState(false);
+  const [laundryCartItems, setLaundryCartItems] = useState([]);
+  const [editProfile, setEditProfile] = useState(false);
 
   // console.log(modalShow);
 
@@ -45,6 +52,14 @@ function App() {
           setSubTotalValue,
           laundryDetails,
           setLaundryDetails,
+          laundrySummary,
+          setLaundrySummary,
+          laundryUpload,
+          setLaundryUpload,
+          laundryPayment,
+          setLaundryPayment,
+          laundryCartItems,
+          setLaundryCartItems,
         }}
       >
         <Navbar {...{ setModalShow, setGenderModal }} />
@@ -62,6 +77,7 @@ function App() {
           <Route path="orderdetails" element={<OrderDetails />} />
           <Route path="cartitem" element={<CartItem />} />
           <Route path="laundry" element={<Laundry />} />
+          <Route path="laundryhistory" element={<LaundryHistory {...{editProfile, setEditProfile}} />} />
         </Routes>
         <Footer />
 
@@ -76,13 +92,19 @@ function App() {
 
         <SignUpModal {...{ modalShow2, setModalShow, setModalShow2 }} />
 
-        <ForgetPassword {...{ forgetPasswordModal, setForgetPasswordModal, setOtpInput }} />
+        <ForgetPassword
+          {...{ forgetPasswordModal, setForgetPasswordModal, setOtpInput }}
+        />
 
-        <OtpInput {...{otpInput, setOtpInput, setResetPassword}} />
+        <OtpInput {...{ otpInput, setOtpInput, setResetPassword }} />
 
-        <ResetPassword {...{resetPassword, setResetPassword, setPasswordSuccessful}} />
+        <ResetPassword
+          {...{ resetPassword, setResetPassword, setPasswordSuccessful }}
+        />
 
-        <PasswordSuccessful {...{passwordSuccessful, setPasswordSuccessful}} />
+        <PasswordSuccessful
+          {...{ passwordSuccessful, setPasswordSuccessful }}
+        />
       </CartContext.Provider>
     </>
   );

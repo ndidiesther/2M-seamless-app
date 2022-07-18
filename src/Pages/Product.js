@@ -49,6 +49,7 @@ export default function Product({}) {
     setShowCart(!showCart);
 
     const checkItem = cartItems.find((cartItem) => cartItem.id == item.id);
+    console.log(item.id);
     if (checkItem) {
       return;
     }

@@ -1,13 +1,15 @@
 import React, { useCallback, useState } from "react";
 import { Modal } from "react-bootstrap";
-import UploadMedia from "../../Assets/Images/Upload_Media.png";
+import UploadMedia from "../../Assets/Images/male_avatar.png";
 import { ButtonContainer } from "../Shared/ButtonComponent";
 import { useDropzone } from "react-dropzone";
-
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-
-// import ShowImage from "./ShowImage";
+import Union from "../../Assets/Images/Union.png"
+import Input from "../Modal/Input";
+import ShowAndHidePassword from "../Modal/PasswordInput";
+import CountrySelector from "../../Pages/Country";
+import ProfileSex from "./ProfileSex"
 
 const getColor = (props) => {
   if (props.isDragAccept) {
@@ -27,7 +29,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   border-width: 2px;
   border-radius: 10px;
   border-color: ${(props) => getColor(props)};
@@ -54,7 +55,7 @@ const ShowImage = ({ images }) => {
 
   const HandleDisplay = () => {
     console.log(images.length);
-    if (images.length === 3) {
+    if (images.length === 1) {
       setShowImage(false);
     }
   };
@@ -63,18 +64,13 @@ const ShowImage = ({ images }) => {
   };
 
   return (
-    <div onLoad={HandleDisplay} className="container">
+    <div onLoad={HandleDisplay} className="editcontainer">
       {images.map(show)}
     </div>
   );
 };
 
-const LaundryUpload = ({
-  uploadStyles,
-  setUploadStyle,
-  checkLength,
-  ...props
-}) => {
+const EditProfile = ({ editProfile, setEditProfile }) => {
   const [images, setImages] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
   let navigate = useNavigate();
@@ -82,7 +78,7 @@ const LaundryUpload = ({
   const handleTest = (file) => {
     console.log("before");
     setSelectedImages((prev) => [...prev, Math.random()]);
-    selectedImages.push(file);
+    // selectedImages.push(file);
     console.log(selectedImages);
     console.log("after");
   };
@@ -96,7 +92,7 @@ const LaundryUpload = ({
 
       reader.onload = function (e) {
         setImages((prevState) => [
-          ...prevState,
+          
           { id: index, src: e.target.result },
         ]);
       };
@@ -105,7 +101,6 @@ const LaundryUpload = ({
       return file;
     });
   }, []);
-  const closeModalHandler = () => setUploadStyle(false);
 
   const {
     getRootProps,
@@ -125,66 +120,77 @@ const LaundryUpload = ({
   const lists = acceptedFiles.map((list) => (
     <li key={list.path}>{/* {list.path} - {list.size} bytes */}</li>
   ));
-  // console.log(acceptedFiles)
-  // console.log(test)
+
+  const closeModalHandler = () => setEditProfile(false);
   return (
     <div className="upload_styles">
       <Modal
-        dialogClassName={"UploadModal"}
-        show={uploadStyles}
+         dialogClassName={"ProfileModal"}
+        show={editProfile}
         onHide={closeModalHandler}
-        size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <Modal.Header className="upload_header" closeButton>
           <Modal.Title
             id="contained-modal-title-vcenter"
-            className="modal-title"
+            className="modal-title editProfile"
           >
-            <h2>Upload Your Style</h2>
-            <p>Please upload the images of your desired style</p>
+            <p>Edit Profile</p>
+            <p>Update your details</p>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ShowImage images={images} />{" "}
-          {images.length < 3 ? (
-            <Container
-              {...getRootProps({ isDragAccept, isFocused, isDragReject })}
-            >
-              <div className="upload_media">
-                {images.length === 0 ? <img src={UploadMedia} /> : ""}
+          <div className="upload_profileImg">
+            <div>
+              { (
+                <Container
+                  {...getRootProps({ isDragAccept, isFocused, isDragReject })}
+                >
+                  {" "}
+                  {images.length === 0 ? (
+                    <img className="img_media" src={UploadMedia} />
+                  ) : (
+                    <ShowImage images={images} />
+                  )}
+                </Container>
+              ) }
+            </div>
 
-                <div>
-                  <p>
-                    <input
-                      {...getInputProps()}
-                      onDrop={(e) => console.log("Hello")}
-                    />
-                    Drag and drop or{" "}
-                    <button type="button" className="upload_btn" onClick={open}>
-                      Select file
-                    </button>
-                    from computer
-                  </p>
-                  <p>Max. 3 Images (in jpeg or png format only)</p>
-                </div>
-              </div>
-            </Container>
-          ) : null}
-          <div className="upload_button">
-            <ButtonContainer
-              onClick={() =>
-                navigate("/orderstyle", {
-                  state: { src: selectedImages[0], id: "10" },
-                })
-              }
-            >
-              Proceed
-            </ButtonContainer>
+            <div>
+              <p>
+                <input type="file"
+                  {...getInputProps()}
+                  onDrop={(e) => console.log("Hello")}
+                />
+                Drag Picture to frame or{" "} <br />
+                <button type="button" className="profile_btn" onClick={open}>
+                    <img src={Union} />
+                  Select Photo
+                </button>
+              </p>
+            
+            </div>
           </div>
+          <div className="name_input" >
+              <div> <Input placeholder="First Name*" /> </div>
+              <div><Input placeholder="Last Name*" /></div>
+          </div>
+          <div className="password_input" >
+              <div> <ShowAndHidePassword placeholder="Password*" /> </div>
+              <div><Input placeholder="Email Address*" /></div>
+          </div>
+          <div className="country_input" >
+              <div> <CountrySelector/> </div>
+              <div className="sex_input" ><ProfileSex /></div>
+          </div>
+          <div className="update_btn">
+            <ButtonContainer> Update</ButtonContainer>
+            </div>
         </Modal.Body>
         <Modal.Footer>
+           
+           
           {/* <Button onClick={props.onHide}>Close</Button> */}
         </Modal.Footer>
       </Modal>
@@ -192,4 +198,4 @@ const LaundryUpload = ({
   );
 };
 
-export default LaundryUpload;
+export default EditProfile;

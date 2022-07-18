@@ -163,7 +163,7 @@
   color: #bc9a43;
 }
 
-.container {
+.container, .editcontainer {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -171,7 +171,7 @@
   /* padding-bottom: 40px; */
 }
 
-.container img {
+.container img, .editcontainer img {
   height: 180px;
   width: 140px;
 }
@@ -204,12 +204,12 @@
 }
 }
 @media only screen and (max-width: 550px)  {
-.container {
+.container, .editcontainer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.container img {
+.container img, .editcontainer img {
   height: auto;
 }
 }

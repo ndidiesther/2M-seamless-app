@@ -1,22 +1,18 @@
-import React, { useEffect, useRef, useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import "../Styles/cart.css";
 import { CartContext } from "../App";
 import NumberFormat from "react-number-format";
 
 const AddToCart = ({ setShowCart }) => {
-
-  let location = useLocation();
   const navigate = useNavigate();
-  const { state } = location;
-  let orderImage = location.state?.src;
-  let price = location.state?.price;
-  let styleName = location.state?.stylename;
+  
   const ImageRef = useRef();
 
   const cartContext = useContext(CartContext);
-  const { cartItems, setCartItems, subTotalValue, setSubTotalValue } = cartContext;
+  const { cartItems, setCartItems, subTotalValue, setSubTotalValue } =
+    cartContext;
 
   const deleteItem = (id) => {
     const itemsLeft = cartItems.filter((item) => item.id != id);
@@ -154,18 +150,7 @@ const AddToCart = ({ setShowCart }) => {
                   <span>100%</span>
                 </span>
               </div>
-              <ButtonContainer
-                cart
-                onClick={() =>
-                  navigate("/cartitem", {
-                    state: {
-                      src: orderImage,
-                      stylename: styleName,
-                      price: price,
-                    },
-                  })
-                }
-              >
+              <ButtonContainer cart onClick={() => navigate("/cartitem")}>
                 View Cart
               </ButtonContainer>
               <ButtonContainer>Checkout</ButtonContainer>

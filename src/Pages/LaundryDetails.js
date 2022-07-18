@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import DoLaundry from "../Components/Laundry/DoLaundry";
 import LaundryCart from "../Components/Laundry/LandryCart";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
+import { CartContext } from "../App";
+import LaundrySummary from "./LaundrySummary";
 
 const LaundryDetails = ({ setLaundryDetails }) => {
+  const cartContext = useContext(CartContext);
+  const { laundrySummary, setLaundrySummary } = cartContext;
+  // console.log(setLaundryCartItems);
+
+  const [services, setServices] = useState("Wet Wash");
+
+  const handleChange = (e) => {
+    setServices(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const showLaundrySummary = () => {
+    setLaundrySummary(!laundrySummary);
+    console.log("summary");
+  };
+
   return (
     <>
       <div className="col-12">
@@ -22,15 +41,16 @@ const LaundryDetails = ({ setLaundryDetails }) => {
               <div>
                 <p>Please select the type of service you want</p>
                 <select
+                  value={services}
+                  onChange={handleChange}
                   className="form-select laundry-form form-select-lg mb-3 shadow-none"
                   aria-label=".form-select-lg example"
                 >
-                  <option>Select type of service</option>
-                  <option value="1">Wet Wash</option>
-                  <option value="2">Dry Clean</option>
-                  <option value="3">Steam Iron</option>
-                  <option value="4">Wash and Iron</option>
-                  <option value="5">Wash and Fold</option>
+                  <option value="Wet Wash">Wet Wash</option>
+                  <option value="Dry Clean">Dry Clean</option>
+                  <option value="Steam Iron">Steam Iron</option>
+                  <option value="Wash and Iron">Wash and Iron</option>
+                  <option value="Wash and Fold">Wash and Fold</option>
                 </select>
               </div>
               <div>
@@ -44,28 +64,34 @@ const LaundryDetails = ({ setLaundryDetails }) => {
                 </select>
               </div>
               <div>
-                <LaundryCart />
+                <LaundryCart services={services} />
               </div>
-              <div>
-                <p>Delivery</p>
-                <select
-                  className="form-select laundry-form form-select-lg mb-3 shadow-none"
-                  aria-label=".form-select-lg example"
-                >
-                  <option value="1">Pick up (On Site)</option>
-                  <option value="2">Home Delivery</option>
-                </select>
-              </div>
+
+              <DoLaundry />
             </div>
             <div className="laundry-footer">
-             
               <div>
-                <ButtonContainer>Next</ButtonContainer>
+                <ButtonContainer onClick={showLaundrySummary}>
+                  Next
+                </ButtonContainer>
               </div>
               <div>
-                <ButtonContainer cart>Cancel</ButtonContainer>
+                <ButtonContainer onClick={() => setLaundryDetails(false)} cart>
+                  Cancel
+                </ButtonContainer>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          className={
+            laundrySummary
+              ? "laundrySummary-menu-expanded"
+              : "laundrySummary-menu"
+          }
+        >
+          <div>
+            <LaundrySummary {...{ setLaundrySummary }} />
           </div>
         </div>
       </div>

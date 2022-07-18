@@ -9,7 +9,7 @@
   width: 100%;
   height: 100%;
   /* overflow: hidden; */
-  z-index: 10000;
+  z-index: 100;
 }
 
 .side-menu__content {
@@ -26,6 +26,7 @@
   box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
   padding: 20px 50px;
   overflow-y: scroll;
+  
 }
 
 .side-menu__overlay {
