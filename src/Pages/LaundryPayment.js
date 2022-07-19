@@ -3,16 +3,18 @@ import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import Input from "../Components/Modal/Input";
 import { Modal } from "react-bootstrap";
 import Successful from "../Assets/Images/successful.png";
+import { useNavigate } from "react-router-dom";
 
 const LaundryPayment = ({ setLaundryPayment }) => {
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
+
 
   return (
     <div className="col-12">
       <div className="col-12 side-menu ">
         {/* <div className="side-menu__overlay" /> */}
         <div className="side-menu__content">
-          <div className="laundrySummary_header">
+          <div className="laundrySummary_header laundry_sum">
             <button
               onClick={() => setLaundryPayment(false)}
               className="backArrow"
@@ -70,6 +72,7 @@ export default LaundryPayment;
 
 const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful }) => {
   const closeModalHandler = () => setIsPaymentSuccessful(false);
+  const navigate  = useNavigate() 
   return (
     <Modal
       show={isPaymentSuccessful}
@@ -86,7 +89,12 @@ const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful }) => {
             <strong>Order Successful</strong>
           </h2>
           <h5>Your order has successfully been received</h5>
-          <ButtonContainer onClick={() => setIsPaymentSuccessful(false)}>
+          <ButtonContainer
+            onClick={() => {
+              setIsPaymentSuccessful(false);
+              navigate("/laundryhistory")
+            }}
+          >
             Done
           </ButtonContainer>
         </div>

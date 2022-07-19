@@ -10,7 +10,6 @@ const LaundrySummary = ({ setLaundrySummary }) => {
     laundryUpload,
     setLaundryUpload,
     laundryCartItems,
-    setLaundryCartItems,
   } = cartContext;
 
   const [subTotalValue, setSubTotalValue] = useState(0);
@@ -51,7 +50,7 @@ const LaundrySummary = ({ setLaundrySummary }) => {
       return item;
       // console.log(serviceName)
     });
-    console.log(returnPrice);
+    // console.log(returnPrice);
   };
   setPrices();
   
@@ -64,7 +63,7 @@ const LaundrySummary = ({ setLaundrySummary }) => {
 
       return total;
     }, 0);
-    console.log(subTotal);
+    // console.log(subTotal);
     setSubTotalValue(subTotal.toFixed(2));
 
     let TotalPrice = subTotal + 250 + 25;
@@ -74,7 +73,7 @@ const LaundrySummary = ({ setLaundrySummary }) => {
   }, [laundryCartItems]);
   const showLaundryUpload = () => {
     setLaundryUpload(!laundryUpload);
-    console.log("upload");
+    // console.log("upload");
   };
   return (
     <div className="col-12">

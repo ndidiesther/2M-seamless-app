@@ -14,12 +14,12 @@ const LaundryDetails = ({ setLaundryDetails }) => {
 
   const handleChange = (e) => {
     setServices(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const showLaundrySummary = () => {
     setLaundrySummary(!laundrySummary);
-    console.log("summary");
+    // console.log("summary");
   };
 
   return (

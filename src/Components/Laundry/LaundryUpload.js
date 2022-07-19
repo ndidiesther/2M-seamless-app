@@ -132,7 +132,7 @@ const UploadStyles = ({
 
   const showLaundryPayment = () => {
     setLaundryPayment(!laundryPayment);
-    console.log("payment");
+    // console.log("payment");
   };
   // console.log(acceptedFiles)
   // console.log(test)
@@ -188,7 +188,7 @@ const UploadStyles = ({
             ) : null}
            
           </div> <br />
-          <div className="laundry-footer">
+          <div className="laundry-footer upload-footer">
             <div>
               <ButtonContainer onClick={showLaundryPayment} >Proceed to Pay</ButtonContainer>
             </div>

@@ -46,7 +46,7 @@ const LandryCart = ({services}) => {
   };
 
   const incrementItem = () => {
-    console.log(changeQuantity);
+    // console.log(changeQuantity);
     setChangeQuantity(changeQuantity + 1)
   }
   const decrementItem = () => {
@@ -58,14 +58,14 @@ const LandryCart = ({services}) => {
   }
   return (
     <>
-      <div>
+      <div className="col-12">
         <p>Please select cloth type and amount</p>
         <div className="laundry_cart">
           <div>
             <select
               value={value}
               onChange={handleChange}
-              className="form-select laundry-form form-select-lg shadow-none select-cloth"
+              className="form-select form-select-lg shadow-none select-cloth"
               aria-label=".form-select-lg example"
             >
               <option value="Shorts" id="1">
