@@ -245,6 +245,9 @@
   .SignUpModal {
     margin-top: 60px !important;
   }
+  .btn-close {
+    right:25px;
+  }
   
 }
 @media only screen and (max-width: 330px) {

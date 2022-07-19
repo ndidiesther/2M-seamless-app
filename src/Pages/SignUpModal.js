@@ -61,7 +61,7 @@ const FirstStep = ({
       <Modal.Body>
         <Input placeholder="First Name*" />
         <Input placeholder="Last Name*" />
-        <PasswordInput />
+        <PasswordInput placeholder="Password*" />
         <ButtonContainer
           className="btn_continue"
           onClick={() => setSignupStep(2)}
