@@ -20,6 +20,7 @@ import ResetPassword from "./Components/Password/ResetPassword";
 import PasswordSuccessful from "./Components/Password/PasswordSuccessful";
 import LaundrySummary from "./Pages/LaundrySummary";
 import LaundryHistory from "./Pages/LaundryHistory";
+import Test from "./Pages/Test"
 
 export const CartContext = createContext();
 
@@ -78,6 +79,7 @@ function App() {
           <Route path="cartitem" element={<CartItem />} />
           <Route path="laundry" element={<Laundry />} />
           <Route path="laundryhistory" element={<LaundryHistory {...{editProfile, setEditProfile}} />} />
+          <Route path="/test"  element={<Test /> }/>
         </Routes>
         <Footer />
 

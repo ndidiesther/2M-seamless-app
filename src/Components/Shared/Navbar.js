@@ -5,6 +5,7 @@ import Logo from "../../Assets/Images/seamless_logo.png";
 import Stroke from "../../Assets/Images/Stroke.png";
 import Search from "../../Assets/Images/Search.png";
 import Bag from "../../Assets/Images/Bag.png";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar({ setModalShow, setGenderModal }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -53,15 +54,36 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 <i className="fa-solid fa-bars"></i>
               </li>
               <li>
-                <Link to="/"> Home - Classic </Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "link-activ" : "lin"
+                  }
+                  to="#"
+                >
+                  Home - Classic
+                </NavLink>
               </li>
               <li>
                 <span>
-                  <Link to=""> Tailoring</Link>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "link-active" : "link"
+                    }
+                    to="/"
+                  >
+                    Tailoring
+                  </NavLink>
                 </span>
               </li>
               <li>
-                <Link to="/laundry"> Laundry</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "link-active" : "link"
+                  }
+                  to="/laundry"
+                >
+                  Laundry
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -136,13 +158,34 @@ export default function Navbar({ setModalShow, setGenderModal }) {
           <div className="menu">
             <ul>
               <li>
-                <Link to="">Home - Classic</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "link-activ" : "lin"
+                  }
+                  to=""
+                >
+                  Home - Classic
+                </NavLink>
               </li>
               <li>
-                <Link to="">Tailoring</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "menulink-active" : "menulink"
+                  }
+                  to="/"
+                >
+                  Tailoring
+                </NavLink>
               </li>
               <li>
-                <Link to="">Laundry</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "menulink-active" : "menulink"
+                  }
+                  to="/laundry"
+                >
+                  Laundry
+                </NavLink>
               </li>
               <li>
                 <Link to="">Search</Link>

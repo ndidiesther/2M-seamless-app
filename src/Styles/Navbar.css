@@ -168,10 +168,23 @@
   text-decoration: none;
   color: #000;
 }
-.nav-list > ul li:nth-child(3) > span a {
+
+.link {
+  color: white;
+}
+.menulink {
+  color:#000;
+}
+
+/* Specific styles for active links */
+.link-active {
   padding-bottom: 5px;
   border-bottom: 2px solid #282828;
 }
+.menulink-active {
+  color:#bc9a43 !important;
+}
+
 
 .nav-logo > div {
   text-align: center;

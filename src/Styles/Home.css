@@ -415,7 +415,7 @@ a {
   font-family: "Jost", sans-serif !important;
   letter-spacing: 0.03em;
 }
-.active {
+.activeGender {
   border: 5px solid #bc9a43 !important;
 }
 .my-modal {

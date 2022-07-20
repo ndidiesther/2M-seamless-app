@@ -81,11 +81,11 @@ const UploadStyles = ({
 
 
   const handleTest = (file) => {
-    console.log("before");
+    // console.log("before");
     setSelectedImages((prev) => [...prev, Math.random()]);
     selectedImages.push(file);
     console.log(selectedImages);
-    console.log("after");
+    // console.log("after");
   };
 
   const onDrop = useCallback((acceptedFiles) => {

@@ -50,7 +50,7 @@ const Gender = ({ genderModal, setGenderModal, ...props }) => {
           <DelayedLink delay={2000} to="/malestyle">
             <button
               key={1}
-              className={active === "1" ? "active" : undefined}
+              className={active === "1" ? "activeGender" : undefined}
               id={"1"}
               onClick={handleClick}
             >
@@ -66,7 +66,7 @@ const Gender = ({ genderModal, setGenderModal, ...props }) => {
           <DelayedLink delay={2000} to="/femalestyle">
             <button
               key={2}
-              className={active === "2" ? "active" : undefined}
+              className={active === "2" ? "activeGender" : undefined}
               id={"2"}
               onClick={handleClick}
             >

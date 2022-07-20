@@ -5,11 +5,11 @@ import { ButtonContainer } from "../Shared/ButtonComponent";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Union from "../../Assets/Images/Union.png"
+import Union from "../../Assets/Images/Union.png";
 import Input from "../Modal/Input";
 import ShowAndHidePassword from "../Modal/PasswordInput";
 import CountrySelector from "../../Pages/Country";
-import ProfileSex from "./ProfileSex"
+import ProfileSex from "./ProfileSex";
 
 const getColor = (props) => {
   if (props.isDragAccept) {
@@ -54,7 +54,7 @@ const ShowImage = ({ images }) => {
   const [showImage, setShowImage] = useState(true);
 
   const HandleDisplay = () => {
-    console.log(images.length);
+    // console.log(images.length);
     if (images.length === 1) {
       setShowImage(false);
     }
@@ -76,11 +76,11 @@ const EditProfile = ({ editProfile, setEditProfile }) => {
   let navigate = useNavigate();
 
   const handleTest = (file) => {
-    console.log("before");
+    // console.log("before");
     setSelectedImages((prev) => [...prev, Math.random()]);
-    // selectedImages.push(file);
-    console.log(selectedImages);
-    console.log("after");
+    selectedImages.push(file);
+    // console.log(selectedImages);
+    // console.log("after");
   };
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -91,10 +91,7 @@ const EditProfile = ({ editProfile, setEditProfile }) => {
       const reader = new FileReader();
 
       reader.onload = function (e) {
-        setImages((prevState) => [
-          
-          { id: index, src: e.target.result },
-        ]);
+        setImages((prevState) => [{ id: index, src: e.target.result }]);
       };
 
       reader.readAsDataURL(file);
@@ -125,7 +122,7 @@ const EditProfile = ({ editProfile, setEditProfile }) => {
   return (
     <div className="upload_styles">
       <Modal
-         dialogClassName={"ProfileModal"}
+        dialogClassName={"ProfileModal"}
         show={editProfile}
         onHide={closeModalHandler}
         aria-labelledby="contained-modal-title-vcenter"
@@ -143,7 +140,7 @@ const EditProfile = ({ editProfile, setEditProfile }) => {
         <Modal.Body>
           <div className="upload_profileImg">
             <div>
-              { (
+              {
                 <Container
                   {...getRootProps({ isDragAccept, isFocused, isDragReject })}
                 >
@@ -154,43 +151,55 @@ const EditProfile = ({ editProfile, setEditProfile }) => {
                     <ShowImage images={images} />
                   )}
                 </Container>
-              ) }
+              }
             </div>
 
             <div>
               <p>
-                <input type="file"
+                <input
+                  type="file"
                   {...getInputProps()}
                   onDrop={(e) => console.log("Hello")}
                 />
-                Drag Picture to frame or{" "} <br />
+                Drag Picture to frame or <br />
                 <button type="button" className="profile_btn" onClick={open}>
-                    <img src={Union} />
+                  <img src={Union} />
                   Select Photo
                 </button>
               </p>
-            
             </div>
           </div>
-          <div className="name_input" >
-              <div> <Input placeholder="First Name*" /> </div>
-              <div><Input placeholder="Last Name*" /></div>
+          <div className="name_input">
+            <div>
+              {" "}
+              <Input placeholder="First Name*" />{" "}
+            </div>
+            <div>
+              <Input placeholder="Last Name*" />
+            </div>
           </div>
-          <div className="password_input" >
-              <div> <ShowAndHidePassword placeholder="Password*" /> </div>
-              <div><Input placeholder="Email Address*" /></div>
+          <div className="password_input">
+            <div>
+              <Input placeholder="Email Address*" />
+            </div>
+            <div>
+              <ShowAndHidePassword placeholder="Password*" />
+            </div>
           </div>
-          <div className="country_input" >
-              <div> <CountrySelector/> </div>
-              <div className="sex_input" ><ProfileSex /></div>
+          <div className="country_input">
+            <div>
+              {" "}
+              <CountrySelector />{" "}
+            </div>
+            <div className="sex_input">
+              <ProfileSex />
+            </div>
           </div>
           <div className="update_btn">
             <ButtonContainer> Update</ButtonContainer>
-            </div>
+          </div>
         </Modal.Body>
         <Modal.Footer>
-           
-           
           {/* <Button onClick={props.onHide}>Close</Button> */}
         </Modal.Footer>
       </Modal>
