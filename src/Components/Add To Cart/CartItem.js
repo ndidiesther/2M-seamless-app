@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext, useState } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../../App";
 import NumberFormat from "react-number-format";
@@ -7,10 +7,8 @@ import { ButtonContainer } from "../../Components/Shared/ButtonComponent";
 
 const CartItem = ({ chooseSex }) => {
   let location = useLocation();
-  const { state } = location;
-  let orderImage = location.state?.src;
-  let price = location.state?.price;
-  let styleName = location.state?.stylename;
+
+ 
   const ImageRef = useRef();
 
   const cartContext = useContext(CartContext);
@@ -18,13 +16,13 @@ const CartItem = ({ chooseSex }) => {
     cartContext;
 
   const deleteItem = (id) => {
-    const itemsLeft = cartItems.filter((item) => item.id != id);
+    const itemsLeft = cartItems.filter((item) => item.id !== id);
     // console.log(itemsLeft);
     setCartItems(itemsLeft);
   };
   const updatePrice = (id) => {
     let changePrice = cartItems.map((item) => {
-      if (id == item.id) {
+      if (id === item.id) {
         let amount = parseFloat(item.price) * Number(item.itemQty);
         let totalAmount = amount;
         // console.log(amount);
@@ -39,7 +37,7 @@ const CartItem = ({ chooseSex }) => {
 
   const incrementItem = (id) => {
     const updatedItems = cartItems.map((item) => {
-      if (item.id == id) {
+      if (item.id === id) {
         item.itemQty = item.itemQty + 1;
         return item;
       } else {
@@ -51,7 +49,7 @@ const CartItem = ({ chooseSex }) => {
   };
   const decrementItem = (id) => {
     const updatedItems = cartItems.map((item) => {
-      if (item.id == id) {
+      if (item.id === id) {
         if (item.itemQty > 1) {
           item.itemQty = item.itemQty - 1;
         }

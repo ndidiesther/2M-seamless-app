@@ -1,7 +1,7 @@
 import React from "react";
+import "../../Styles/Modal.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import "../../Styles/Modal.css";
 import { inputLabelClasses } from "@mui/material/InputLabel";
 
 const Input = ({ placeholder, focused }) => {

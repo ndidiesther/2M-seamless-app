@@ -1,0 +1,84 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
+
+
+.slick-next {
+    right:50px !important;
+    top:48.5% !important
+  }
+  .slick-prev {
+    left:0px !important;
+    position: absolute !important;
+    z-index: 10;
+    top: 48% !important
+  
+  }
+  .slick-next:before, .slick-prev:before {
+  font-size: 30px !important;
+  color: #000;
+  }
+  .wrapper > div, .sliderImg {
+    width: 420px;
+    height: 400px;
+  }
+  
+  .tag {
+      text-align: center;
+  }
+  
+  
+  
+  
+  .wrapper {
+    display: block;
+  }
+  
+  .sliderImg {
+    display: block;
+    box-sizing: border-box;
+   object-fit:initial;
+    padding: 0px 2vw;
+  }
+  .wrapper {
+    display: flex !important;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 100px;
+    /* align-content: center; */
+  }
+  @media only screen and (max-width: 850px) {
+    .wrapper > div, .sliderImg {
+        width: 380px;
+        height: 380px;
+      }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .wrapper > div, .sliderImg {
+        width: 300px;
+        height: 300px;
+      }
+  }
+  @media only screen and (max-width: 600px) {
+  .wrapper {
+    padding-left: 23%;
+  }
+  .slick-next {
+    right:30px !important;
+    top:48.5% !important
+  }
+  .wrapper > div, .sliderImg {
+    width: 380px;
+    height: 350px;
+  }
+  .slick-prev  {
+    left: 20px !important
+  }
+  }
+  @media only screen and (max-width: 400px)  {
+    .wrapper > div, .sliderImg {
+        width: 300px;
+        height: 300px;
+      }
+  }

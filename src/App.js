@@ -18,7 +18,6 @@ import Laundry from "./Pages/Laundry";
 import OtpInput from "./Components/Password/OtpInput";
 import ResetPassword from "./Components/Password/ResetPassword";
 import PasswordSuccessful from "./Components/Password/PasswordSuccessful";
-import LaundrySummary from "./Pages/LaundrySummary";
 import LaundryHistory from "./Pages/LaundryHistory";
 import Test from "./Pages/Test"
 
