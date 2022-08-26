@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { ButtonContainer } from "../Components/Shared/ButtonComponent";
+import { ButtonContainer } from "../Components/Shared/ButtonComponent";import { Modal } from "react-bootstrap";
 import Input from "../Components/Modal/Input";
-import { Modal } from "react-bootstrap";
+
 import Successful from "../Assets/Images/successful.png";
 import { useNavigate } from "react-router-dom";
 
-const LaundryPayment = ({ setLaundryPayment }) => {
+const LaundryPayment = ({ setLaundryPayment, setLaundryDetails, setLaundrySummary, setLaundryUpload }) => {
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
 
 
@@ -61,7 +61,7 @@ const LaundryPayment = ({ setLaundryPayment }) => {
       </div>
       <div className="payment_modal">
         <PaymentSuccessful
-          {...{ isPaymentSuccessful, setIsPaymentSuccessful }}
+          {...{ isPaymentSuccessful, setIsPaymentSuccessful, setLaundryDetails, setLaundrySummary, setLaundryPayment, setLaundryUpload }}
         />
       </div>
     </div>
@@ -70,7 +70,7 @@ const LaundryPayment = ({ setLaundryPayment }) => {
 
 export default LaundryPayment;
 
-const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful }) => {
+const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful, setLaundryDetails, setLaundrySummary, setLaundryPayment, setLaundryUpload }) => {
   const closeModalHandler = () => setIsPaymentSuccessful(false);
   const navigate  = useNavigate() 
   return (
@@ -92,7 +92,11 @@ const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful }) => {
           <ButtonContainer
             onClick={() => {
               setIsPaymentSuccessful(false);
-              navigate("/laundryhistory")
+              setLaundryDetails(false);
+              setLaundryPayment(false);
+              setLaundryUpload(false);
+              setLaundrySummary(false)
+              navigate("/laundry")
             }}
           >
             Done

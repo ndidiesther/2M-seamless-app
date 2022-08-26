@@ -4,13 +4,9 @@ import { CartContext } from "../App";
 
 import LaundryUpload from "../Components/Laundry/LaundryUpload";
 
-const LaundrySummary = ({ setLaundrySummary }) => {
+const LaundrySummary = ({ setLaundrySummary, setLaundryDetails }) => {
   const cartContext = useContext(CartContext);
-  const {
-    laundryUpload,
-    setLaundryUpload,
-    laundryCartItems,
-  } = cartContext;
+  const { laundryUpload, setLaundryUpload, laundryCartItems } = cartContext;
 
   const [subTotalValue, setSubTotalValue] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
@@ -38,7 +34,6 @@ const LaundrySummary = ({ setLaundrySummary }) => {
     },
   ];
 
-
   const setPrices = () => {
     const returnPrice = laundryCartItems.map((item, index) => {
       const serviceName = ourServices.find((services) => {
@@ -53,8 +48,6 @@ const LaundrySummary = ({ setLaundrySummary }) => {
     // console.log(returnPrice);
   };
   setPrices();
-  
-
 
   useEffect(() => {
     const subTotal = laundryCartItems.reduce((total, item) => {
@@ -90,7 +83,11 @@ const LaundrySummary = ({ setLaundrySummary }) => {
             </button>
             <div>
               <p>Order Summary</p>
-              <p className="summary_items">{laundryCartItems.length} Items</p>
+              <p className="summary_items">
+                {laundryCartItems.length <= 1
+                  ? `${laundryCartItems.length} Item `
+                  : `${laundryCartItems.length} Items`}
+              </p>
             </div>
           </div>
           <div className="laundrySummary-content">
@@ -149,7 +146,7 @@ const LaundrySummary = ({ setLaundrySummary }) => {
         }
       >
         <div>
-          <LaundryUpload {...{ setLaundryUpload }} />
+          <LaundryUpload {...{ setLaundryUpload, setLaundryDetails, setLaundrySummary }} />
         </div>
       </div>
     </div>

@@ -34,6 +34,8 @@ function SignUpModal({ modalShow2, setModalShow, setModalShow2, ...props }) {
 
 export default SignUpModal;
 
+
+
 const FirstStep = ({
   setSignupStep,
   setModalShow2,

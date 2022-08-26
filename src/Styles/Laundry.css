@@ -119,7 +119,7 @@
   letter-spacing: 0.02em;
   margin-block-end: 2.3em;
 }
-.laundryGal{
+.laundryGal {
   padding: 80px 03px 80px 30px;
   background-color: #ffffff !important;
 }
@@ -239,6 +239,15 @@
   border-right: 1.5px solid #bc9a43 !important;
   border-radius: 0 !important;
 }
+
+.select-order {
+  width: 200px !important;
+  display: inline !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
 .displayItem {
   display: flex;
   padding-top: 20px;
@@ -250,9 +259,17 @@
   padding: 10px;
   margin-left: 15px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.displayItem > div > span:first-child {
+.displayItem > div > span span:first-child {
   font-weight: bold;
+  /* display: block; */
+}
+.displayItem > div > span span:last-child {
+  font-size: 14px;
+  font-weight: lighter;
 }
 .displayItem > div > span:nth-child(2) {
   padding-left: 30px;
@@ -424,13 +441,27 @@
 /***********Laundry History ********/
 .laundryhistory {
   margin: 140px 0;
-  padding: 20px 0 0 60px;
+  padding: 40px 0 0 60px;
   display: flex;
   align-items: stretch;
 }
 .laundryhistory > div {
   margin: 10px;
 }
+.profile_img {
+  background-color: #bc9a43;
+  width: 242px;
+  height: 242px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+.profile_img > img {
+  width: 150px;
+  height: 200px;
+}
+
 .profilename > p:first-child {
   font-weight: bold;
   text-align: center;
@@ -442,7 +473,8 @@
   text-align: center;
   font-size: 18px;
 }
-.profile {
+.profile,
+.profiles {
   font-weight: bold;
 }
 .laundryhistory > div:first-child {
@@ -465,15 +497,16 @@
   position: relative;
   font-weight: bold;
 }
-.laundryhistory > div:nth-child(2) > span > span:last-child {
+/* .laundryhistory > div:nth-child(2) > span > span:last-child {
   float: right;
   color: #bc9a43;
-}
+} */
 .historydetails > div:first-child > div > p:first-child {
   font-weight: bold;
   margin-block-end: 0.3em;
 }
-.historydetails > div:nth-child(2) > div p:first-child {
+.historydetails > div:nth-child(2) > div p:first-child,
+.historydetails > div:nth-child(2) > div p:nth-child(2) {
   font-weight: bold;
   margin-block-end: 0.3em;
 }
@@ -508,6 +541,48 @@
 .historydetails > div:nth-child(4) > span > img {
   padding-right: 2px;
   padding-left: 2px;
+}
+.nullContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 60px;
+}
+.nullContainer > div {
+  text-align: center;
+}
+.nullContainer > div > p:first-child {
+  font-weight: bold;
+  font-size: 20px;
+}
+.nullContainer > div > p:nth-child(2) {
+  font-size: 18px;
+}
+.measurement_profile {
+  /* margin-top: 60px;
+ padding: 30px 20px; */
+
+  align-self: flex-start; 
+}
+.measurement_profile > div > p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+.size_profile > div > div{
+  width: 500px !important;
+}
+.meas_btn {
+  color:#bc9a43
+}
+.meas_image {
+  margin-block-start: 1.5em;
+  margin-block-end: 0;
+  font-weight: bold;
+}
+.pagedetails {
+  padding-bottom: 350px;
 }
 
 /*********Edit Profile ************/
@@ -619,7 +694,7 @@
     font-size: 3rem;
   }
   .laundryBanner_img {
-    width: 67vh;
+    width: 65vh;
   }
   .laundryBanner_content > p:nth-child(2) {
     padding-right: 150px;
@@ -674,8 +749,16 @@
     width: 180px;
     height: 180px;
   }
+  .profile_img > img {
+    width: 140px !important;
+    height: 170px !important;
+  }
   .laundryhistory > div:first-child {
     width: 180px;
+  }
+  .profile_img {
+    width: 180px;
+    height: 200px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1150px) {
@@ -847,7 +930,7 @@
     display: block;
   }
   .laundryhistory {
-    padding: 20px 30px;
+    padding: 60px 20px 40px;
   }
   .laundryhistory > div:first-child {
     padding-bottom: 30px;
@@ -860,6 +943,14 @@
 
   .sex_input > div > div > div {
     flex-wrap: wrap !important;
+  }
+  .profiles {
+    position: relative;
+    top: -135px;
+    left: 40px;
+  }
+  .profile_img {
+    margin-right: 20px;
   }
 }
 
@@ -1072,8 +1163,8 @@
     width: 75%;
     top: 17px;
   }
-  .laundryhistory {
-    padding: 20px;
+  .profiles {
+    top: -115px;
   }
   .profilename > div {
     text-align: center;
@@ -1090,6 +1181,17 @@
     font-size: 20px;
   } */
 
+  .profile_img > img {
+    width: 120px !important;
+    height: 140px !important;
+  }
+  .profile_img {
+    width: 180px;
+    height: 170px;
+  }
+  .profiles {
+    top: -100px;
+  }
   .historydetails > div:first-child > div > p:first-child,
   .historydetails > div:nth-child(2) > div p:first-child,
   .historydetails > div:nth-child(3) > p {
@@ -1187,6 +1289,10 @@
   .historydetails > div:nth-child(2) > div p:last-child,
   .historydetails > div:first-child > div > p:last-child {
     font-size: 14px;
+  }
+  .profiles {
+    top: 0;
+    left: -75px;
   }
 }
 @media only screen and (max-width: 320px) {

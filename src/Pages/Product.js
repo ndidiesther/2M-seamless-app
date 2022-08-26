@@ -107,7 +107,7 @@ export default function Product({}) {
               <div className="div_btn">
                 <ButtonContainer
                   onClick={() =>
-                    navigate("/customizeform", {
+                    navigate("/tailoring/customizeform", {
                       state: {
                         src: orderImage,
                         stylename: styleName,
@@ -133,12 +133,17 @@ export default function Product({}) {
                   <img src={Vector} />
                   <span>Fit Guarantee</span>
                 </span>
+                <span>
+                  <img src={Vector} />
+                  <span>10 Days</span>
+                </span>
               </div>
               <div className="fabric_desc">
                 <div className="dbr"></div>
+                <p>Duration: 10 Days</p>
                 <p>Fabric: Olympia, Multi Colored Ankara</p>
                 <p>Pattern Type: Random Patterns</p>
-                <p>Colors: Yellow, Blue, Green, Black, White, Orange</p>
+               
               </div>
             </div>
           </div>

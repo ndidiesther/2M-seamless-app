@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from "../../App";
 
-const LandryCart = ({services}) => {
+const LandryCart = ({ services }) => {
   // const getInitialState = () => {
   //   const value = "shorts";
   //   return value;
@@ -9,7 +9,7 @@ const LandryCart = ({services}) => {
 
   const [value, setValue] = useState("Shorts");
   const [changeQuantity, setChangeQuantity] = useState(1);
-//  console.log(services)
+  //  console.log(services)
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -23,7 +23,7 @@ const LandryCart = ({services}) => {
     name: value,
     quantity: changeQuantity,
     id: laundryCartItems.length + 1,
-    services: services
+    services: services,
   };
 
   const addToCart = () => {
@@ -31,9 +31,9 @@ const LandryCart = ({services}) => {
       (laundryItem) => item.name == laundryItem.name
     );
     if (CheckItem) {
-      return;  
+      return;
     }
-    setChangeQuantity(1)
+    setChangeQuantity(1);
 
     setLaundryCartItems((prev) => [...prev, item]);
   };
@@ -47,15 +47,15 @@ const LandryCart = ({services}) => {
 
   const incrementItem = () => {
     // console.log(changeQuantity);
-    setChangeQuantity(changeQuantity + 1)
-  }
+    setChangeQuantity(changeQuantity + 1);
+  };
   const decrementItem = () => {
     console.log(changeQuantity);
-    if(changeQuantity === 1){
-      return
+    if (changeQuantity === 1) {
+      return;
     }
-    setChangeQuantity(changeQuantity - 1)
-  }
+    setChangeQuantity(changeQuantity - 1);
+  };
   return (
     <>
       <div className="col-12">
@@ -79,11 +79,11 @@ const LandryCart = ({services}) => {
               <option value="Shirt">Shirt</option>
             </select>
             <div className="change_quantity select_amount">
-              <span onClick={()=>decrementItem()}>
+              <span onClick={() => decrementItem()}>
                 <i className="fa-solid fa-minus"></i>
               </span>
               <span>{changeQuantity}</span>
-              <span onClick={()=>incrementItem()}>
+              <span onClick={() => incrementItem()}>
                 <i className="fa-solid fa-plus"></i>
               </span>
             </div>
@@ -96,7 +96,11 @@ const LandryCart = ({services}) => {
           <div className=" col-12 displayItem">
             {laundryCartItems.map((item, index) => (
               <div key={index}>
-                <span>{item.name}</span>
+                <span>
+                  <span>{item.name}</span> <br/>
+                  <span>({item.services})</span>
+                </span>
+
                 <span>{item.quantity}pcs</span>
                 <span onClick={() => deleteItem(item.id)}>
                   <i className="fa-solid fa-xmark"></i>

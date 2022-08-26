@@ -83,7 +83,7 @@ const CartItem = ({ chooseSex }) => {
       <h2>Cart</h2>
       <div>
         <p>
-          <Link to={chooseSex == 1 ? "/malestyle" : "/femalestyle"}>
+          <Link to={chooseSex == 1 ? "/tailoring/malestyle" : "/tailoring/femalestyle"}>
             <button className="male_backarrow">
               <i className="fa-solid fa-arrow-left"></i>
             </button>

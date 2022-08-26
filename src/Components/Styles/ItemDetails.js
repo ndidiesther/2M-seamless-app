@@ -11,6 +11,10 @@ const ItemDetails = ({ styleName }) => {
         <p>Olympia, Multi Colored Ankara</p>
       </div>
       <div>
+      <p>
+          <span className="duration">Duration:</span>
+          <span> 10 days</span>
+        </p>
         <p>
           <span className="outfit">Outfit:</span>
           <span> ₦166,076.00</span>

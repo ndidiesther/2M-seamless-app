@@ -6,6 +6,7 @@ import Stroke from "../../Assets/Images/Stroke.png";
 import Search from "../../Assets/Images/Search.png";
 import Bag from "../../Assets/Images/Bag.png";
 import { NavLink } from "react-router-dom";
+import Profile from "./Profile";
 
 export default function Navbar({ setModalShow, setGenderModal }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -69,7 +70,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                     className={({ isActive }) =>
                       isActive ? "link-active" : "link"
                     }
-                    to="/"
+                    to="/tailoring"
                   >
                     Tailoring
                   </NavLink>
@@ -98,13 +99,13 @@ export default function Navbar({ setModalShow, setGenderModal }) {
           <div className=" nav-sublist col-lg-5">
             <span>
               <ul>
-                <li>
+                {/* <li>
                   {" "}
-                  {/* <Login /> */}
+                 
                   <button className="gf_btn" onClick={() => setModalShow(true)}>
                     Login
                   </button>
-                </li>
+                </li> */}
                 <li>
                   <img src={Search} />
                 </li>
@@ -113,6 +114,9 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 </li>
                 <li>
                   <img src={Bag} />
+                </li>
+                <li>
+                  <Profile />
                 </li>
               </ul>
             </span>
@@ -172,7 +176,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   className={({ isActive }) =>
                     isActive ? "menulink-active" : "menulink"
                   }
-                  to="/"
+                  to="/tailoring"
                 >
                   Tailoring
                 </NavLink>
@@ -196,6 +200,9 @@ export default function Navbar({ setModalShow, setGenderModal }) {
               <li>
                 <Link to="">Cart</Link>
               </li>
+              {/* <li>
+                <Link to="/laundryhistory">View Profile</Link>
+              </li> */}
               <hr className="hr_mb" />
               <li className="log_li">
                 {/* <Link to="">
@@ -214,7 +221,11 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 >
                   Login
                 </button>
+               
               </li>
+              {/* <li>
+                <Link to="/">Logout</Link>
+              </li> */}
               <li className="social_list">
                 <Link to="">
                   <i className="fa-brands fa-facebook-f"></i>

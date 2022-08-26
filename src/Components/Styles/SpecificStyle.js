@@ -25,7 +25,7 @@ const SpecificStyle = ({ orderImage, chooseSex, styleName, orderSumary, stylePri
       <div className="itemImg">
         <div className="productImg_div">
           <p className="product_para">
-            <Link to={chooseSex == 1 ? "/malestyle" : "/femalestyle"}>
+            <Link to={chooseSex == 1 ? "/tailoring/malestyle" : "/tailoring/femalestyle"}>
               <button className="male_backarrow">
                 <i className="fa-solid fa-arrow-left"></i>
               </button>

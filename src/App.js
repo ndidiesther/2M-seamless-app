@@ -19,7 +19,8 @@ import OtpInput from "./Components/Password/OtpInput";
 import ResetPassword from "./Components/Password/ResetPassword";
 import PasswordSuccessful from "./Components/Password/PasswordSuccessful";
 import LaundryHistory from "./Pages/LaundryHistory";
-import Test from "./Pages/Test"
+import TailoringHistory from "./Pages/TailoringHistory";
+
 
 export const CartContext = createContext();
 
@@ -69,16 +70,24 @@ function App() {
             path="/"
             element={<Home {...{ genderModal, setGenderModal }} />}
           />
-          <Route path="femalestyle" element={<FemaleStyles />} />
-          <Route path="malestyle" element={<MaleStyles />} />
-          <Route path="product" element={<Product />} />
-          <Route path="customizeform" element={<CustomizeForm />} />
-          <Route path="orderstyle" element={<OrderStyle />} />
-          <Route path="orderdetails" element={<OrderDetails />} />
-          <Route path="cartitem" element={<CartItem />} />
+          <Route
+            path="/tailoring"
+            element={<Home {...{ genderModal, setGenderModal }} />}
+          />
+          <Route path="/tailoring/femalestyle" element={<FemaleStyles />} />
+          <Route path="/tailoring/malestyle" element={<MaleStyles />} />
+          <Route path="/tailoring/product" element={<Product />} />
+          <Route path="/tailoring/customizeform" element={<CustomizeForm />} />
+          <Route path="/tailoring/orderstyle" element={<OrderStyle />} />
+          <Route path="/tailoring/orderdetails" element={<OrderDetails />} />
+          <Route path="/tailoring/cartitem" element={<CartItem />} />
           <Route path="laundry" element={<Laundry />} />
-          <Route path="laundryhistory" element={<LaundryHistory {...{editProfile, setEditProfile}} />} />
-          <Route path="/test"  element={<Test /> }/>
+          <Route
+            path="laundryhistory"
+            element={<LaundryHistory {...{ editProfile, setEditProfile }} />}
+          />
+          <Route path="tailoringhistory" element={<TailoringHistory  {...{ editProfile, setEditProfile }} />} />
+        
         </Routes>
         <Footer />
 

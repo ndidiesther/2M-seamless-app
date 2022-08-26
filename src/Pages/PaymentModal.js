@@ -3,6 +3,7 @@ import { Modal } from "react-bootstrap";
 import Input from "../Components/Modal/Input";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import Successful from "../Assets/Images/successful.png";
+import { useNavigate } from "react-router-dom";
 
 const PaymentModal = ({ paymentModal, setPaymentModal, ...props }) => {
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
@@ -58,6 +59,7 @@ const PaymentModal = ({ paymentModal, setPaymentModal, ...props }) => {
 
 const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful }) => {
   const closeModalHandler = () => setIsPaymentSuccessful(false);
+  let navigate = useNavigate();
   return (
     <Modal
       show={isPaymentSuccessful}
@@ -74,7 +76,12 @@ const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful }) => {
             <strong>Order Successful</strong>
           </h2>
           <h5>Your order has successfully been received</h5>
-          <ButtonContainer onClick={() => setIsPaymentSuccessful(false)}>
+          <ButtonContainer
+            onClick={() => {
+              setIsPaymentSuccessful(false);
+              navigate("/tailoring");
+            }}
+          >
             Done
           </ButtonContainer>
         </div>

@@ -10,6 +10,7 @@ const CustomizeForm = () => {
   let orderImage = location.state?.src;
   let chooseSex = location.state?.id;
   let styleName = location.state?.stylename;
+  let text = location.state?.content;
   let amount = location.state?.stylePrice;
 
   // console.log(location.state.id)
@@ -25,7 +26,7 @@ const CustomizeForm = () => {
             <SpecificStyle orderImage={orderImage} styleName={styleName} chooseSex={chooseSex}  />
           </div>
           <div>
-            <Form orderImage={orderImage} styleName={styleName} chooseSex={chooseSex}  />
+            <Form orderImage={orderImage} styleName={styleName} chooseSex={chooseSex} text={text}  />
           </div>
         </div>
       </div>

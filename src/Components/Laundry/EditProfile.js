@@ -70,10 +70,11 @@ const ShowImage = ({ images }) => {
   );
 };
 
-const EditProfile = ({ editProfile, setEditProfile }) => {
+const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
   const [images, setImages] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
   let navigate = useNavigate();
+  
 
   const handleTest = (file) => {
     // console.log("before");
@@ -196,13 +197,17 @@ const EditProfile = ({ editProfile, setEditProfile }) => {
             </div>
           </div>
           <div className="update_btn">
-            <ButtonContainer> Update</ButtonContainer>
+            <ButtonContainer onClick={()=> {
+              setEditProfile(false);
+              setProfilePic(selectedImages[0])
+            }}> Update</ButtonContainer>
           </div>
         </Modal.Body>
         <Modal.Footer>
           {/* <Button onClick={props.onHide}>Close</Button> */}
         </Modal.Footer>
       </Modal>
+      
     </div>
   );
 };

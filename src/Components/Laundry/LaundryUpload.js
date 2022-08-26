@@ -74,6 +74,8 @@ const UploadStyles = ({
   setUploadStyle,
   checkLength,
   setLaundryUpload,
+  setLaundryDetails,
+  setLaundrySummary,
   ...props
 }) => {
   const [images, setImages] = useState([]);
@@ -202,7 +204,7 @@ const UploadStyles = ({
         }
       >
         <div>
-          <LaundryPayment {...{ setLaundryPayment }} />
+          <LaundryPayment {...{ setLaundryPayment, setLaundryDetails, setLaundrySummary, setLaundryUpload }} />
         </div>
       </div>
     </div>

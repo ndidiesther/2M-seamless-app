@@ -12,7 +12,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { Modal } from "react-bootstrap";
 import ChartImage from "../../Assets/Images/size_chart.png";
+import MaleChart from "../../Assets/Images/size_male_chart.png";
 import { useNavigate } from "react-router-dom";
+import UploadMeasurement from "./UploadMeasurement";
+import "react-dropzone-uploader/dist/styles.css";
+import Dropzone from "react-dropzone-uploader";
 
 const PickUpLocation = () => {
   return (
@@ -30,14 +34,21 @@ const DeliveryLocation = () => {
     </div>
   );
 };
-const SelectSize = () => {
+const SelectSize = ({ text, files }) => {
   const [size, setSize] = React.useState("");
   const [viewChart, setViewChart] = useState(false);
+  const [viewModal, setViewModal] = useState(false);
+  const [uploadMeasurement, setUploadMeasurement] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [chartImage, setChartImage] = useState(1);
+
+  // const [selectedImages, setSelectedImages] = useState([]);
   const closeModalHandler = () => setViewChart(false);
 
   const handleChange = (event) => {
     setSize(event.target.value);
   };
+  // console.log(selectedImage);
   return (
     <div className="select_size">
       <Box sx={{ minWidth: 120 }}>
@@ -59,9 +70,52 @@ const SelectSize = () => {
             <MenuItem value={7}>US 16/ UK 20</MenuItem>
           </Select>
         </FormControl>
-        <button className="size_btn" onClick={() => setViewChart(true)}>
-          View Size Chart
-        </button>
+        <div className="view_sizebtn">
+          <button className="size_btn" onClick={() => setViewChart(true)}>
+            View Size Chart
+          </button>
+          <button className="measurement_btn">
+            or Import the measurement from your profile
+          </button>
+        </div>
+
+        {selectedImage == null ? (
+          <div className="uploadimage">
+            <button
+              className="uploadimage_btn"
+              onClick={() => setUploadMeasurement(true)}
+            >
+              Or Upload an image of your measurements
+            </button>
+          </div>
+        ) : (
+          <div className="selected_image">
+            <span>
+              {" "}
+              <span>{selectedImage && selectedImage.name} </span>
+              <span onClick={() => setSelectedImage(null)}>
+                <i className="fa-solid fa-xmark"></i>
+              </span>
+            </span>
+            <span
+              onClick={() => {
+                setUploadMeasurement(true);
+                // setSelectedImages([]);
+              }}
+            >
+              Change
+            </span>
+          </div>
+        )}
+
+        <UploadMeasurement
+          {...{
+            uploadMeasurement,
+            setUploadMeasurement,
+            setSelectedImage,
+          }}
+        />
+
         <Modal
           dialogClassName={"CSRModal"}
           show={viewChart}
@@ -70,17 +124,13 @@ const SelectSize = () => {
           aria-labelledby="contained-modal-title-vcenter"
           centered
         >
-          <Modal.Header closeButton>
-            <Modal.Title
-              id="contained-modal-title-vcenter"
-              className="modal-title"
-            ></Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="gender_body">
-            <div  className="chartimg">
-              <img src={ChartImage} />
+          {chartImage === 1 ? (
+            <div>
+              <FirstStep {...{ setChartImage }} />
             </div>
-          </Modal.Body>
+          ) : (
+            <SecondStep {...{ setChartImage }} />
+          )}
           <Modal.Footer>
             {/* <Button onClick={props.onHide}>Close</Button> */}
           </Modal.Footer>
@@ -89,6 +139,68 @@ const SelectSize = () => {
     </div>
   );
 };
+
+const FirstStep = ({ setChartImage }) => {
+  return (
+    <>
+      <Modal.Header >
+        <Modal.Title
+          id="contained-modal-title-vcenter"
+          className="modal-title"
+        ></Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="gender_body">
+        <div className="chartimg">
+          <span className="angle-left disabled">
+            <i className="fa-solid fa-angle-left"></i>
+          </span>
+          <img className="chart_img" src={ChartImage} />
+          <span
+            onClick={() => {
+              setChartImage(2);
+            }}
+            className="angle-right"
+          >
+            <i className="fa-solid fa-angle-right"></i>
+          </span>
+        </div>
+      </Modal.Body>
+      <Modal.Footer>
+        {/* <Button onClick={props.onHide}>Close</Button> */}
+      </Modal.Footer>
+    </>
+  );
+};
+
+const SecondStep = ({ setChartImage }) => {
+  return (
+    <>
+      <Modal.Header >
+        <Modal.Title
+          id="contained-modal-title-vcenter"
+          className="modal-title"
+        ></Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="gender_body">
+        <div className="chartimg">
+          <span  onClick={() => {
+              setChartImage(1);
+            }} className="angle-left">
+            <i className="fa-solid fa-angle-left"></i>
+          </span>
+          <img className="chart_img" src={MaleChart} />
+          <span className="angle-right disabled">
+            <i className="fa-solid fa-angle-right"></i>
+          </span>
+        </div>
+      </Modal.Body>
+      <Modal.Footer>
+        {/* <Button onClick={props.onHide}>Close</Button> */}
+      </Modal.Footer>
+    </>
+  );
+};
+
 const InputMeasurement = () => {
   return (
     <div className="input_measurement">
@@ -261,7 +373,7 @@ const Form = ({ orderImage, styleName, chooseSex }) => {
       <div className="form_button">
         <ButtonContainer
           onClick={() =>
-            navigate("/orderdetails", {
+            navigate("/tailoring/orderdetails", {
               state: { src: orderImage, stylename: styleName, id: chooseSex },
             })
           }

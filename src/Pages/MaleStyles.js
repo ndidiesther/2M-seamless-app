@@ -42,9 +42,9 @@ const MaleStyles = () => {
         <div className="load_more">
           <ButtonContainer cart>Load More Styles</ButtonContainer>
         </div>
-        <div className="other_uploadbtn">
+        {/* <div className="other_uploadbtn">
           <UploadButton />
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import ProfileImg from "../Assets/Images/profileimg.png";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import PickUp from "../Assets/Images/pickup.png";
 import Washing from "../Assets/Images/washing.png";
 import Delivery from "../Assets/Images/delivery.png";
 import EditProfile from "../Components/Laundry/EditProfile";
+import { useNavigate } from "react-router-dom";
 
 const LaundryHistory = ({ editProfile, setEditProfile }) => {
+  const [orderType, setOrderType] = useState("");
+  let navigate = useNavigate();
+
+  const handleSelect = (e) => {
+    console.log("Hello");
+    setOrderType(e.target.value);
+    if (e.target.value === "laundry") {
+      navigate("/laundryhistory");
+      // console.log(e.target.value)
+    } else if (e.target.value === "tailoring") {
+      navigate("/tailoringhistory");
+      // console.log(e.target.value)
+    }
+  };
   return (
     <>
       <div className="col-12 laundryhistory">
@@ -28,8 +43,20 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
         </div>
         <div>
           <span>
-            <span>Orders</span>
-            <span>History</span>
+            <span>
+              <span className="">
+                <select
+                  value={orderType}
+                  onChange={handleSelect}
+                  className="form-select laundry-form form-select-lg shadow-none select-order"
+                  aria-label=".form-select-lg example"
+                >
+                  <option value="laundry"> Laundry History</option>
+                  <option value="tailoring"> Tailoring History</option>
+                </select>
+              </span>
+            </span>
+            {/* <span>History</span> */}
           </span>
           <div className="col-12 historydetails">
             <div className="col-xsm-4">
@@ -43,6 +70,7 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
             </div>
             <div className="col-xsm-6">
               <div>
+                <p>Wet Wash and dry clean</p>
                 <p>3 items </p>
                 <p>
                   <span>Pickup: Onsite</span>
@@ -81,6 +109,7 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
             </div>
             <div className="col-xsm-6">
               <div>
+                <p>Wet Wash and dry clean</p>
                 <p>3 items </p>
                 <p>
                   <span>Pickup: Onsite</span>

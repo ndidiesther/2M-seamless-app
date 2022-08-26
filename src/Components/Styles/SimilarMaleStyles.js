@@ -13,7 +13,7 @@ const StylesForMale = () => {
           <div>
             <img
               onClick={() =>
-                navigate("/product", {
+                navigate("/tailoring/product", {
                   state: {
                     src: FourthStyle,
                     id: 1,
@@ -31,7 +31,7 @@ const StylesForMale = () => {
           <div>
             <img
               onClick={() =>
-                navigate("/product", {
+                navigate("/tailoring/product", {
                   state: {
                     src: FifthStyle,
                     id: 1,
@@ -49,7 +49,7 @@ const StylesForMale = () => {
           <div>
             <img
               onClick={() =>
-                navigate("/product", {
+                navigate("/tailoring/product", {
                   state: {
                     src: SixthStyle,
                     id: 1,
