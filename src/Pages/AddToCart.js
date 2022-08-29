@@ -150,7 +150,7 @@ const AddToCart = ({ setShowCart }) => {
                   <span>100%</span>
                 </span>
               </div>
-              <ButtonContainer cart onClick={() => navigate("/tailoring/cartitem")}>
+              <ButtonContainer cart onClick={() => navigate("/cartitem")}>
                 View Cart
               </ButtonContainer>
               <ButtonContainer>Checkout</ButtonContainer>

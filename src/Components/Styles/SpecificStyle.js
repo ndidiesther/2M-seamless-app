@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import "../../Styles/styles.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const SpecificStyle = ({ orderImage, chooseSex, styleName, orderSumary, stylePrice }) => {
+const SpecificStyle = ({ orderImage, chooseSex, styleName, backarrow }) => {
   const ImageRef = useRef();
   const ImageRef1 = useRef();
   const ImageRef2 = useRef();
@@ -20,16 +20,22 @@ const SpecificStyle = ({ orderImage, chooseSex, styleName, orderSumary, stylePri
     ImageRef4.current.src = orderImage;
   }, [orderImage]);
 
+  let navigate = useNavigate()
+
+
   return (
     <div className="clearfix">
       <div className="itemImg">
         <div className="productImg_div">
           <p className="product_para">
-            <Link to={chooseSex == 1 ? "/tailoring/malestyle" : "/tailoring/femalestyle"}>
+            <span onClick={()=>navigate(-1)} >
+            {/* <Link to={ backarrow ? "/tailoring/malestyle" : "/tailoring/femalestyle"}> */}
               <button className="male_backarrow">
                 <i className="fa-solid fa-arrow-left"></i>
               </button>
-            </Link>
+            {/* </Link> */}
+            </span>
+            
 
             <span>{styleName}</span>
           </p>

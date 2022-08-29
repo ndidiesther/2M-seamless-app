@@ -23,7 +23,7 @@ const CustomizeForm = () => {
       <div className="col-12 product form_div">
         <div className="customize_form">
           <div>
-            <SpecificStyle orderImage={orderImage} styleName={styleName} chooseSex={chooseSex}  />
+            <SpecificStyle orderImage={orderImage} styleName={styleName} chooseSex={chooseSex} />
           </div>
           <div>
             <Form orderImage={orderImage} styleName={styleName} chooseSex={chooseSex} text={text}  />
