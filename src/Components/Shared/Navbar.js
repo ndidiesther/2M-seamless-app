@@ -2,7 +2,6 @@ import { useState, React } from "react";
 import "../../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import Logo from "../../Assets/Images/seamless_logo.png";
-import Stroke from "../../Assets/Images/Stroke.png";
 import Search from "../../Assets/Images/Search.png";
 import Bag from "../../Assets/Images/Bag.png";
 import { NavLink } from "react-router-dom";
@@ -13,7 +12,9 @@ export default function Navbar({ setModalShow, setGenderModal }) {
 
   return (
     <>
+      {/* Desktop view of Navbar */}
       <div className="col-12 navbar">
+        {/* Top Nav containing social media links */}
         <div className="top-nav col-12">
           <span className="nav-icons">
             <span>
@@ -34,22 +35,11 @@ export default function Navbar({ setModalShow, setGenderModal }) {
             <span>About Us</span>
             <span>Contact </span>
           </span>
-          <span className="nav-mini">
-            {" "}
-            {/* <Login /> */}
-            <button
-              className="gf_btn"
-              onClick={() => {
-                setModalShow(true);
-                setGenderModal(false);
-              }}
-            >
-              Login
-            </button>
-          </span>
+          
         </div>
+        {/* Main Nav for desktop view */}
         <div className="main-nav col-12">
-          <div className="nav-list col-lg-5 col-sm-6 col-xs-6">
+          <div className="nav-list col-lg-5 col-sm-5 col-xs-6">
             <ul>
               <li>
                 <i className="fa-solid fa-bars"></i>
@@ -88,7 +78,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
               </li>
             </ul>
           </div>
-          <div className="nav-logo col-lg-2 col-sm-6 col-xs-6">
+          <div className="nav-logo col-lg-2 col-sm-2 col-xs-6">
             <div>
               <Link to="/">
                 <img src={Logo} />
@@ -96,7 +86,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
               </Link>
             </div>
           </div>
-          <div className=" nav-sublist col-lg-5">
+          <div className=" nav-sublist col-lg-5 col-sm-5">
             <span>
               <ul>
                 {/* <li>
@@ -109,9 +99,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 <li>
                   <img src={Search} />
                 </li>
-                <li>
-                  <img src={Stroke} />
-                </li>
+
                 <li>
                   <img src={Bag} />
                 </li>
@@ -161,7 +149,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
         >
           <div className="menu">
             <ul>
-              <li>
+              <li onClick={() => setIsNavExpanded(false)}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "link-activ" : "lin"
@@ -171,7 +159,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   Home - Classic
                 </NavLink>
               </li>
-              <li>
+              <li onClick={() => setIsNavExpanded(false)}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "menulink-active" : "menulink"
@@ -181,7 +169,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   Tailoring
                 </NavLink>
               </li>
-              <li>
+              <li onClick={() => setIsNavExpanded(false)}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "menulink-active" : "menulink"
@@ -191,14 +179,35 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   Laundry
                 </NavLink>
               </li>
-              <li>
-                <Link to="">Search</Link>
+              <li onClick={() => setIsNavExpanded(false)}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "menulink-active" : "menulink"
+                  }
+                  to=""
+                >
+                  Search
+                </NavLink>
               </li>
-              <li>
-                <Link to="">Favourites</Link>
+              <li onClick={() => setIsNavExpanded(false)}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "menulink-active" : "menulink"
+                  }
+                  to="/tailoringhistory"
+                >
+                  Profile
+                </NavLink>
               </li>
-              <li>
-                <Link to="">Cart</Link>
+              <li onClick={() => setIsNavExpanded(false)}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "menulink-active" : "menulink"
+                  }
+                  to="/cartitem"
+                >
+                  Cart
+                </NavLink>
               </li>
               {/* <li>
                 <Link to="/laundryhistory">View Profile</Link>
@@ -221,8 +230,21 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 >
                   Login
                 </button>
-               
               </li>
+              {/* <li className="log_li">
+                <button
+                  className="gf_btn"
+                  onClick={() => {
+                    if (true) {
+                      // console.log("true");
+                      setIsNavExpanded(false);
+                      setGenderModal(false);
+                    }
+                  }}
+                >
+                  Log Out
+                </button>
+              </li> */}
               {/* <li>
                 <Link to="/">Logout</Link>
               </li> */}

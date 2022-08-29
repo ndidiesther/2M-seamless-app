@@ -76,8 +76,20 @@
 .styles_subheader > div > button:not(button:last-child) {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
-.styles_subheader > div > button:first-child {
+.styles_subheader > div > button.active {
   border: 1px solid #bc9a43 !important;
+  color: #bc9a43;
+}
+
+.select-sex {
+  width: 100px !important;
+  display: inline !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
 }
 .styles_subheader > div:nth-child(2) > div {
   float: right;
@@ -114,12 +126,15 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  column-gap: 20px;
 }
 .styles_for_female > div > div,
 .styles_for_male > div > div {
   width: 350px;
   height: auto;
   cursor: pointer;
+  padding-bottom: 25px;
 }
 .styles_for_female > div > div img,
 .styles_for_male > div > div img {
@@ -181,7 +196,7 @@
 @media only screen and (max-width: 991px) {
   .styles_for_female > div,
   .styles_for_male > div {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   .styles_for_female,
   .styles_for_male {
@@ -190,6 +205,10 @@
   .styles_for_female > div > div,
   .styles_for_male > div > div {
     padding-bottom: 20px;
+    flex-basis: 50%;
+  }
+  .styles_name {
+    width: 350px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -277,6 +296,18 @@
     padding: 6px 20px 6px 0 !important;
     margin-left: 10px;
   }
+  .styles_name {
+    width: unset;
+  }
+  .styles_header > div:nth-child(2) {
+    font-size: 14.5px;
+  }
+}
+#demo-simple-select-label.Mui-focused {
+  color:#bc9a43 !important;
+}
+MenuItem.Mui-select-select {
+  color: blue;
 }
 @media only screen and (max-width: 350px) {
   .load_more {
@@ -426,7 +457,8 @@
 .vector_div {
   padding-top: 30px;
 }
-.vector_div > span:first-child, .vector_div > span:nth-child(2) > span {
+.vector_div > span:first-child,
+.vector_div > span:nth-child(2) > span {
   position: relative;
   padding-right: 30px;
 }
@@ -438,11 +470,11 @@
 }
 .vector_div > span:first-child > span,
 .vector_div > span:nth-child(2) > span,
-.vector_div > span:nth-child(3) > span
- {
+.vector_div > span:nth-child(3) > span {
   padding-left: 40px;
 }
-.vector_div > span:nth-child(2), .vector_div > span:nth-child(3) {
+.vector_div > span:nth-child(2),
+.vector_div > span:nth-child(3) {
   position: relative;
 }
 .fabric_desc {

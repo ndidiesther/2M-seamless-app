@@ -234,12 +234,30 @@
   border: none;
   background-color: transparent;
 }
+.profile_div {
+  position: absolute;
+  right: 190px;
+  /* top:80px; */
+}
 @media only screen and (max-width: 991px) {
-  .nav-sublist {
+  /* .nav-sublist {
     display: none;
-  }
+  } */
   .nav-logo > div {
-    float: right;
+   text-align: center;
+  }
+  .nav-list > ul > li {
+    padding-right: 10px;
+    /* font-size: 15px; */
+  }
+  .nav-sublist {
+    padding-right: 0;
+  }
+  .profile_div {
+    right: 160px
+  }
+  .main-nav {
+    padding: 15px 10px 8px 10px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -284,11 +302,7 @@
 /* .gf_btn {
   display: none;
 } */
-.profile_div {
-  position: absolute;
-  right: 230px;
-  /* top:80px; */
-}
+
 
 .btn {
   padding: 0 10px 0 0 !important;

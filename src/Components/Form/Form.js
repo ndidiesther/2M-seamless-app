@@ -16,6 +16,7 @@ import MaleChart from "../../Assets/Images/size_male_chart.png";
 import { useNavigate } from "react-router-dom";
 import UploadMeasurement from "./UploadMeasurement";
 import "react-dropzone-uploader/dist/styles.css";
+import { inputLabelClasses } from "@mui/material/InputLabel";
 import Dropzone from "react-dropzone-uploader";
 
 const PickUpLocation = () => {
@@ -34,6 +35,7 @@ const DeliveryLocation = () => {
     </div>
   );
 };
+
 const SelectSize = ({ text, files }) => {
   const [size, setSize] = React.useState("");
   const [viewChart, setViewChart] = useState(false);
@@ -53,13 +55,50 @@ const SelectSize = ({ text, files }) => {
     <div className="select_size">
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Select Size</InputLabel>
-          <Select
+          <InputLabel
+            InputLabelProps={{
+              sx: {
+                // set the color of the label when not shrinked
+                color: "#000",
+                [`&.${inputLabelClasses.shrink}`]: {
+                  // set the color of the label when shrinked (usually when the TextField is focused)
+                  color: "#000",
+                },
+              },
+            }}
+            I
+            id="demo-simple-select-label"
+          >
+            Select Size
+          </InputLabel>
+          <Select className="MenuItem"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={size}
             label="Select Size"
             onChange={handleChange}
+            sx={{
+              ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+                border: "1px solid rgba(0, 0, 0, 0.23)",
+              },
+
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#bc9a43",
+                borderWidth: "2px",
+              },
+              "& label": {
+                color: "white",
+              },
+            
+             ".&.Mui-focused .MuiOutlinedInput-notchedOutline-MuiSelect-root:hover": {
+              "& > fieldset": {
+                borderColor: "#bc9a43",
+                borderWidth: "2px",
+              },
+            },
+
+            
+            }}
           >
             <MenuItem value={1}>US 4/ UK 8</MenuItem>
             <MenuItem value={2}>US 6/ UK 10</MenuItem>
@@ -143,7 +182,7 @@ const SelectSize = ({ text, files }) => {
 const FirstStep = ({ setChartImage }) => {
   return (
     <>
-      <Modal.Header >
+      <Modal.Header>
         <Modal.Title
           id="contained-modal-title-vcenter"
           className="modal-title"
@@ -175,7 +214,7 @@ const FirstStep = ({ setChartImage }) => {
 const SecondStep = ({ setChartImage }) => {
   return (
     <>
-      <Modal.Header >
+      <Modal.Header>
         <Modal.Title
           id="contained-modal-title-vcenter"
           className="modal-title"
@@ -183,9 +222,12 @@ const SecondStep = ({ setChartImage }) => {
       </Modal.Header>
       <Modal.Body className="gender_body">
         <div className="chartimg">
-          <span  onClick={() => {
+          <span
+            onClick={() => {
               setChartImage(1);
-            }} className="angle-left">
+            }}
+            className="angle-left"
+          >
             <i className="fa-solid fa-angle-left"></i>
           </span>
           <img className="chart_img" src={MaleChart} />
@@ -201,41 +243,41 @@ const SecondStep = ({ setChartImage }) => {
   );
 };
 
-const InputMeasurement = () => {
-  return (
-    <div className="input_measurement">
-      <p>Please input your measurement (in inches)</p>
-      <div className="input_mdiv">
-        <span>
-          <label>Shoulder</label>
-          <input type="number" />
-        </span>
-        <span>
-          <label>Bust</label>
-          <input type="number" />
-        </span>
-        <span>
-          <label>Waist</label>
-          <input type="number" />
-        </span>
-      </div>
-      <div className="input_mdiv">
-        <span>
-          <label>Hip</label>
-          <input type="number" />
-        </span>
-        <span>
-          <label>Blouse Length</label>
-          <input type="number" />
-        </span>
-        <span>
-          <label>Skirt Length</label>
-          <input type="number" />
-        </span>
-      </div>
-    </div>
-  );
-};
+// const InputMeasurement = () => {
+//   return (
+//     <div className="input_measurement">
+//       <p>Please input your measurement (in inches)</p>
+//       <div className="input_mdiv">
+//         <span>
+//           <label>Shoulder</label>
+//           <input type="number" />
+//         </span>
+//         <span>
+//           <label>Bust</label>
+//           <input type="number" />
+//         </span>
+//         <span>
+//           <label>Waist</label>
+//           <input type="number" />
+//         </span>
+//       </div>
+//       <div className="input_mdiv">
+//         <span>
+//           <label>Hip</label>
+//           <input type="number" />
+//         </span>
+//         <span>
+//           <label>Blouse Length</label>
+//           <input type="number" />
+//         </span>
+//         <span>
+//           <label>Skirt Length</label>
+//           <input type="number" />
+//         </span>
+//       </div>
+//     </div>
+//   );
+// };
 
 const Form = ({ orderImage, styleName, chooseSex }) => {
   const [yesFabric, setyesFabric] = useState(false);
@@ -354,7 +396,7 @@ const Form = ({ orderImage, styleName, chooseSex }) => {
       <div>
         {yesMeasurement && (
           <>
-            <InputMeasurement />
+            <SelectSize />
           </>
         )}
         {noMeasurement && <SelectSize />}

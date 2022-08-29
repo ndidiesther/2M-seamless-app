@@ -80,7 +80,7 @@ function App() {
           <Route path="/tailoring/customizeform" element={<CustomizeForm />} />
           <Route path="/tailoring/orderstyle" element={<OrderStyle />} />
           <Route path="/tailoring/orderdetails" element={<OrderDetails />} />
-          <Route path="/tailoring/cartitem" element={<CartItem />} />
+          <Route path="/cartitem" element={<CartItem />} />
           <Route path="laundry" element={<Laundry />} />
           <Route
             path="laundryhistory"
