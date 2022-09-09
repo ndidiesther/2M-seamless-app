@@ -49,7 +49,7 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
     if (profilePic == null) {
       return;
     }
-    console.log(profilePic);
+    // console.log(profilePic);
     const reader = new FileReader();
     reader.addEventListener("load", (e) => {
       ImageRef.current.src = e.target.result;
@@ -123,59 +123,84 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
             </span>
             {/* <span>History</span> */}
           </span>
-          
-          {orderArr.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => {
-                setLaundryOrders(true);
-                setSelectedOrder(item);
-              }}
-              className="col-12 historydetails"
-            >
-              <div className="col-xsm-4">
-                <div>
-                  <p>{item.orderId}</p>
-                  <p>
-                    <span>{item.time}| </span>
-                    <span> {item.date}</span>
-                  </p>
-                </div>
-              </div>
-              <div className="col-xsm-6">
-                <div>
-                  <p>{item.service}</p>
-                  <p>{item.itemCount}items </p>
-                  <p>
-                    <span>Pickup: {item.pickUp}</span>
-                    <span>Delivery: {item.delivery}</span>
-                  </p>
-                </div>
-              </div>
-              <div className="col-xsprice ">
-                <p>{item.amount}</p>
-              </div>
-              <div className="col-xsm-12">
-                <span>
-                  <img src={PickUp} />
-                  <span className="hr-sepe"></span>
-                </span>
 
-                {/* <span className="hr-seperator"></span> */}
-                <span>
-                  <img src={Washing} />
-                  <span className="hr-sepe"></span>
-                </span>
-                <span>
-                  <img src={Delivery} />
-                </span>
+          {profilePic == null ? (
+            <div>
+              <div className="nullContainer">
+                <div>
+                  <p>It feels empty here.</p>
+                  <p>You are yet to make any order</p>
+
+                  <div>
+                    <ButtonContainer>Make an order now</ButtonContainer>
+                  </div>
+                </div>
               </div>
             </div>
-          ))}
+          ) : (
+            <div className="historyDiv">
+              {orderArr.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => {
+                    setLaundryOrders(true);
+                    setSelectedOrder(item);
+                  }}
+                  className="col-12 historydetails hd"
+                >
+                  <div className="col-xsm-4">
+                    <div>
+                      <p>{item.orderId}</p>
+                      <p>
+                        <span>{item.time}| </span>
+                        <span> {item.date}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-xsm-6">
+                    <div>
+                      <p>{item.service}</p>
+                      <p>{item.itemCount} items </p>
+                      <p>
+                        <span>Pickup: {item.pickUp}</span>
+                        <span>Delivery: {item.delivery}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-xsprice ">
+                    <p>{item.amount}</p>
+                  </div>
+                  <div className="col-xsm-12">
+                    <span>
+                      <img src={PickUp} />
+                      <span className="hr-sepe"></span>
+                    </span>
+
+                    {/* <span className="hr-seperator"></span> */}
+                    <span>
+                      <img src={Washing} />
+                      <span className="hr-sepe"></span>
+                    </span>
+                    <span>
+                      <img src={Delivery} />
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <EditProfile {...{ editProfile, setEditProfile, setProfilePic }} />
-      <LaundryOrders {...{ laundryOrders, setLaundryOrders, orderArr, setOrderArr, selectedOrder }} />
+      <LaundryOrders
+        {...{
+          laundryOrders,
+          setLaundryOrders,
+          orderArr,
+          setOrderArr,
+          selectedOrder,
+        }}
+      />
     </>
   );
 };

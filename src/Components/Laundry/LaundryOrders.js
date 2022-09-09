@@ -21,7 +21,7 @@ function LaundryOrders({
   function updateStatus() {
     let updatedArray = orderArr.map((item) => {
       if (item.orderId == selectedOrder.orderId) {
-        return {...item, status:'Completed'}
+        return {...item, status:'Delivered'}
       }
       else{
         return item
@@ -84,7 +84,7 @@ function LaundryOrders({
                 <p>{selectedOrder.delivery}</p>
               </div>
             </div>
-            <div className="laundry_address">
+            <div className="col-12 laundry_address">
               <div>
                 <p>Delivery Address</p>
                 <p>
@@ -140,7 +140,7 @@ function LaundryOrders({
               setLaundryOrders(false);
               updateStatus()
             }}
-            className={selectedOrder.status == 'Completed' && "disabled complete-disabled"}
+            className={selectedOrder.status == 'Delivered' && "disabled complete-disabled"}
           >
             Confirm Order Received
           </ButtonContainer>

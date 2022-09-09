@@ -29,6 +29,17 @@ const MeasurementProfile = () => {
   const handleChange = (event) => {
     setSize(event.target.value);
   };
+  function trimContent(imgName) {
+    console.log(imgName.length)
+    console.log(imgName)
+    if (imgName.length < 15) {
+      return imgName;
+    }
+    let start = imgName.slice(0, 10)
+    let end = imgName.slice(-5)
+    let trimmedString = start + "..." + end
+    return trimmedString
+  }
   return (
     <div className="measurement_profile">
       <div>
@@ -75,22 +86,22 @@ const MeasurementProfile = () => {
               </div>
             ) : (
               <div className="selected_image">
-                <span>
-                  {" "}
-                  <span>{selectedImage && selectedImage.name} </span>
-                  <span onClick={() => setSelectedImage(null)}>
-                    <i className="fa-solid fa-xmark"></i>
-                  </span>
-                </span>
-                <span
-                  onClick={() => {
-                    setUploadMeasurement(true);
-                    // setSelectedImages([]);
-                  }}
-                >
-                  Change
+              <div>
+                {" "}
+                <span>{selectedImage && trimContent(selectedImage.name)} </span>
+                <span onClick={() => setSelectedImage(null)}>
+                  <i className="fa-solid fa-xmark"></i>
                 </span>
               </div>
+              <div
+                onClick={() => {
+                  setUploadMeasurement(true);
+                  // setSelectedImages([]);
+                }}
+              >
+                Change
+              </div>
+            </div>
             )}
 
             <UploadMeasurement
@@ -206,7 +217,8 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
       pickUp: "Onsite",
       delivery: "Home delivery",
       amount: "#625.00",
-      status: "Washing",
+      status: "Delivery in 5 days",
+      initialStatus: "In Progress",
     },
     {
       orderId: "ID-12360",
@@ -217,7 +229,8 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
       pickUp: "Onsite",
       delivery: "Home delivery",
       amount: "#625.00",
-      status: "Washing",
+      status: "Delivery in 10 days",
+      initialStatus: "In Progress",
     },
   ]);
 
@@ -315,10 +328,10 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
                   </div>
                 </div>
               </div>
-              <MeasurementProfile />
+            
             </div>
           ) : (
-            <div>
+            <div className="historyDiv">
               {orderArr.map((item, index) => (
                 <div
                   key={index}
@@ -326,9 +339,9 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
                     setTailoringOrders(true);
                     setSelectedOrder(item);
                   }}
-                  className="col-12 historydetails"
+                  className="col-12 historydetails td"
                 >
-                  <div className="col-xsm-4">
+                  <div className="col-xm-4">
                     <div>
                       <p>{item.orderId}</p>
                       <p>
@@ -337,7 +350,7 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
                       </p>
                     </div>
                   </div>
-                  <div className="col-xsm-6 tailoring_history">
+                  <div className="col-xm-6 tailoring_history">
                     <div>
                       <p>
                         Ankara Bohemian Gown | <span>Custom Order</span>
@@ -349,18 +362,21 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
                       </p>
                     </div>
                   </div>
-                  <div className="col-xsprice ">
-                    <p>₦{item.amount}</p>
+                  <div className="col-xprice ">
+                    <p>{item.amount}</p>
                   </div>
-                  <div className="col-xsm-12 history_progress">
-                    <span>In Progress</span>
+                  <div className="col-xm-12 history_progress">
+                    <span>{item.initialStatus}</span>
                   </div>
                 </div>
               ))}
 
-              <MeasurementProfile />
+            
             </div>
           )}
+          <div className="measurement_pro">
+            <MeasurementProfile />
+          </div>
         </div>
       </div>
       <EditProfile {...{ editProfile, setEditProfile, setProfilePic }} />
