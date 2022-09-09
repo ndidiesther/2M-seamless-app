@@ -58,7 +58,7 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
   }, [profilePic]);
 
   const handleSelect = (e) => {
-    console.log("Hello");
+    // console.log("Hello");
     setOrderType(e.target.value);
     if (e.target.value === "laundry") {
       navigate("/laundry/laundryhistory");

@@ -3,6 +3,7 @@ import { Modal } from "react-bootstrap";
 import { ButtonContainer } from "../Shared/ButtonComponent";
 import TailoringOrderImg from "../../Assets/Images/orderdetails.png";
 import Successful from "../../Assets/Images/successful.png";
+import ImageNull from "../../Assets/Images/image_ban.png";
 
 const TailoringOrders = ({
   tailoringOrders,
@@ -14,6 +15,7 @@ const TailoringOrders = ({
   const closeModalHandler = () => setTailoringOrders(false);
   const [tailoringOrderSuccess, setTailoringOrderSuccess] = useState(false);
   const [completed, setCompleted] = useState(null);
+  const [imageNull, setImageNull] = useState('');
   function updateStatus() {
     let updatedArray = orderArr.map((item) => {
       if (item.orderId == selectedOrder.orderId) {
@@ -47,9 +49,16 @@ const TailoringOrders = ({
           </div>
           <div className="Laundry-Orders">
             <div className="laundry-order-page">
-              <div>
-                <img src={TailoringOrderImg} />
-              </div>
+              {imageNull == null ? (
+                <div>
+                  <img src={ImageNull} />
+                </div>
+              ) : (
+                <div>
+                  <img src={TailoringOrderImg} />
+                </div>
+              )}
+
               <div>
                 <div>
                   <p>Ankara Bohemian Gown</p>

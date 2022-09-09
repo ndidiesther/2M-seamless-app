@@ -6,9 +6,11 @@ import Search from "../../Assets/Images/Search.png";
 import Bag from "../../Assets/Images/Bag.png";
 import { NavLink } from "react-router-dom";
 import Profile from "./Profile";
+import SearchIcon from "./SearchIcon";
 
 export default function Navbar({ setModalShow, setGenderModal }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <>
@@ -95,7 +97,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                     Login
                   </button>
                 </li> */}
-                <li>
+                <li onClick={() => setShowSearch(true)}>
                   <img src={Search} />
                 </li>
 
@@ -113,6 +115,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
           </div>
         </div>
       </div>
+      {showSearch && <SearchIcon {...{ showSearch, setShowSearch }} />}
 
       <nav className="navigation">
         <div>
@@ -184,7 +187,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
               <li onClick={() => setIsNavExpanded(false)}>
                 <NavLink
                   className={({ isActive }) =>
-                  isActive ? "link-activ" : "lin"
+                    isActive ? "link-activ" : "lin"
                   }
                   to="#"
                 >

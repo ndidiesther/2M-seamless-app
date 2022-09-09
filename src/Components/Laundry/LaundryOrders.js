@@ -4,32 +4,32 @@ import { ButtonContainer } from "../Shared/ButtonComponent";
 import LaundryOrderImg from "../../Assets/Images/laundryorder.png";
 import Successful from "../../Assets/Images/successful.png";
 import { CartContext } from "../../App";
+import ImageNull from "../../Assets/Images/image_ban.png";
 
 function LaundryOrders({
   laundryOrders,
   setLaundryOrders,
   selectedOrder,
   orderArr,
-  setOrderArr
+  setOrderArr,
 }) {
   const closeModalHandler = () => setLaundryOrders(false);
   const [laundryOrderSuccess, setLaundryOrderSuccess] = useState(false);
   const [completed, setCompleted] = useState(null);
   const cartContext = useContext(CartContext);
   const { laundryCartItems } = cartContext;
+  const [imageNull, setImageNull] = useState('');
 
   function updateStatus() {
     let updatedArray = orderArr.map((item) => {
       if (item.orderId == selectedOrder.orderId) {
-        return {...item, status:'Delivered'}
-      }
-      else{
-        return item
+        return { ...item, status: "Delivered" };
+      } else {
+        return item;
       }
     });
-    setOrderArr(updatedArray)
+    setOrderArr(updatedArray);
   }
- 
 
   return (
     <div>
@@ -53,9 +53,15 @@ function LaundryOrders({
           </div>
           <div className="Laundry-Orders">
             <div className="laundry-order-page on_laundry">
-              <div>
-                <img src={LaundryOrderImg} />
-              </div>
+              {imageNull == null ? (
+                <div>
+                  <img src={ImageNull} />
+                </div>
+              ) : (
+                <div>
+                  <img src={LaundryOrderImg} />
+                </div>
+              )}
               <div>
                 <p>{selectedOrder.service}</p>
                 <p>
@@ -138,9 +144,12 @@ function LaundryOrders({
             onClick={() => {
               setLaundryOrderSuccess(true);
               setLaundryOrders(false);
-              updateStatus()
+              updateStatus();
             }}
-            className={selectedOrder.status == 'Delivered' && "disabled complete-disabled"}
+            className={
+              selectedOrder.status == "Delivered" &&
+              "disabled complete-disabled"
+            }
           >
             Confirm Order Received
           </ButtonContainer>

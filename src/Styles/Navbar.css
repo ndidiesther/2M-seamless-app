@@ -239,12 +239,79 @@
   right: 190px;
   /* top:80px; */
 }
+
+.overlay-div {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+.searchInput {
+  background-color: #ffffff;
+  min-height: 300px;
+  width: 100%;
+  z-index: 1000;
+  max-height: calc(100vh - 50px);
+  overflow: auto;
+}
+.product_result {
+  display: flex;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 60px;
+  justify-content: center;
+  align-items: center;
+}
+.product_result > div > img {
+  width: 150px;
+  height: auto;
+}
+.searchInput > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 20px;
+}
+.inputSearch {
+  border: none;
+  padding-left: 20px;
+  outline: 0;
+}
+.searchInput > div:first-child > div:first-child {
+  align-self: end;
+  font-size: 20px;
+  cursor: pointer;
+}
+.searchInput > div:first-child > div:last-child {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 5px;
+  padding-top: 40px;
+}
+.category_name {
+  margin-block-end: 1em!important;
+  margin-block-start: 1em!important;
+}
+
 @media only screen and (max-width: 991px) {
   /* .nav-sublist {
     display: none;
   } */
   .nav-logo > div {
-   text-align: center;
+    text-align: center;
   }
   .nav-list > ul > li {
     padding-right: 10px;
@@ -254,7 +321,7 @@
     padding-right: 0;
   }
   .profile_div {
-    right: 160px
+    right: 160px;
   }
   .main-nav {
     padding: 15px 10px 8px 10px;
@@ -275,8 +342,20 @@
   .navigation {
     display: block;
   }
+  .searchInput > div:first-child {
+    width: 95%;
+  }
+  .product_result {
+    justify-content: center;
+    align-items: center;
+  }
 }
+@media only screen and (max-width: 360px) {
+  .inputSearch {
+    width:90%
+  }
 
+}
 #checkbox {
   display: none;
 }
@@ -302,7 +381,6 @@
 /* .gf_btn {
   display: none;
 } */
-
 
 .btn {
   padding: 0 10px 0 0 !important;
@@ -336,3 +414,4 @@ button:focus:not(:focus-visible),
   border: 1.38889px solid #e1e8f1 !important;
   padding: 10px 0 !important;
 }
+
