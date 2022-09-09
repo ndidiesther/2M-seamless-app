@@ -18,24 +18,23 @@ export default function Navbar({ setModalShow, setGenderModal }) {
         <div className="top-nav col-12">
           <span className="nav-icons">
             <span>
-              <Link to="">
+              <Link to="#">
                 <i className="fa-brands fa-facebook-f"></i>
               </Link>
             </span>
             <span>
-              <Link to="">
+              <Link to="#">
                 <i className="fa-brands fa-twitter"></i>
               </Link>
             </span>
             <span>
-              <Link to="">
+              <Link to="#">
                 <i className="fa-brands fa-instagram"></i>
               </Link>
             </span>
             <span>About Us</span>
             <span>Contact </span>
           </span>
-          
         </div>
         {/* Main Nav for desktop view */}
         <div className="main-nav col-12">
@@ -80,7 +79,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
           </div>
           <div className="nav-logo col-lg-2 col-sm-2 col-xs-6">
             <div>
-              <Link to="/">
+              <Link to="#">
                 <img src={Logo} />
                 <p className="site_name">2M Seamless</p>
               </Link>
@@ -100,9 +99,12 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   <img src={Search} />
                 </li>
 
-                <li>
-                  <img src={Bag} />
-                </li>
+                <Link to="/cartitem">
+                  <li>
+                    <img src={Bag} />
+                  </li>
+                </Link>
+
                 <li>
                   <Profile />
                 </li>
@@ -114,7 +116,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
 
       <nav className="navigation">
         <div>
-          <Link to="">
+          <Link to="#">
             <img src={Logo} />
           </Link>
 
@@ -154,7 +156,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   className={({ isActive }) =>
                     isActive ? "link-activ" : "lin"
                   }
-                  to=""
+                  to="#"
                 >
                   Home - Classic
                 </NavLink>
@@ -182,9 +184,9 @@ export default function Navbar({ setModalShow, setGenderModal }) {
               <li onClick={() => setIsNavExpanded(false)}>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "menulink-active" : "menulink"
+                  isActive ? "link-activ" : "lin"
                   }
-                  to=""
+                  to="#"
                 >
                   Search
                 </NavLink>
@@ -194,7 +196,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   className={({ isActive }) =>
                     isActive ? "menulink-active" : "menulink"
                   }
-                  to="/tailoringhistory"
+                  to="/tailoring/tailoringhistory"
                 >
                   Profile
                 </NavLink>
@@ -246,16 +248,16 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 </button>
               </li> */}
               {/* <li>
-                <Link to="/">Logout</Link>
+                <Link to="#">Logout</Link>
               </li> */}
               <li className="social_list">
-                <Link to="">
+                <Link to="#">
                   <i className="fa-brands fa-facebook-f"></i>
                 </Link>
-                <Link to="">
+                <Link to="#">
                   <i className="fa-brands fa-twitter"></i>
                 </Link>
-                <Link to="">
+                <Link to="#">
                   <i className="fa-brands fa-instagram"></i>
                 </Link>
               </li>

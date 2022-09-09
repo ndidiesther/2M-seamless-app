@@ -1,9 +1,11 @@
 import React from "react";
 import Logo from "../../Assets/Images/navprofile.png";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useNavigate } from "react-router-dom";
 
 
 const Profile = () => {
+  let navigate = useNavigate()
   return (
     <span className="profile_div">
       <Dropdown>
@@ -16,8 +18,8 @@ const Profile = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="/laundryhistory">View Profile</Dropdown.Item>
-          <Dropdown.Item href="/" >Logout</Dropdown.Item>
+          <Dropdown.Item onClick={()=> navigate('/laundry/laundryhistory')}  href="">View Profile</Dropdown.Item>
+          <Dropdown.Item href="/tailoring" >Logout</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </span>

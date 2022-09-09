@@ -312,6 +312,7 @@ button:focus:not(:focus-visible),
 .btn-check:focus + .btn,
 .btn:focus {
   outline: 0 !important;
+  box-shadow: none !important;
 }
 .btn:focus,
 .btn:hover {

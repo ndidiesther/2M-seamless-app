@@ -50,28 +50,26 @@ const SelectSize = ({ text, files }) => {
   const handleChange = (event) => {
     setSize(event.target.value);
   };
+  function trimContent(imgName) {
+    console.log(imgName.length)
+    console.log(imgName)
+    if (imgName.length < 15) {
+      return imgName;
+    }
+    let start = imgName.slice(0, 10)
+    let end = imgName.slice(-5)
+    let trimmedString = start + "..." + end
+    return trimmedString
+  }
+  
   // console.log(selectedImage);
   return (
     <div className="select_size">
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
-          <InputLabel
-            InputLabelProps={{
-              sx: {
-                // set the color of the label when not shrinked
-                color: "#000",
-                [`&.${inputLabelClasses.shrink}`]: {
-                  // set the color of the label when shrinked (usually when the TextField is focused)
-                  color: "#000",
-                },
-              },
-            }}
-            I
-            id="demo-simple-select-label"
-          >
-            Select Size
-          </InputLabel>
-          <Select className="MenuItem"
+          <InputLabel id="demo-simple-select-label">Select Size</InputLabel>
+          <Select
+            className="MenuItem"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={size}
@@ -89,15 +87,14 @@ const SelectSize = ({ text, files }) => {
               "& label": {
                 color: "white",
               },
-            
-             ".&.Mui-focused .MuiOutlinedInput-notchedOutline-MuiSelect-root:hover": {
-              "& > fieldset": {
-                borderColor: "#bc9a43",
-                borderWidth: "2px",
-              },
-            },
 
-            
+              ".&.Mui-focused .MuiOutlinedInput-notchedOutline-MuiSelect-root:hover":
+                {
+                  "& > fieldset": {
+                    borderColor: "#bc9a43",
+                    borderWidth: "2px",
+                  },
+                },
             }}
           >
             <MenuItem value={1}>US 4/ UK 8</MenuItem>
@@ -129,21 +126,21 @@ const SelectSize = ({ text, files }) => {
           </div>
         ) : (
           <div className="selected_image">
-            <span>
+            <div>
               {" "}
-              <span>{selectedImage && selectedImage.name} </span>
+              <span>{selectedImage && trimContent(selectedImage.name)} </span>
               <span onClick={() => setSelectedImage(null)}>
                 <i className="fa-solid fa-xmark"></i>
               </span>
-            </span>
-            <span
+            </div>
+            <div
               onClick={() => {
                 setUploadMeasurement(true);
                 // setSelectedImages([]);
               }}
             >
               Change
-            </span>
+            </div>
           </div>
         )}
 

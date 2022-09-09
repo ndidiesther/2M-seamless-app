@@ -65,7 +65,8 @@ const ShowImage = ({ images }) => {
 
   return (
     <div onLoad={HandleDisplay} className="editcontainer">
-      {images.map(show)}
+      {/* {images.map(show)} */}
+     {show(images[images.length-1])}
     </div>
   );
 };
@@ -74,11 +75,10 @@ const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
   const [images, setImages] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
   let navigate = useNavigate();
-  
 
   const handleTest = (file) => {
     // console.log("before");
-    setSelectedImages((prev) => [...prev, Math.random()]);
+    setSelectedImages((prev) => [...prev, file]);
     selectedImages.push(file);
     // console.log(selectedImages);
     // console.log("after");
@@ -92,7 +92,10 @@ const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
       const reader = new FileReader();
 
       reader.onload = function (e) {
-        setImages((prevState) => [{ id: index, src: e.target.result }]);
+        setImages((prevState) => [
+          ...prevState,
+          { id: index, src: e.target.result },
+        ]);
       };
 
       reader.readAsDataURL(file);
@@ -197,17 +200,21 @@ const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
             </div>
           </div>
           <div className="update_btn">
-            <ButtonContainer onClick={()=> {
-              setEditProfile(false);
-              setProfilePic(selectedImages[0])
-            }}> Update</ButtonContainer>
+            <ButtonContainer
+              onClick={() => {
+                setEditProfile(false);
+                setProfilePic(selectedImages[selectedImages.length - 1]);
+              }}
+            >
+              {" "}
+              Update
+            </ButtonContainer>
           </div>
         </Modal.Body>
         <Modal.Footer>
           {/* <Button onClick={props.onHide}>Close</Button> */}
         </Modal.Footer>
       </Modal>
-      
     </div>
   );
 };

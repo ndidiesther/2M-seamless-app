@@ -21,7 +21,6 @@ import PasswordSuccessful from "./Components/Password/PasswordSuccessful";
 import LaundryHistory from "./Pages/LaundryHistory";
 import TailoringHistory from "./Pages/TailoringHistory";
 
-
 export const CartContext = createContext();
 
 function App() {
@@ -34,6 +33,7 @@ function App() {
   const [passwordSuccessful, setPasswordSuccessful] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [subTotalValue, setSubTotalValue] = useState();
+  const [totalValue, setTotalValue] = useState();
   const [laundryDetails, setLaundryDetails] = useState(false);
   const [laundrySummary, setLaundrySummary] = useState(false);
   const [laundryUpload, setLaundryUpload] = useState(false);
@@ -61,6 +61,8 @@ function App() {
           setLaundryPayment,
           laundryCartItems,
           setLaundryCartItems,
+          totalValue,
+          setTotalValue,
         }}
       >
         <Navbar {...{ setModalShow, setGenderModal }} />
@@ -83,11 +85,13 @@ function App() {
           <Route path="/cartitem" element={<CartItem />} />
           <Route path="laundry" element={<Laundry />} />
           <Route
-            path="laundryhistory"
+            path="/laundry/laundryhistory"
             element={<LaundryHistory {...{ editProfile, setEditProfile }} />}
           />
-          <Route path="tailoringhistory" element={<TailoringHistory  {...{ editProfile, setEditProfile }} />} />
-        
+          <Route
+            path="/tailoring/tailoringhistory"
+            element={<TailoringHistory {...{ editProfile, setEditProfile }} />}
+          />
         </Routes>
         <Footer />
 

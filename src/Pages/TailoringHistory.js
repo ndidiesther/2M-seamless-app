@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import EmptyImg from "../Assets/Images/avatar.png";
 import ProfileImg from "../Assets/Images/profileimg.png";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
-import PickUp from "../Assets/Images/pickup.png";
-import Washing from "../Assets/Images/washing.png";
-import Delivery from "../Assets/Images/delivery.png";
 import EditProfile from "../Components/Laundry/EditProfile";
 import { useNavigate } from "react-router-dom";
-// import Radio from "@mui/material/Radio";
-// import RadioGroup from "@mui/material/RadioGroup";
-// import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-// import FormLabel from "@mui/material/FormLabel";;
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -20,7 +13,7 @@ import { Modal } from "react-bootstrap";
 import ChartImage from "../Assets/Images/size_chart.png";
 import MaleChart from "../Assets/Images/size_male_chart.png";
 import UploadMeasurement from "../Components/Form/UploadMeasurement";
-// import UploadMeasurement from "";
+import TailoringOrders from "../Components/Laundry/TailoringOrders";
 
 const MeasurementProfile = () => {
   const [size, setSize] = React.useState("");
@@ -62,10 +55,12 @@ const MeasurementProfile = () => {
               </Select>
             </FormControl>
             <div className="view_sizebtn">
-              <button className="size_btn meas_btn" onClick={() => setViewChart(true)}>
+              <button
+                className="size_btn meas_btn"
+                onClick={() => setViewChart(true)}
+              >
                 View Size Chart
               </button>
-            
             </div>
             <p className="meas_image">Measurement Image</p>
 
@@ -99,12 +94,12 @@ const MeasurementProfile = () => {
             )}
 
             <UploadMeasurement
-          {...{
-            uploadMeasurement,
-            setUploadMeasurement,
-            setSelectedImage,
-          }}
-        />
+              {...{
+                uploadMeasurement,
+                setUploadMeasurement,
+                setSelectedImage,
+              }}
+            />
 
             <Modal
               dialogClassName={"CSRModal"}
@@ -198,6 +193,47 @@ const SecondStep = ({ setChartImage }) => {
 const TailoringHistory = ({ editProfile, setEditProfile }) => {
   const [orderType, setOrderType] = useState("");
   const [profilePic, setProfilePic] = useState(null);
+  const [tailoringOrders, setTailoringOrders] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState({});
+
+  const [orderArr, setOrderArr] = useState([
+    {
+      orderId: "ID-12332",
+      time: "12:34 ",
+      date: "3rd May, 2022",
+      service: "Wet Wash and dry clean",
+      itemCount: "3",
+      pickUp: "Onsite",
+      delivery: "Home delivery",
+      amount: "#625.00",
+      status: "Washing",
+    },
+    {
+      orderId: "ID-12360",
+      time: "12:34 ",
+      date: "3rd May, 2022",
+      service: "Wet Wash",
+      itemCount: "3",
+      pickUp: "Onsite",
+      delivery: "Home delivery",
+      amount: "#625.00",
+      status: "Washing",
+    },
+  ]);
+
+  const ImageRef = useRef();
+
+  useEffect(() => {
+    if (profilePic == null) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.addEventListener("load", (e) => {
+      ImageRef.current.src = e.target.result;
+    });
+    reader.readAsDataURL(profilePic);
+  }, [profilePic]);
 
   let navigate = useNavigate();
 
@@ -205,9 +241,9 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
     console.log("Hello");
     setOrderType(e.target.value);
     if (e.target.value === "laundry") {
-      navigate("/laundryhistory");
+      navigate("/laundry/laundryhistory");
     } else if (e.target.value === "tailoring") {
-      navigate("/tailoringhistory");
+      navigate("/tailoring/tailoringhistory");
     }
   };
 
@@ -235,7 +271,7 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
           <div>
             <div>
               <p className="profile">Profile</p>
-              <img src={ProfileImg} />
+              <img className="select_img" ref={ImageRef} src={EmptyImg} />
             </div>
 
             <div className="profilename">
@@ -283,92 +319,60 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
             </div>
           ) : (
             <div>
-              <div className="pagedetails">
-                <div className="col-12 historydetails">
+              {orderArr.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => {
+                    setTailoringOrders(true);
+                    setSelectedOrder(item);
+                  }}
+                  className="col-12 historydetails"
+                >
                   <div className="col-xsm-4">
                     <div>
-                      <p>ID-12332</p>
+                      <p>{item.orderId}</p>
                       <p>
-                        <span>12:34 | </span>
-                        <span> 3rd May, 2022</span>
+                        <span>{item.time} | </span>
+                        <span> {item.date}</span>
                       </p>
                     </div>
                   </div>
-                  <div className="col-xsm-6">
+                  <div className="col-xsm-6 tailoring_history">
                     <div>
-                      <p>Wet Wash and Dry Clean</p>
-                      <p>3 items </p>
                       <p>
-                        <span>Pickup: Onsite</span>
-                        <span>Delivery: Home Delivery</span>
+                        Ankara Bohemian Gown | <span>Custom Order</span>
+                      </p>
+
+                      <p>
+                        <span>Fabric Pickup: {item.pickUp}</span>
+                        <span>Outfit-Delivery: {item.delivery}</span>
                       </p>
                     </div>
                   </div>
                   <div className="col-xsprice ">
-                    <p>₦675.00</p>
+                    <p>₦{item.amount}</p>
                   </div>
-                  <div className="col-xsm-12">
-                    <span>
-                      <img src={PickUp} />
-                      <span className="hr-sepe"></span>
-                    </span>
-
-                    {/* <span className="hr-seperator"></span> */}
-                    <span>
-                      <img src={Washing} />
-                      <span className="hr-sepe"></span>
-                    </span>
-                    <span>
-                      <img src={Delivery} />
-                    </span>
+                  <div className="col-xsm-12 history_progress">
+                    <span>In Progress</span>
                   </div>
                 </div>
-                <div className="col-12 historydetails">
-                  <div className="col-xsm-4">
-                    <div>
-                      <p>ID-12332</p>
-                      <p>
-                        <span>12:34 | </span>
-                        <span> 3rd May, 2022</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-xsm-6">
-                    <div>
-                      <p>Wet Wash and Dry Clean</p>
-                      <p>3 items </p>
-                      <p>
-                        <span>Pickup: Onsite</span>
-                        <span>Delivery: Home Delivery</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-xsprice ">
-                    <p>₦675.00</p>
-                  </div>
-                  <div className="col-xsm-12">
-                    <span>
-                      <img src={PickUp} />
-                      <span className="hr-sepe"></span>
-                    </span>
+              ))}
 
-                    {/* <span className="hr-seperator"></span> */}
-                    <span>
-                      <img src={Washing} />
-                      <span className="hr-sepe"></span>
-                    </span>
-                    <span>
-                      <img src={Delivery} />
-                    </span>
-                  </div>
-                </div>
-              </div>
               <MeasurementProfile />
             </div>
           )}
         </div>
       </div>
       <EditProfile {...{ editProfile, setEditProfile, setProfilePic }} />
+      <TailoringOrders
+        {...{
+          tailoringOrders,
+          setTailoringOrders,
+          orderArr,
+          setOrderArr,
+          selectedOrder,
+        }}
+      />
     </>
   );
 };

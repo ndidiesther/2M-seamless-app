@@ -564,17 +564,17 @@
   /* margin-top: 60px;
  padding: 30px 20px; */
 
-  align-self: flex-start; 
+  align-self: flex-start;
 }
 .measurement_profile > div > p:first-child {
   font-size: 20px;
   font-weight: bold;
 }
-.size_profile > div > div{
+.size_profile > div > div {
   width: 500px !important;
 }
 .meas_btn {
-  color:#bc9a43
+  color: #bc9a43;
 }
 .meas_image {
   margin-block-start: 1.5em;
@@ -683,10 +683,115 @@
   width: 300px;
 }
 
+/* Tailoring History */
+.historydetails {
+  cursor: pointer;
+}
+.tailoring_history > div > p:first-child > span {
+  color: #bc9a43;
+}
+.tailoring_history > div > p:nth-child(2) > span {
+  font-weight: normal;
+}
+.history_progress > span {
+  color: #bc9a43;
+  font-weight: bold;
+}
+.laundry-order-page {
+  display: flex;
+  padding-bottom: 20px;
+}
+ .laundry_content , .laundry_address{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.laundry-order-page > div:first-child > img {
+  width: 120px;
+  height: auto;
+}
+.on_laundry > div:first-child {
+  padding-right: 20px;
+}
+.laundry_option {
+  color:#bc9a43;
+}
+.OrdersModal {
+  max-width: 600px !important;
+  width: 600px !important;
+}
+.laundry-order-page > div:nth-child(2) > p:first-child {
+  margin-block-end: 0.3em;
+  font-weight: bold;
+}
+.laundry-order-page > div:nth-child(2) > p:nth-child(2) {
+  font-weight: lighter;
+  margin-block-end: 0.3em;
+}
+.laundry-order-page > div:nth-child(2) > p:nth-child(3),
+.laundry-order-page > div:nth-child(2) > p:nth-child(4),
+.laundry-order-page > div:nth-child(2) > p:nth-child(5) {
+  font-weight: bold;
+  margin-block-end: 0.3em;
+}
+.laundry-order-page > div:nth-child(2) > p:nth-child(3) > span {
+  color: #bc9a43;
+}
+.laundry-order-page > div:nth-child(3) > p{
+  color: #bc9a43;
+  font-weight: bold;
+}
+.orderFooter {
+  padding-top: 0 !important;
+}
+.ord_details {
+  font-weight: bold;
+  font-size: 23px;
+  text-align: center;
+  text-decoration: underline;
+  position: relative;
+  top:-45px
+}
+.laundry_content > div p, .laundry_address > div p {
+  margin-block-end: 0.4em;
+
+}
+.laundry_content > div p:nth-child(2), .laundry_address > div p:nth-child(2) {
+  font-weight: bold
+}
+.laundry-ord {
+  padding-bottom: 30px;
+}
+.view_img {
+  color: #bc9a43;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.Laundry-Orders {
+  position: relative;
+  top: -20px;
+}
+.select_img {
+  width: 242px;
+  height: 242px;
+}
+.orderFooter  > div:last-child{
+  padding: 20px 0 20px;
+}
+.order-success {
+  text-align: center;
+}
+.complete-disabled:hover {
+  background-color: #bc9a43 !important;
+  color:#ffffff !important;
+  pointer-events: none;
+}
+
 @media only screen and (min-width: 600px) {
   .laundry_payment > div {
     width: 229px !important;
   }
+ 
 }
 
 @media only screen and (min-width: 1150px) and (max-width: 1300px) {
@@ -952,6 +1057,11 @@
   .profile_img {
     margin-right: 20px;
   }
+  .measurement_profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -1094,6 +1204,13 @@
   .sex_input > div {
     padding-left: 10px !important;
   }
+  .size_profile > div > div {
+    width: 100% !important;
+  }
+  .measurement_profile > div{
+    position: relative;
+    top:100px
+   }
 }
 
 @media only screen and (max-width: 500px) {
@@ -1168,6 +1285,9 @@
   }
   .profilename > div {
     text-align: center;
+  }
+  .measurement_profile {
+    display: block;
   }
   /* .profilename > div button {
     width: 100px;
@@ -1294,6 +1414,8 @@
     top: 0;
     left: -75px;
   }
+ 
+
 }
 @media only screen and (max-width: 320px) {
   .laundryBanner_img {

@@ -25,7 +25,7 @@ const FemaleStyles = () => {
     "Vintage",
     "Artsy",
     "Grunge",
-    "Suits",
+    "Gowns",
     "Custom",
   ];
   const [activeButton, setActiveButton] = useState("All Styles");

@@ -2,17 +2,17 @@ import React, { useEffect, useRef, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../../App";
 import NumberFormat from "react-number-format";
+import TrashCan from "../../Assets/Images/Trash_can.png"
 
 import { ButtonContainer } from "../../Components/Shared/ButtonComponent";
 
 const CartItem = ({ chooseSex }) => {
   let location = useLocation();
 
- 
   const ImageRef = useRef();
 
   const cartContext = useContext(CartContext);
-  const { cartItems, setCartItems, subTotalValue, setSubTotalValue } =
+  const { cartItems, setCartItems, subTotalValue, setSubTotalValue, totalValue, setTotalValue } =
     cartContext;
 
   const deleteItem = (id) => {
@@ -63,13 +63,15 @@ const CartItem = ({ chooseSex }) => {
   };
   useEffect(() => {
     const subTotal = cartItems.reduce((total, item) => {
-      console.log(item);
+      // console.log(item);
       total = total + parseFloat(item.totalPrice);
 
       return total;
     }, 0);
     // console.log(subTotal);
     setSubTotalValue(subTotal.toFixed(2));
+    let Total = subTotal + 10000;
+    setTotalValue(Total.toFixed(2))
     // // console.log(typeof(subTotalValue));
     // console.log(subTotal.toFixed(2));
   }, [cartItems]);
@@ -83,7 +85,11 @@ const CartItem = ({ chooseSex }) => {
       <h2>Cart</h2>
       <div>
         <p>
-          <Link to={chooseSex == 1 ? "/tailoring/malestyle" : "/tailoring/femalestyle"}>
+          <Link
+            to={
+              chooseSex == 1 ? "/tailoring/malestyle" : "/tailoring/femalestyle"
+            }
+          >
             <button className="male_backarrow">
               <i className="fa-solid fa-arrow-left"></i>
             </button>
@@ -92,7 +98,11 @@ const CartItem = ({ chooseSex }) => {
             <strong>Continue Shopping</strong>
           </span>
         </p>
-        <div>{cartItems.length == 0 && <p>Your Cart is Empty</p>}</div>
+        <div>
+          {cartItems.length == 0 && (
+            <p className="empty_cart">Your Cart is Empty</p>
+          )}
+        </div>
 
         <div className="cart-details">
           <div>
@@ -106,6 +116,7 @@ const CartItem = ({ chooseSex }) => {
                     {" "}
                     <strong>{item.name}</strong>
                   </span>
+                  <div>{item.description}</div>
                 </div>
                 <div className="change_quantity">
                   <span
@@ -127,7 +138,7 @@ const CartItem = ({ chooseSex }) => {
                   </span>
                 </div>
                 <div onClick={() => deleteItem(item.id)}>
-                  <i className="fa-solid fa-trash"></i>
+                  <img src={TrashCan} />
                 </div>
                 <div>
                   <span>
@@ -144,12 +155,12 @@ const CartItem = ({ chooseSex }) => {
                 </div>
               </div>
             ))}
-             {cartItems.length > 0 && (
-            <div className="cart-coupon">
-              <input className="coupon_input" placeholder="Coupon code" />
-              <button className="coupon_btn">Apply Coupon</button>
-            </div>
-             )}
+            {cartItems.length > 0 && (
+              <div className="cart-coupon">
+                <input className="coupon_input" placeholder="Coupon code" />
+                <button className="coupon_btn">Apply Coupon</button>
+              </div>
+            )}
           </div>
           {cartItems.length > 0 && (
             <div className="cart-summary">
@@ -167,13 +178,21 @@ const CartItem = ({ chooseSex }) => {
                         prefix={"#"}
                       />
                     </td>
+                    
+                  </tr>
+                  <tr>
+                  <td>DELIVERY</td>
+                    <td>
+                     #10,000.00
+                      
+                    </td>
                   </tr>
                   <tr>
                     <td>TOTAL</td>
                     <td>
                       {" "}
                       <NumberFormat
-                        value={subTotalValue}
+                        value={totalValue}
                         displayType={"text"}
                         thousandSeparator={true}
                         prefix={"#"}

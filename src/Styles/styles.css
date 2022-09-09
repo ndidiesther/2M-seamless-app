@@ -897,31 +897,37 @@ textarea {
   padding-top: 30px;
   width: 100%;
   float: left;
+  padding-bottom: 40px;
 }
-.selected_image > span:first-child {
+.selected_image > div:first-child {
   background-color: #f2ebd9;
   padding: 10px;
+  width: fit-content;
   margin-right: 10px;
+  float: left;
 }
-.selected_image > span:first-child > span:first-child {
+.selected_image > div:first-child > span:first-child {
   font-size: 16px;
   padding-right: 14px;
   margin-right: 7px;
 }
-.selected_image > span:first-child > span:last-child {
+.selected_image > div:first-child > span:last-child {
   background-color: #ffffff;
   border-radius: 50%;
   padding: 2px 8px;
   cursor: pointer;
 }
-.selected_image > span:first-child > span:last-child > i {
+.selected_image > div:first-child > span:last-child > i {
   font-size: 13px;
 }
-.selected_image > span:last-child {
+.selected_image > div:last-child {
   color: #bc9a43;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  padding-bottom: 20px;
+  float: left;
+  padding-top: 10px;
 }
 
 .angle-left {
@@ -955,6 +961,7 @@ textarea {
   border: 0;
   padding-left: 0 !important;
   font-weight: bold;
+  text-align: left;
 }
 .CSRModal {
   width: 800px !important;
@@ -1096,8 +1103,3 @@ input[type="number"] {
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .view_sizebtn {
-    text-align: center;
-  }
-}

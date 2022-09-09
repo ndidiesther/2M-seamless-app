@@ -1,13 +1,21 @@
 import React, { useEffect, useRef, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import "../Styles/cart.css";
 import { CartContext } from "../App";
 import NumberFormat from "react-number-format";
+import TrashCan from "../Assets/Images/Trash_can.png";
 
 const AddToCart = ({ setShowCart }) => {
   const navigate = useNavigate();
-  
+
+  const location = useLocation();
+  const { state } = location;
+  let orderImage = location.state?.src;
+  let chooseSex = location.state?.id;
+  let styleName = location.state?.stylename;
+  let amount = location.state?.price;
+
   const ImageRef = useRef();
 
   const cartContext = useContext(CartContext);
@@ -31,7 +39,7 @@ const AddToCart = ({ setShowCart }) => {
         return item;
       }
     });
-    console.log(changePrice);
+    // console.log(changePrice);
   };
 
   const incrementItem = (id) => {
@@ -84,13 +92,20 @@ const AddToCart = ({ setShowCart }) => {
               <i className="fa-solid fa-xmark"></i>
             </span>
           </div>
-          <div>{cartItems.length == 0 && <p>Your Cart is Empty</p>}</div>
+          <div>
+            {cartItems.length == 0 && (
+              <p className="empty_cart">Your Cart is Empty</p>
+            )}
+          </div>
           {cartItems.map((item, index) => (
             <div key={index} className="cart-content col-12">
               <div className="cart_img">
                 <img ref={ImageRef} src={item.imgSrc} />
                 <div className="cart_name">
-                  <div>{item.name}</div>
+                  <div>
+                    <div>{item.name}</div>
+                    <div>{item.description}</div>
+                  </div>
                   <div className="change_quantity cart-quantity">
                     <span
                       onClick={() => {
@@ -115,7 +130,7 @@ const AddToCart = ({ setShowCart }) => {
 
               <div className="cart_price">
                 <span onClick={() => deleteItem(item.id)}>
-                  <i className="fa-solid fa-xmark"></i>
+                  <img src={TrashCan} />
                 </span>
                 <span>
                   <NumberFormat
@@ -153,7 +168,18 @@ const AddToCart = ({ setShowCart }) => {
               <ButtonContainer cart onClick={() => navigate("/cartitem")}>
                 View Cart
               </ButtonContainer>
-              <ButtonContainer>Checkout</ButtonContainer>
+              <ButtonContainer
+                onClick={() => navigate("/tailoring/customizeform", {
+                  state: {
+                    src: orderImage,
+                    stylename: styleName,
+                    id: chooseSex,
+                    price: amount,
+                  },
+                })}
+              >
+                Customize
+              </ButtonContainer>
             </div>
           )}
         </div>
