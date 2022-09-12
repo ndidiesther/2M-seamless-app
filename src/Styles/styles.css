@@ -82,7 +82,7 @@
 }
 
 .select-sex {
-  width: 100px !important;
+  /* width: 100px !important; */
   display: inline !important;
   border: none !important;
   border-radius: 0 !important;
@@ -278,8 +278,16 @@
     width: fit-content !important;
   }
   .other_uploadbtn {
-    display: none;
-    float: right;
+    display: block;
+    text-align: center;
+  }
+  .other_uploadbtn > span > span button {
+    color: #bc9a43;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    padding-top: 10px;
   }
   .search_icon > input {
     padding: 10px 10px 10px 30px;
@@ -301,6 +309,7 @@
   }
   .styles_header > div:nth-child(2) {
     font-size: 14.5px;
+    display: none;
   }
 }
 #demo-simple-select-label.Mui-focused {
@@ -892,6 +901,7 @@ textarea {
   color: #bc9a43;
   font-weight: bold;
   padding-left: 0 !important;
+  text-align: left;
 }
 .selected_image {
   padding-top: 30px;

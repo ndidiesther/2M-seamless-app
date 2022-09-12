@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "../Styles/styles.css";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import StylesForFemale from "../Components/Styles/StylesForFemale";
-import SelectStyles from "../Components/Styles/SelectStyles";
+import SelectStyles, { CustomStyle } from "../Components/Styles/SelectStyles";
 import { useNavigate } from "react-router-dom";
 
-const FemaleStyles = () => {
+const FemaleStyles = ({orderStyle, setOrderStyle}) => {
   const [sexType, setSexType] = useState("");
 
   let navigate = useNavigate();
@@ -33,7 +33,7 @@ const FemaleStyles = () => {
   return (
     <div>
       <div className=" col-12 female_styles">
-        <SelectStyles />
+        <SelectStyles {...{orderStyle, setOrderStyle}} />
 
         <div className=" col-12 styles_subheader">
           <div className="col-lg-7 col-md-7 col-mdx-12">
@@ -59,8 +59,8 @@ const FemaleStyles = () => {
                     className="form-select form-select-lg  shadow-none select-sex"
                     aria-label=".form-select-lg example"
                   >
-                    <option value="female"> Female</option>
-                    <option value="male"> Male</option>
+                    <option value="female"> Female Styles</option>
+                    <option value="male"> Male Styles</option>
                   </select>
                 </span>
               </span>
@@ -78,11 +78,20 @@ const FemaleStyles = () => {
         <div className="load_more">
           <ButtonContainer cart>Load More Styles</ButtonContainer>
         </div>
-        {/* <div className="other_uploadbtn">
-          <UploadButton />
-        </div> */}
+        <div className="other_uploadbtn">
+          <span>
+            <span>Can’t find a style you want?</span>
+            <span>
+              <button onClick={() => setOrderStyle(true)}>
+                Order a Custom Style
+              </button>
+            </span>
+          </span>
+        </div>
       </div>
+   
     </div>
+  
   );
 };
 

@@ -102,7 +102,7 @@ const AddToCart = ({ setShowCart }) => {
               <div className="cart_img">
                 <img ref={ImageRef} src={item.imgSrc} />
                 <div className="cart_name">
-                  <div>
+                  <div className="cartname">
                     <div>{item.name}</div>
                     <div>{item.description}</div>
                   </div>

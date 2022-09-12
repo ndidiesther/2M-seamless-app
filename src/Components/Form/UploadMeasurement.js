@@ -98,7 +98,7 @@ const UploadMeasurement = ({
 
       reader.onload = function (e) {
         setImages((prevState) => [
-          ...prevState,
+          
           { id: index, src: e.target.result },
         ]);
       };

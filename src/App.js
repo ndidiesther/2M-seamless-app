@@ -29,6 +29,7 @@ import SixthStyle from "../src/Assets/Images/malepic6.png";
 import FemaleStyle1 from "../src/Assets/Images/Product1.png";
 import FemaleStyle2 from "../src/Assets/Images/Product2.png";
 import FemaleStyle3 from "../src/Assets/Images/Product3.png";
+import CustomStyles from "./Components/Styles/CustomStyles";
 
 export const CartContext = createContext();
 export const ProductsContext = createContext();
@@ -50,6 +51,7 @@ function App() {
   const [laundryPayment, setLaundryPayment] = useState(false);
   const [laundryCartItems, setLaundryCartItems] = useState([]);
   const [editProfile, setEditProfile] = useState(false);
+  const [orderStyle, setOrderStyle] = useState(false);
   const [products, setProducts] = useState([
     {
       stylename: "Plain Kaftan",
@@ -129,11 +131,16 @@ function App() {
           setLaundryCartItems,
           totalValue,
           setTotalValue,
+          orderStyle,
+          setOrderStyle,
         }}
       >
-        <ProductsContext.Provider value={{
-          products, setProducts
-        }}>
+        <ProductsContext.Provider
+          value={{
+            products,
+            setProducts,
+          }}
+        >
           <Navbar {...{ setModalShow, setGenderModal }} />
           <Routes>
             <Route
@@ -145,8 +152,14 @@ function App() {
               path="/tailoring"
               element={<Home {...{ genderModal, setGenderModal }} />}
             />
-            <Route path="/tailoring/femalestyle" element={<FemaleStyles />} />
-            <Route path="/tailoring/malestyle" element={<MaleStyles />} />
+            <Route
+              path="/tailoring/femalestyle"
+              element={<FemaleStyles {...{ orderStyle, setOrderStyle }} />}
+            />
+            <Route
+              path="/tailoring/malestyle"
+              element={<MaleStyles {...{ orderStyle, setOrderStyle }} />}
+            />
             <Route path="/tailoring/product" element={<Product />} />
             <Route
               path="/tailoring/customizeform"
@@ -193,6 +206,7 @@ function App() {
           <PasswordSuccessful
             {...{ passwordSuccessful, setPasswordSuccessful }}
           />
+          <CustomStyles {...{ orderStyle, setOrderStyle }} />
         </ProductsContext.Provider>
       </CartContext.Provider>
     </>
