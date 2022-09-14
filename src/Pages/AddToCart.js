@@ -15,6 +15,7 @@ const AddToCart = ({ setShowCart }) => {
   let chooseSex = location.state?.id;
   let styleName = location.state?.stylename;
   let amount = location.state?.price;
+  // console.log(chooseSex)
 
   const ImageRef = useRef();
 
@@ -165,18 +166,25 @@ const AddToCart = ({ setShowCart }) => {
                   <span>100%</span>
                 </span>
               </div>
-              <ButtonContainer cart onClick={() => navigate("/cartitem")}>
+              <ButtonContainer
+                cart
+                onClick={() =>
+                  navigate("/cartitem", { state: { id: chooseSex } })
+                }
+              >
                 View Cart
               </ButtonContainer>
               <ButtonContainer
-                onClick={() => navigate("/tailoring/customizeform", {
-                  state: {
-                    src: orderImage,
-                    stylename: styleName,
-                    id: chooseSex,
-                    price: amount,
-                  },
-                })}
+                onClick={() =>
+                  navigate("/tailoring/customizeform", {
+                    state: {
+                      src: orderImage,
+                      stylename: styleName,
+                      id: chooseSex,
+                      price: amount,
+                    },
+                  })
+                }
               >
                 Customize
               </ButtonContainer>

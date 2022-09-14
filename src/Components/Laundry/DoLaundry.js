@@ -80,7 +80,7 @@ const DoLaundry = () => {
         </select>
       </div>
 
-      <div  className="delivery_address">{noOnsite && <HomeDelivery />}</div>
+      <div className="delivery_address">{noOnsite && <HomeDelivery />}</div>
 
       <div className="laundry_contact">
         <p>Enter WhatsApp Contact</p>

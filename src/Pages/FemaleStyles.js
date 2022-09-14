@@ -5,7 +5,7 @@ import StylesForFemale from "../Components/Styles/StylesForFemale";
 import SelectStyles, { CustomStyle } from "../Components/Styles/SelectStyles";
 import { useNavigate } from "react-router-dom";
 
-const FemaleStyles = ({orderStyle, setOrderStyle}) => {
+const FemaleStyles = ({ orderStyle, setOrderStyle }) => {
   const [sexType, setSexType] = useState("");
 
   let navigate = useNavigate();
@@ -33,7 +33,7 @@ const FemaleStyles = ({orderStyle, setOrderStyle}) => {
   return (
     <div>
       <div className=" col-12 female_styles">
-        <SelectStyles {...{orderStyle, setOrderStyle}} />
+        <SelectStyles {...{ orderStyle, setOrderStyle }} />
 
         <div className=" col-12 styles_subheader">
           <div className="col-lg-7 col-md-7 col-mdx-12">
@@ -89,9 +89,7 @@ const FemaleStyles = ({orderStyle, setOrderStyle}) => {
           </span>
         </div>
       </div>
-   
     </div>
-  
   );
 };
 

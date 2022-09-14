@@ -3,7 +3,7 @@ import ChartImage from "../../Assets/Images/size_chart.png";
 import MaleChart from "../../Assets/Images/size_male_chart.png";
 import { Modal } from "react-bootstrap";
 
-const MaleSizeChart = ({viewChart, setViewChart}) => {
+const MaleSizeChart = ({ viewChart, setViewChart }) => {
   const [chartImage, setChartImage] = useState(1);
   // const [viewChart, setViewChart] = useState(false);
   const closeModalHandler = () => setViewChart(false);
@@ -87,14 +87,13 @@ const MaleSizeChart = ({viewChart, setViewChart}) => {
         centered
       >
         {chartImage === 1 ? (
-            <div>
-              <FirstStep {...{ setChartImage }} />
-            </div>
-          ) : (
-            <SecondStep {...{ setChartImage }} />
-          )}
+          <div>
+            <FirstStep {...{ setChartImage }} />
+          </div>
+        ) : (
+          <SecondStep {...{ setChartImage }} />
+        )}
 
-     
         <Modal.Footer>
           {/* <Button onClick={props.onHide}>Close</Button> */}
         </Modal.Footer>

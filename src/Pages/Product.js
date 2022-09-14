@@ -145,7 +145,6 @@ export default function Product({}) {
                 <p>Duration: 10 Days</p>
                 <p>Fabric: Olympia, Multi Colored Ankara</p>
                 <p>Pattern Type: Random Patterns</p>
-               
               </div>
             </div>
           </div>

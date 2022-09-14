@@ -5,7 +5,7 @@ import StylesForMale from "../Components/Styles/StylesForMale";
 import SelectStyles from "../Components/Styles/SelectStyles";
 import { useNavigate } from "react-router-dom";
 
-const MaleStyles = ({ orderStyle,setOrderStyle }) => {
+const MaleStyles = ({ orderStyle, setOrderStyle }) => {
   const [sexType, setSexType] = useState("");
 
   let navigate = useNavigate();

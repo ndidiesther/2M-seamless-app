@@ -33,7 +33,7 @@ const DeliveryLocation = () => {
   );
 };
 
-const SelectSize = ({ text, files, chooseSex }) => {
+const SelectSize = ({ chooseSex }) => {
   const [size, setSize] = React.useState("");
   const [viewChart, setViewChart] = useState(false);
   const [viewModal, setViewModal] = useState(false);
@@ -113,10 +113,6 @@ const SelectSize = ({ text, files, chooseSex }) => {
               View Size Chart
             </button>
           )}
-
-          <button className="measurement_btn">
-            or Import the measurement from your profile
-          </button>
         </div>
 
         {selectedImage == null ? (
@@ -162,42 +158,6 @@ const SelectSize = ({ text, files, chooseSex }) => {
     </div>
   );
 };
-
-// const InputMeasurement = () => {
-//   return (
-//     <div className="input_measurement">
-//       <p>Please input your measurement (in inches)</p>
-//       <div className="input_mdiv">
-//         <span>
-//           <label>Shoulder</label>
-//           <input type="number" />
-//         </span>
-//         <span>
-//           <label>Bust</label>
-//           <input type="number" />
-//         </span>
-//         <span>
-//           <label>Waist</label>
-//           <input type="number" />
-//         </span>
-//       </div>
-//       <div className="input_mdiv">
-//         <span>
-//           <label>Hip</label>
-//           <input type="number" />
-//         </span>
-//         <span>
-//           <label>Blouse Length</label>
-//           <input type="number" />
-//         </span>
-//         <span>
-//           <label>Skirt Length</label>
-//           <input type="number" />
-//         </span>
-//       </div>
-//     </div>
-//   );
-// };
 
 const Form = ({ orderImage, styleName, chooseSex }) => {
   const [yesFabric, setyesFabric] = useState(false);

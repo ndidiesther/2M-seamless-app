@@ -146,7 +146,9 @@ const LaundrySummary = ({ setLaundrySummary, setLaundryDetails }) => {
         }
       >
         <div>
-          <LaundryUpload {...{ setLaundryUpload, setLaundryDetails, setLaundrySummary }} />
+          <LaundryUpload
+            {...{ setLaundryUpload, setLaundryDetails, setLaundrySummary }}
+          />
         </div>
       </div>
     </div>

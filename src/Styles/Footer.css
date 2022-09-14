@@ -106,17 +106,17 @@
     padding: 12.2px 7px;
   }
   .footer {
-      padding: 40px 15px 20px;
+    padding: 40px 15px 20px;
   }
 }
 @media only screen and (max-width: 345px) {
-.sub_footer {
+  .sub_footer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-.footer_btn {
+  }
+  .footer_btn {
     margin-top: 20px;
-}
+  }
 }

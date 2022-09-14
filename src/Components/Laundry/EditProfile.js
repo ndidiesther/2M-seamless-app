@@ -66,7 +66,7 @@ const ShowImage = ({ images }) => {
   return (
     <div onLoad={HandleDisplay} className="editcontainer">
       {/* {images.map(show)} */}
-     {show(images[images.length-1])}
+      {show(images[images.length - 1])}
     </div>
   );
 };

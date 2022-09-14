@@ -1349,6 +1349,13 @@
   .col-xm-12 {
     padding-bottom: 10px;
   }
+  .laundryBanner,
+  .laundryBanner_content > p:nth-child(2) {
+    text-align: left;
+  }
+  .btnn {
+    width: 200px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -1637,5 +1644,8 @@
   .hr-sepe {
     width: 53%;
     top: 17px;
+  }
+  .btnn {
+    width: unset;
   }
 }

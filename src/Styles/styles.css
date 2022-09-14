@@ -313,7 +313,7 @@
   }
 }
 #demo-simple-select-label.Mui-focused {
-  color:#bc9a43 !important;
+  color: #bc9a43 !important;
 }
 MenuItem.Mui-select-select {
   color: blue;
@@ -1112,4 +1112,3 @@ input[type="number"] {
     font-size: 14px;
   }
 }
-

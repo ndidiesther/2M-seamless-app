@@ -2,18 +2,27 @@ import React, { useEffect, useRef, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../../App";
 import NumberFormat from "react-number-format";
-import TrashCan from "../../Assets/Images/Trash_can.png"
+import TrashCan from "../../Assets/Images/Trash_can.png";
 
 import { ButtonContainer } from "../../Components/Shared/ButtonComponent";
 
-const CartItem = ({ chooseSex }) => {
+const CartItem = () => {
   let location = useLocation();
 
   const ImageRef = useRef();
 
+  const { state } = location;
+  let chooseSex = location.state?.id;
+
   const cartContext = useContext(CartContext);
-  const { cartItems, setCartItems, subTotalValue, setSubTotalValue, totalValue, setTotalValue } =
-    cartContext;
+  const {
+    cartItems,
+    setCartItems,
+    subTotalValue,
+    setSubTotalValue,
+    totalValue,
+    setTotalValue,
+  } = cartContext;
 
   const deleteItem = (id) => {
     const itemsLeft = cartItems.filter((item) => item.id !== id);
@@ -71,7 +80,7 @@ const CartItem = ({ chooseSex }) => {
     // console.log(subTotal);
     setSubTotalValue(subTotal.toFixed(2));
     let Total = subTotal + 10000;
-    setTotalValue(Total.toFixed(2))
+    setTotalValue(Total.toFixed(2));
     // // console.log(typeof(subTotalValue));
     // console.log(subTotal.toFixed(2));
   }, [cartItems]);
@@ -178,14 +187,10 @@ const CartItem = ({ chooseSex }) => {
                         prefix={"#"}
                       />
                     </td>
-                    
                   </tr>
                   <tr>
-                  <td>DELIVERY</td>
-                    <td>
-                     #10,000.00
-                      
-                    </td>
+                    <td>DELIVERY</td>
+                    <td>#10,000.00</td>
                   </tr>
                   <tr>
                     <td>TOTAL</td>

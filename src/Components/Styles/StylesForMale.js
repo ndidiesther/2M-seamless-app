@@ -23,8 +23,7 @@ const StylesForMale = () => {
                     stylename: "Plain Kaftan",
                     price: "166076.00",
                     uniqueId: 6,
-                    description: 'Vintage'
-                
+                    description: "Vintage",
                   },
                 })
               }
@@ -45,7 +44,7 @@ const StylesForMale = () => {
                     stylename: "African Print Shirt",
                     price: "166076.00",
                     uniqueId: 7,
-                    description: 'African Prints'
+                    description: "African Prints",
                   },
                 })
               }
@@ -66,7 +65,7 @@ const StylesForMale = () => {
                     stylename: "Cashmere Jacket",
                     price: "166076.00",
                     uniqueId: 8,
-                    description:'Suit'
+                    description: "Suit",
                   },
                 })
               }
@@ -87,7 +86,7 @@ const StylesForMale = () => {
                     stylename: "One Piece Senator",
                     price: "166076.00",
                     uniqueId: 9,
-                    description:'Grunge'
+                    description: "Grunge",
                   },
                 })
               }
@@ -108,7 +107,7 @@ const StylesForMale = () => {
                     stylename: "Two Piece African Print",
                     price: "166076.00",
                     uniqueId: 10,
-                    description: 'African Prints'
+                    description: "African Prints",
                   },
                 })
               }
@@ -149,7 +148,7 @@ const StylesForMale = () => {
                     stylename: "One Piece Senator",
                     price: "166076.00",
                     uniqueId: 9,
-                    description: 'Grunge'
+                    description: "Grunge",
                   },
                 })
               }
@@ -170,7 +169,7 @@ const StylesForMale = () => {
                     stylename: "Two Piece African Print",
                     price: "166076.00",
                     uniqueId: 10,
-                    description: 'African Prints'
+                    description: "African Prints",
                   },
                 })
               }
@@ -191,7 +190,7 @@ const StylesForMale = () => {
                     stylename: "Two Piece Senator",
                     price: "166076.00",
                     uniqueId: 11,
-                    description: 'African Prints'
+                    description: "African Prints",
                   },
                 })
               }

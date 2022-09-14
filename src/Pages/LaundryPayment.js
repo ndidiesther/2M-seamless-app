@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { ButtonContainer } from "../Components/Shared/ButtonComponent";import { Modal } from "react-bootstrap";
+import { ButtonContainer } from "../Components/Shared/ButtonComponent";
+import { Modal } from "react-bootstrap";
 import Input from "../Components/Modal/Input";
 
 import Successful from "../Assets/Images/successful.png";
 import { useNavigate } from "react-router-dom";
 
-const LaundryPayment = ({ setLaundryPayment, setLaundryDetails, setLaundrySummary, setLaundryUpload }) => {
+const LaundryPayment = ({
+  setLaundryPayment,
+  setLaundryDetails,
+  setLaundrySummary,
+  setLaundryUpload,
+}) => {
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
-
 
   return (
     <div className="col-12">
@@ -61,7 +66,14 @@ const LaundryPayment = ({ setLaundryPayment, setLaundryDetails, setLaundrySummar
       </div>
       <div className="payment_modal">
         <PaymentSuccessful
-          {...{ isPaymentSuccessful, setIsPaymentSuccessful, setLaundryDetails, setLaundrySummary, setLaundryPayment, setLaundryUpload }}
+          {...{
+            isPaymentSuccessful,
+            setIsPaymentSuccessful,
+            setLaundryDetails,
+            setLaundrySummary,
+            setLaundryPayment,
+            setLaundryUpload,
+          }}
         />
       </div>
     </div>
@@ -70,9 +82,16 @@ const LaundryPayment = ({ setLaundryPayment, setLaundryDetails, setLaundrySummar
 
 export default LaundryPayment;
 
-const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful, setLaundryDetails, setLaundrySummary, setLaundryPayment, setLaundryUpload }) => {
+const PaymentSuccessful = ({
+  isPaymentSuccessful,
+  setIsPaymentSuccessful,
+  setLaundryDetails,
+  setLaundrySummary,
+  setLaundryPayment,
+  setLaundryUpload,
+}) => {
   const closeModalHandler = () => setIsPaymentSuccessful(false);
-  const navigate  = useNavigate() 
+  const navigate = useNavigate();
   return (
     <Modal
       show={isPaymentSuccessful}
@@ -95,8 +114,8 @@ const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful, setLau
               setLaundryDetails(false);
               setLaundryPayment(false);
               setLaundryUpload(false);
-              setLaundrySummary(false)
-              navigate("/laundry")
+              setLaundrySummary(false);
+              navigate("/laundry");
             }}
           >
             Done

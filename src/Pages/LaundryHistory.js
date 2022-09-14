@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import ProfileImg from "../Assets/Images/profileimg.png";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import PickUp from "../Assets/Images/pickup.png";
 import Washing from "../Assets/Images/washing.png";
@@ -8,14 +7,12 @@ import EditProfile from "../Components/Laundry/EditProfile";
 import { useNavigate } from "react-router-dom";
 import LaundryOrders from "../Components/Laundry/LaundryOrders";
 import EmptyImg from "../Assets/Images/avatar.png";
-import LaundryOrderSuccess from "../Components/History/LaundryOrderSuccess";
 
 const LaundryHistory = ({ editProfile, setEditProfile }) => {
   const [orderType, setOrderType] = useState("");
   const [laundryOrders, setLaundryOrders] = useState(false);
   const [profilePic, setProfilePic] = useState(null);
   const [selectedOrder, setSelectedOrder] = useState({});
-  // const [laundryOrderSuccess, setLaundryOrderSuccess] = useState(false);
 
   const [orderArr, setOrderArr] = useState([
     {

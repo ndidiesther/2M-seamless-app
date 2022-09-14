@@ -97,10 +97,7 @@ const UploadMeasurement = ({
       const reader = new FileReader();
 
       reader.onload = function (e) {
-        setImages((prevState) => [
-          
-          { id: index, src: e.target.result },
-        ]);
+        setImages((prevState) => [{ id: index, src: e.target.result }]);
       };
 
       reader.readAsDataURL(file);
@@ -134,7 +131,7 @@ const UploadMeasurement = ({
     const newFiles = [...files]; // make a var for the new array
     acceptedFiles.splice(file, 1); // remove the file from the array
   };
- 
+
   // console.log(acceptedFiles)
   // console.log(test)
   // console.log(files[0]?.key);
@@ -169,10 +166,7 @@ const UploadMeasurement = ({
 
                 <div>
                   <p>
-                    <input
-                      {...getInputProps()}
-        
-                    />
+                    <input {...getInputProps()} />
                     Drag and drop or{" "}
                     <button type="button" className="upload_btn" onClick={open}>
                       Select file
@@ -185,14 +179,12 @@ const UploadMeasurement = ({
             </Container>
           ) : null}
           <div className="upload_button">
-           
             <ButtonContainer
-              onClick={() =>{
-                setUploadMeasurement(false)
-                setSelectedImage(selectedImages[selectedImages.length - 1])
-                setImages([])
-              }
-              }
+              onClick={() => {
+                setUploadMeasurement(false);
+                setSelectedImage(selectedImages[selectedImages.length - 1]);
+                setImages([]);
+              }}
             >
               Upload Image
             </ButtonContainer>

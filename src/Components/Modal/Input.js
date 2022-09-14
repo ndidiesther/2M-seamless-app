@@ -16,17 +16,16 @@ const Input = ({ placeholder, focused }) => {
         }}
       >
         <TextField
-        InputLabelProps={{
-          sx: {
-            // set the color of the label when not shrinked
-            color: "",
-            [`&.${inputLabelClasses.shrink}`]: {
-              // set the color of the label when shrinked (usually when the TextField is focused)
-              color: "#000"
-            }
-          }
-        }}
-        
+          InputLabelProps={{
+            sx: {
+              // set the color of the label when not shrinked
+              color: "",
+              [`&.${inputLabelClasses.shrink}`]: {
+                // set the color of the label when shrinked (usually when the TextField is focused)
+                color: "#000",
+              },
+            },
+          }}
           sx={{
             ".MuiOutlinedInput-root.Mui-focused": {
               "& > fieldset": {
@@ -47,7 +46,7 @@ const Input = ({ placeholder, focused }) => {
               {
                 border: "2px solid #bc9a43",
               },
-             
+
             // "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
             //   color: "#000",
             // },

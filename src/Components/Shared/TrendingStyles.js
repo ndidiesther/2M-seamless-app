@@ -41,7 +41,7 @@ const TrendingStyles = ({ paragraph }) => {
           </div>
         </div>
         <div className="view_btn">
-        <p>View More</p>
+          <p>View More</p>
         </div>
       </div>
     </div>

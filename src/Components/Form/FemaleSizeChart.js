@@ -153,14 +153,6 @@ const FemaleSizeChart = ({ viewModal, setViewModal }) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        {/* {chartImage === 1 ? (
-            <div>
-              <FirstStep {...{ setChartImage }} />
-            </div>
-          ) : (
-            <SecondStep {...{ setChartImage }} />
-          )} */}
-
         {(() => {
           if (chartImage === 1) {
             return (

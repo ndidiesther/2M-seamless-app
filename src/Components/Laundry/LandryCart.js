@@ -2,11 +2,6 @@ import React, { useState, useContext } from "react";
 import { CartContext } from "../../App";
 
 const LandryCart = ({ services }) => {
-  // const getInitialState = () => {
-  //   const value = "shorts";
-  //   return value;
-  // };
-
   const [value, setValue] = useState("Shorts");
   const [changeQuantity, setChangeQuantity] = useState(1);
   //  console.log(services)
@@ -97,7 +92,7 @@ const LandryCart = ({ services }) => {
             {laundryCartItems.map((item, index) => (
               <div key={index}>
                 <span>
-                  <span>{item.name}</span> <br/>
+                  <span>{item.name}</span> <br />
                   <span>({item.services})</span>
                 </span>
 

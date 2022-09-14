@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 import { ButtonContainer } from "../Shared/ButtonComponent";
 import WhatsApp from "../../Assets/Images/whatsapp-icon.png";
 
-const CustomStyles = ({orderStyle, setOrderStyle}) => {
+const CustomStyles = ({ orderStyle, setOrderStyle }) => {
   const closeModalHandler = () => setOrderStyle(false);
   return (
     <Modal

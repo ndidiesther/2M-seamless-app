@@ -19,7 +19,7 @@ const StylesForMale = () => {
                     id: 1,
                     stylename: "One Piece Senator",
                     uniqueId: 9,
-                    description: 'Grunge',
+                    description: "Grunge",
                     price: "166076.00",
                   },
                 })
@@ -41,7 +41,7 @@ const StylesForMale = () => {
                     stylename: "Two Piece African Print",
                     price: "166076.00",
                     uniqueId: 10,
-                    description: 'African Prints'
+                    description: "African Prints",
                   },
                 })
               }
@@ -62,7 +62,7 @@ const StylesForMale = () => {
                     stylename: "Two Piece Senator",
                     price: "166076.00",
                     uniqueId: 11,
-                    description: 'African Prints'
+                    description: "African Prints",
                   },
                 })
               }

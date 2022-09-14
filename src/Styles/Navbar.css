@@ -302,8 +302,8 @@
   padding-top: 40px;
 }
 .category_name {
-  margin-block-end: 1em!important;
-  margin-block-start: 1em!important;
+  margin-block-end: 1em !important;
+  margin-block-start: 1em !important;
 }
 
 @media only screen and (max-width: 991px) {
@@ -349,12 +349,14 @@
     justify-content: center;
     align-items: center;
   }
+  .searchInput {
+    margin-top: 75px;
+  }
 }
 @media only screen and (max-width: 360px) {
   .inputSearch {
-    width:90%
+    width: 90%;
   }
-
 }
 #checkbox {
   display: none;
@@ -414,4 +416,3 @@ button:focus:not(:focus-visible),
   border: 1.38889px solid #e1e8f1 !important;
   padding: 10px 0 !important;
 }
-

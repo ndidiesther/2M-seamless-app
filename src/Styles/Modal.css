@@ -26,9 +26,8 @@
   font-size: 19px;
 }
 
-
-.css-qmvhj5>:not(style) {
-  margin-right:0 !important
+.css-qmvhj5 > :not(style) {
+  margin-right: 0 !important;
 }
 .btn-close {
   position: absolute;
@@ -137,10 +136,10 @@
   color: rgba(75, 75, 75, 0.6);
 }
 .shrink-label.Mui-focused {
-  color:#000 !important;
+  color: #000 !important;
 }
 .sex-label.Mui-focused {
-  color:#bc9a43 !important;
+  color: #bc9a43 !important;
 }
 /********Upload *******/
 .upload_header {
@@ -163,7 +162,8 @@
   color: #bc9a43;
 }
 
-.container, .editcontainer {
+.container,
+.editcontainer {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -171,7 +171,8 @@
   /* padding-bottom: 40px; */
 }
 
-.container img, .editcontainer img {
+.container img,
+.editcontainer img {
   height: 180px;
   width: 140px;
 }
@@ -184,10 +185,9 @@
   align-items: center;
   width: 100%;
 }
- .container-measurement img {
+.container-measurement img {
   width: 400px;
   height: 400px;
-
 }
 .blue {
   color: blue;
@@ -200,7 +200,7 @@
 .upload_button {
   margin-top: 40px;
 }
-.otp_p{
+.otp_p {
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
@@ -208,21 +208,23 @@
   text-align: center;
 }
 @media only screen and (max-width: 767px) {
-.UploadModal {
-  margin-top: 70px !important;
-  width: unset !important;
-  max-width: unset !important;
+  .UploadModal {
+    margin-top: 70px !important;
+    width: unset !important;
+    max-width: unset !important;
+  }
 }
-}
-@media only screen and (max-width: 550px)  {
-.container, .editcontainer {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.container img, .editcontainer img {
-  height: auto;
-}
+@media only screen and (max-width: 550px) {
+  .container,
+  .editcontainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .container img,
+  .editcontainer img {
+    height: auto;
+  }
 }
 @media only screen and (max-width: 500px) {
   .modal {
@@ -257,19 +259,16 @@
     margin-top: 70px !important;
   }
   .btn-close {
-    right:25px;
+    right: 25px;
   }
   .container-measurement img {
     width: 200px;
     height: 200px;
-  
   }
-  
 }
 @media only screen and (max-width: 330px) {
   .todo-list > span:nth-child(2) {
-    left:13px;
-    top:40px;
+    left: 13px;
+    top: 40px;
   }
- 
 }

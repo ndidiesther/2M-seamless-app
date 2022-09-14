@@ -184,7 +184,12 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   Laundry
                 </NavLink>
               </li>
-              <li onClick={() => setIsNavExpanded(false)}>
+              <li
+                onClick={() => {
+                  setIsNavExpanded(false);
+                  setShowSearch(true);
+                }}
+              >
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "link-activ" : "lin"

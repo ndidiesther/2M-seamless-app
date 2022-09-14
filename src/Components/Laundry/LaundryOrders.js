@@ -15,10 +15,9 @@ function LaundryOrders({
 }) {
   const closeModalHandler = () => setLaundryOrders(false);
   const [laundryOrderSuccess, setLaundryOrderSuccess] = useState(false);
-  const [completed, setCompleted] = useState(null);
   const cartContext = useContext(CartContext);
   const { laundryCartItems } = cartContext;
-  const [imageNull, setImageNull] = useState('');
+  const [imageNull, setImageNull] = useState("");
 
   function updateStatus() {
     let updatedArray = orderArr.map((item) => {

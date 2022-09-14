@@ -2,7 +2,7 @@ import React from "react";
 import FirstWorkImage from "../../Assets/Images/work1.png";
 import SecondWorkImage from "../../Assets/Images/work2.png";
 import ThirdWorkImage from "../../Assets/Images/work3.png";
-import "../../Styles/caurosel.css"
+import "../../Styles/caurosel.css";
 import Slider from "react-slick";
 
 const LaundryGallery = () => {
@@ -66,7 +66,7 @@ const LaundryGallery = () => {
       alt: "",
       url: ThirdWorkImage,
     },
- 
+
     {
       id: "7",
       name: "img 7",
@@ -82,25 +82,24 @@ const LaundryGallery = () => {
   ];
   return (
     <>
-    
       <div className="col-12 laundryGal">
         <p>Gallery</p>
         <p>Our Works</p>
         <Slider {...settings}>
-        {images.map((item) => (
-          <div className="wrapper" key={item.id}>
-            <div>
-              <img
-                width={item.width}
-                className="sliderImg"
-                src={item.url}
-                alt={item.alt}
-              />
-              <p>{item.name}</p>
+          {images.map((item) => (
+            <div className="wrapper" key={item.id}>
+              <div>
+                <img
+                  width={item.width}
+                  className="sliderImg"
+                  src={item.url}
+                  alt={item.alt}
+                />
+                <p>{item.name}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
         {/* <div>
           <div>
             <img src={FirstWorkImage} /> <span className="slideLeft"> &#10096;</span>

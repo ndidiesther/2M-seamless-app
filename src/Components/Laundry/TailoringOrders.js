@@ -15,7 +15,7 @@ const TailoringOrders = ({
   const closeModalHandler = () => setTailoringOrders(false);
   const [tailoringOrderSuccess, setTailoringOrderSuccess] = useState(false);
   const [completed, setCompleted] = useState(null);
-  const [imageNull, setImageNull] = useState('');
+  const [imageNull, setImageNull] = useState("");
   function updateStatus() {
     let updatedArray = orderArr.map((item) => {
       if (item.orderId == selectedOrder.orderId) {

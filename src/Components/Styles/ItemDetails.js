@@ -11,7 +11,7 @@ const ItemDetails = ({ styleName }) => {
         <p>Olympia, Multi Colored Ankara</p>
       </div>
       <div>
-      <p>
+        <p>
           <span className="duration">Duration:</span>
           <span> 10 days</span>
         </p>

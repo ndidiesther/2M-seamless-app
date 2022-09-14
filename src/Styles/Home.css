@@ -154,7 +154,7 @@ a {
   font-size: 18px;
   text-align: justify;
 }
-.view_btn  {
+.view_btn {
   display: none;
 }
 @media only screen and (min-width: 992px) {
@@ -497,14 +497,16 @@ a {
   .select_gender > a > button > p {
     top: 50px;
   }
-  .banner > div:nth-child(2){
+  .banner > div:nth-child(2) {
     text-align: left;
   }
-  .banner_img, .lady_one, .mask_group {
+  .banner_img,
+  .lady_one,
+  .mask_group {
     display: none;
   }
-  .banner_content > p:nth-child(2), .mini_banner > div:first-child {
+  .banner_content > p:nth-child(2),
+  .mini_banner > div:first-child {
     text-align: left;
   }
-
 }

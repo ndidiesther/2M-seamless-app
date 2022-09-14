@@ -3,7 +3,11 @@ import Input from "../Components/Modal/Input";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import { Modal } from "react-bootstrap";
 
-function ForgetPassword({ forgetPasswordModal, setForgetPasswordModal, setOtpInput }) {
+function ForgetPassword({
+  forgetPasswordModal,
+  setForgetPasswordModal,
+  setOtpInput,
+}) {
   const closeModalHandler = () => setForgetPasswordModal(false);
   return (
     <div>
