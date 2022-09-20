@@ -12,13 +12,14 @@ const StylesForFemale = () => {
         <div>
           <img
             onClick={() =>
-              navigate("/product", {
+              navigate("/tailoring/product", {
                 state: {
                   src: FirstStyle,
                   id: 2,
                   stylename: "Ankara Bohemian Gown",
                   price: "166076.00",
                   uniqueId: 3,
+                  description: "Gowns",
                 },
               })
             }
@@ -32,13 +33,14 @@ const StylesForFemale = () => {
         <div>
           <img
             onClick={() =>
-              navigate("/product", {
+              navigate("/tailoring/product", {
                 state: {
                   src: SecondStyle,
                   id: 2,
                   stylename: "Ankara Bohemian Gown",
                   price: "166076.00",
                   uniqueId: 4,
+                  description: "Vintage",
                 },
               })
             }
@@ -52,13 +54,14 @@ const StylesForFemale = () => {
         <div>
           <img
             onClick={() =>
-              navigate("/product", {
+              navigate("/tailoring/product", {
                 state: {
                   src: ThirdStyle,
                   id: 2,
                   stylename: "Ankara Bohemian Gown",
                   price: "166076.00",
                   uniqueId: 5,
+                  description: "African Prints",
                 },
               })
             }

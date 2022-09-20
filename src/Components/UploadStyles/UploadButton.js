@@ -1,9 +1,9 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import UploadStyles from "../UploadStyles/UploadStyles";
 import { ButtonContainer } from "../Shared/ButtonComponent";
 
 const UploadButton = () => {
-    const [uploadStyles, setUploadStyle] = useState(false);
+  const [uploadStyles, setUploadStyle] = useState(false);
   return (
     <div>
       <div>

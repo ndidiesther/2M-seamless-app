@@ -10,9 +10,11 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { Modal } from "react-bootstrap";
-import ChartImage from "../../Assets/Images/size_chart.png";
 import { useNavigate } from "react-router-dom";
+import UploadMeasurement from "./UploadMeasurement";
+import "react-dropzone-uploader/dist/styles.css";
+import MaleSizeChart from "./MaleSizeChart";
+import FemaleSizeChart from "./FemaleSizeChart";
 
 const PickUpLocation = () => {
   return (
@@ -30,25 +32,67 @@ const DeliveryLocation = () => {
     </div>
   );
 };
-const SelectSize = () => {
+
+const SelectSize = ({ chooseSex }) => {
   const [size, setSize] = React.useState("");
   const [viewChart, setViewChart] = useState(false);
-  const closeModalHandler = () => setViewChart(false);
+  const [viewModal, setViewModal] = useState(false);
+  const [uploadMeasurement, setUploadMeasurement] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // const [selectedImages, setSelectedImages] = useState([]);
+  // const closeModalHandler = () => setViewChart(false);
 
   const handleChange = (event) => {
     setSize(event.target.value);
   };
+  function trimContent(imgName) {
+    console.log(imgName.length);
+    console.log(imgName);
+    if (imgName.length < 15) {
+      return imgName;
+    }
+    let start = imgName.slice(0, 10);
+    let end = imgName.slice(-5);
+    let trimmedString = start + "..." + end;
+    return trimmedString;
+  }
+  // console.log(chooseSex);
+
+  // console.log(selectedImage);
   return (
     <div className="select_size">
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Select Size</InputLabel>
           <Select
+            className="MenuItem"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={size}
             label="Select Size"
             onChange={handleChange}
+            sx={{
+              ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+                border: "1px solid rgba(0, 0, 0, 0.23)",
+              },
+
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#bc9a43",
+                borderWidth: "2px",
+              },
+              "& label": {
+                color: "white",
+              },
+
+              ".&.Mui-focused .MuiOutlinedInput-notchedOutline-MuiSelect-root:hover":
+                {
+                  "& > fieldset": {
+                    borderColor: "#bc9a43",
+                    borderWidth: "2px",
+                  },
+                },
+            }}
           >
             <MenuItem value={1}>US 4/ UK 8</MenuItem>
             <MenuItem value={2}>US 6/ UK 10</MenuItem>
@@ -59,68 +103,58 @@ const SelectSize = () => {
             <MenuItem value={7}>US 16/ UK 20</MenuItem>
           </Select>
         </FormControl>
-        <button className="size_btn" onClick={() => setViewChart(true)}>
-          View Size Chart
-        </button>
-        <Modal
-          dialogClassName={"CSRModal"}
-          show={viewChart}
-          onHide={closeModalHandler}
-          // size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Header closeButton>
-            <Modal.Title
-              id="contained-modal-title-vcenter"
-              className="modal-title"
-            ></Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="gender_body">
-            <div  className="chartimg">
-              <img src={ChartImage} />
+        <div className="view_sizebtn">
+          {chooseSex == 1 ? (
+            <button className="size_btn" onClick={() => setViewChart(true)}>
+              View Size Chart
+            </button>
+          ) : (
+            <button className="size_btn" onClick={() => setViewModal(true)}>
+              View Size Chart
+            </button>
+          )}
+        </div>
+
+        {selectedImage == null ? (
+          <div className="uploadimage">
+            <button
+              className="uploadimage_btn"
+              onClick={() => setUploadMeasurement(true)}
+            >
+              Or Upload an image of your measurements
+            </button>
+          </div>
+        ) : (
+          <div className="selected_image">
+            <div>
+              {" "}
+              <span>{selectedImage && trimContent(selectedImage.name)} </span>
+              <span onClick={() => setSelectedImage(null)}>
+                <i className="fa-solid fa-xmark"></i>
+              </span>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
-            {/* <Button onClick={props.onHide}>Close</Button> */}
-          </Modal.Footer>
-        </Modal>
+            <div
+              onClick={() => {
+                setUploadMeasurement(true);
+                // setSelectedImages([]);
+              }}
+            >
+              Change
+            </div>
+          </div>
+        )}
+
+        <UploadMeasurement
+          {...{
+            uploadMeasurement,
+            setUploadMeasurement,
+            setSelectedImage,
+          }}
+        />
+
+        <MaleSizeChart {...{ viewChart, setViewChart }} />
+        <FemaleSizeChart {...{ viewModal, setViewModal }} />
       </Box>
-    </div>
-  );
-};
-const InputMeasurement = () => {
-  return (
-    <div className="input_measurement">
-      <p>Please input your measurement (in inches)</p>
-      <div className="input_mdiv">
-        <span>
-          <label>Shoulder</label>
-          <input type="number" />
-        </span>
-        <span>
-          <label>Bust</label>
-          <input type="number" />
-        </span>
-        <span>
-          <label>Waist</label>
-          <input type="number" />
-        </span>
-      </div>
-      <div className="input_mdiv">
-        <span>
-          <label>Hip</label>
-          <input type="number" />
-        </span>
-        <span>
-          <label>Blouse Length</label>
-          <input type="number" />
-        </span>
-        <span>
-          <label>Skirt Length</label>
-          <input type="number" />
-        </span>
-      </div>
     </div>
   );
 };
@@ -242,10 +276,10 @@ const Form = ({ orderImage, styleName, chooseSex }) => {
       <div>
         {yesMeasurement && (
           <>
-            <InputMeasurement />
+            <SelectSize {...{ chooseSex }} />
           </>
         )}
-        {noMeasurement && <SelectSize />}
+        {noMeasurement && <SelectSize {...{ chooseSex }} />}
       </div>
 
       <div>
@@ -261,7 +295,7 @@ const Form = ({ orderImage, styleName, chooseSex }) => {
       <div className="form_button">
         <ButtonContainer
           onClick={() =>
-            navigate("/orderdetails", {
+            navigate("/tailoring/orderdetails", {
               state: { src: orderImage, stylename: styleName, id: chooseSex },
             })
           }

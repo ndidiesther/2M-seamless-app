@@ -11,10 +11,10 @@ const OrderDetails = () => {
   let chooseSex = location.state?.id;
   let orderSummary = "Order Summary";
   let styleName = location.state?.stylename;
-  console.log(chooseSex);
+  // console.log(chooseSex);
   useEffect(() => {
     orderImage = location.state?.src;
-    console.log(chooseSex);
+    // console.log(chooseSex);
   }, [orderImage]);
 
   return (

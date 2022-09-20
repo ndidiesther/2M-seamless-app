@@ -5,13 +5,12 @@ import Hero from "../Components/Home/Hero";
 import TrendingStyles from "../Components/Shared/TrendingStyles";
 import Gender from "./Gender";
 
-const Home = ({genderModal, setGenderModal}) => {
-
+const Home = ({ genderModal, setGenderModal }) => {
   return (
     <div>
       <Hero {...{ setGenderModal }} />
       <GridDisplay />
-      <TrendingStyles paragraph= "Trending Styles for You" />
+      <TrendingStyles paragraph="Trending Styles for You" />
       <Banner {...{ setGenderModal }} />
       <Gender {...{ genderModal, setGenderModal }} />
 

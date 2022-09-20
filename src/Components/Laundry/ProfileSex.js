@@ -9,7 +9,12 @@ export default function Sex() {
   return (
     <div className="select_sex">
       <FormControl>
-        <FormLabel className="sex-label" id="demo-row-radio-buttons-group-label">Sex*</FormLabel>
+        <FormLabel
+          className="sex-label"
+          id="demo-row-radio-buttons-group-label"
+        >
+          Sex*
+        </FormLabel>
         <RadioGroup
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
@@ -23,9 +28,10 @@ export default function Sex() {
                   "&.Mui-checked": {
                     color: "#bc9a43",
                   },
-                  "&.css-1nrlq1o-MuiFormControl-root. css-j204z7-MuiFormControlLabel-root": {
-                      marginRight: "10px"
-                  }
+                  "&.css-1nrlq1o-MuiFormControl-root. css-j204z7-MuiFormControlLabel-root":
+                    {
+                      marginRight: "10px",
+                    },
                 }}
               />
             }

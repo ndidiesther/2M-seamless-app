@@ -13,11 +13,14 @@ const StylesForMale = () => {
           <div>
             <img
               onClick={() =>
-                navigate("/product", {
+                navigate("/tailoring/product", {
                   state: {
                     src: FourthStyle,
                     id: 1,
                     stylename: "One Piece Senator",
+                    uniqueId: 9,
+                    description: "Grunge",
+                    price: "166076.00",
                   },
                 })
               }
@@ -31,11 +34,14 @@ const StylesForMale = () => {
           <div>
             <img
               onClick={() =>
-                navigate("/product", {
+                navigate("/tailoring/product", {
                   state: {
                     src: FifthStyle,
                     id: 1,
                     stylename: "Two Piece African Print",
+                    price: "166076.00",
+                    uniqueId: 10,
+                    description: "African Prints",
                   },
                 })
               }
@@ -49,11 +55,14 @@ const StylesForMale = () => {
           <div>
             <img
               onClick={() =>
-                navigate("/product", {
+                navigate("/tailoring/product", {
                   state: {
                     src: SixthStyle,
                     id: 1,
                     stylename: "Two Piece Senator",
+                    price: "166076.00",
+                    uniqueId: 11,
+                    description: "African Prints",
                   },
                 })
               }

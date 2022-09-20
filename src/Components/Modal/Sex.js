@@ -9,7 +9,12 @@ export default function Sex() {
   return (
     <div className="select_sex">
       <FormControl>
-        <FormLabel className="sex-label" id="demo-row-radio-buttons-group-label">Sex*</FormLabel>
+        <FormLabel
+          className="sex-label"
+          id="demo-row-radio-buttons-group-label"
+        >
+          Sex*
+        </FormLabel>
         <RadioGroup
           row
           aria-labelledby="demo-row-radio-buttons-group-label"

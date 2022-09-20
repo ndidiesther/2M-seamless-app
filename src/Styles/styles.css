@@ -47,12 +47,49 @@
   height: 45px;
   border: 1px solid #fcfbf7;
 }
+.styles_header > div > span {
+  position: relative;
+  top: 15px;
+}
+.styles_header > div > span > span:last-child > button {
+  color: #bc9a43;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+}
+.custom_style > h2 {
+  font-weight: bold;
+  text-align: center;
+  margin-block-end: 1em;
+}
+.custom_style > p {
+  text-align: center;
+  line-height: 30px;
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+.custom_style > button > span {
+  padding-left: 10px;
+}
 
 .styles_subheader > div > button:not(button:last-child) {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
-.styles_subheader > div > button:first-child {
+.styles_subheader > div > button.active {
   border: 1px solid #bc9a43 !important;
+  color: #bc9a43;
+}
+
+.select-sex {
+  /* width: 100px !important; */
+  display: inline !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
 }
 .styles_subheader > div:nth-child(2) > div {
   float: right;
@@ -89,12 +126,15 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  column-gap: 20px;
 }
 .styles_for_female > div > div,
 .styles_for_male > div > div {
   width: 350px;
   height: auto;
   cursor: pointer;
+  padding-bottom: 25px;
 }
 .styles_for_female > div > div img,
 .styles_for_male > div > div img {
@@ -156,7 +196,7 @@
 @media only screen and (max-width: 991px) {
   .styles_for_female > div,
   .styles_for_male > div {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   .styles_for_female,
   .styles_for_male {
@@ -165,6 +205,10 @@
   .styles_for_female > div > div,
   .styles_for_male > div > div {
     padding-bottom: 20px;
+    flex-basis: 50%;
+  }
+  .styles_name {
+    width: 350px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -181,6 +225,13 @@
   .male_styles {
     padding: 120px 20px 20px;
     margin-bottom: 20px;
+  }
+  .styles_header > div:nth-child(2) {
+    float: none;
+    display: block;
+  }
+  .styles_header > div:first-child {
+    float: none;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -222,19 +273,21 @@
   .male_backarrow > span {
     font-size: 25px;
   }
-  .styles_header > div:nth-child(2) {
-    display: none;
-  }
-  .load_more {
-    float: left;
-    width: unset;
-  }
+
   .load_more > button {
     width: fit-content !important;
   }
   .other_uploadbtn {
     display: block;
-    float: right;
+    text-align: center;
+  }
+  .other_uploadbtn > span > span button {
+    color: #bc9a43;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    padding-top: 10px;
   }
   .search_icon > input {
     padding: 10px 10px 10px 30px;
@@ -251,10 +304,22 @@
     padding: 6px 20px 6px 0 !important;
     margin-left: 10px;
   }
+  .styles_name {
+    width: unset;
+  }
+  .styles_header > div:nth-child(2) {
+    font-size: 14.5px;
+    display: none;
+  }
+}
+#demo-simple-select-label.Mui-focused {
+  color: #bc9a43 !important;
+}
+MenuItem.Mui-select-select {
+  color: blue;
 }
 @media only screen and (max-width: 350px) {
-  .load_more,
-  .other_uploadbtn {
+  .load_more {
     float: none;
     display: flex;
     align-items: center;
@@ -401,20 +466,24 @@
 .vector_div {
   padding-top: 30px;
 }
-.vector_div > span:first-child {
+.vector_div > span:first-child,
+.vector_div > span:nth-child(2) > span {
   position: relative;
   padding-right: 30px;
 }
 .vector_div > span:first-child > img,
-.vector_div > span:nth-child(2) > img {
+.vector_div > span:nth-child(2) > img,
+.vector_div > span:nth-child(3) > img {
   position: absolute;
   top: -3px;
 }
 .vector_div > span:first-child > span,
-.vector_div > span:nth-child(2) > span {
+.vector_div > span:nth-child(2) > span,
+.vector_div > span:nth-child(3) > span {
   padding-left: 40px;
 }
-.vector_div > span:nth-child(2) {
+.vector_div > span:nth-child(2),
+.vector_div > span:nth-child(3) {
   position: relative;
 }
 .fabric_desc {
@@ -542,6 +611,9 @@ a {
   color: #000;
   opacity: 0.5;
 }
+.duration {
+  padding-right: 6px;
+}
 .outfit {
   padding-right: 33px;
 }
@@ -651,7 +723,6 @@ a {
     padding-left: 54px;
     width: 480px;
   }
- 
 
   .product_para > span:nth-child(2),
   .p_description > p:first-child {
@@ -748,7 +819,7 @@ a {
     text-align: center;
   }
   .payment_success > img {
-    width:60px;
+    width: 60px;
     height: auto;
   }
 }
@@ -817,7 +888,90 @@ textarea {
   outline: none;
   background-color: transparent;
   border: 0;
+  padding-left: 0 !important;
+}
+.uploadimage {
+  padding-top: 10px;
+}
+.uploadimage_btn {
+  padding-top: 20px;
+  outline: none;
+  background-color: transparent;
+  border: 0;
   color: #bc9a43;
+  font-weight: bold;
+  padding-left: 0 !important;
+  text-align: left;
+}
+.selected_image {
+  padding-top: 30px;
+  width: 100%;
+  float: left;
+  padding-bottom: 40px;
+}
+.selected_image > div:first-child {
+  background-color: #f2ebd9;
+  padding: 10px;
+  width: fit-content;
+  margin-right: 10px;
+  float: left;
+}
+.selected_image > div:first-child > span:first-child {
+  font-size: 16px;
+  padding-right: 14px;
+  margin-right: 7px;
+}
+.selected_image > div:first-child > span:last-child {
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+.selected_image > div:first-child > span:last-child > i {
+  font-size: 13px;
+}
+.selected_image > div:last-child {
+  color: #bc9a43;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding-bottom: 20px;
+  float: left;
+  padding-top: 10px;
+}
+
+.angle-left {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  background-color: #bc9a43;
+  padding: 3px 12px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.disabled {
+  opacity: 0.5;
+}
+.angle-right {
+  position: absolute;
+  top: 49.9%;
+  right: -72px;
+  background-color: #bc9a43;
+  padding: 3px 12px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.measurement_btn {
+  outline: none;
+  background-color: transparent;
+  border: 0;
+  padding-left: 0 !important;
+  font-weight: bold;
+  text-align: left;
 }
 .CSRModal {
   width: 800px !important;
@@ -825,6 +979,7 @@ textarea {
 }
 .CSRModal > div {
   background-color: transparent !important;
+  border: none !important;
 }
 .input_mdiv {
   display: flex;
@@ -899,30 +1054,47 @@ input[type="number"] {
 }
 
 /*********View Chart Modal *********/
+.chartimg,
+.chartimg > img {
+  width: 800px;
+  height: auto;
+}
+
 @media only screen and (max-width: 992px) {
   .chartimg,
   .chartimg > img {
-    width: 500px;
+    width: 550px;
     height: auto;
   }
   .chartimg {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   .CSRModal {
     width: unset !important;
     max-width: 500px !important;
   }
+  .angle-left {
+    left: 0px;
+    padding: 2px 9px;
+    font-size: 16px;
+  }
+  .angle-right {
+    right: 0px;
+    padding: 2px 9px;
+    font-size: 16px;
+  }
 }
 @media only screen and (max-width: 767px) {
   .chartimg,
   .chartimg > img {
-    width: 400px;
+    width: 450px;
     height: auto;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
   .chartimg,
   .chartimg > img {
     width: 100%;
@@ -933,5 +1105,10 @@ input[type="number"] {
   }
   .item_input > input {
     width: 100%;
+  }
+  .angle-left,
+  .angle-right {
+    padding: 2px 7px;
+    font-size: 14px;
   }
 }

@@ -9,7 +9,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Box } from "@mui/material";
 import { inputLabelClasses } from "@mui/material/InputLabel";
 
-function ShowAndHidePassword({placeholder}) {
+function ShowAndHidePassword({ placeholder }) {
   const [passwordType, setPasswordType] = useState("password");
   const [passwordInput, setPasswordInput] = useState("");
   const handlePasswordChange = (evnt) => {
@@ -32,12 +32,14 @@ function ShowAndHidePassword({placeholder}) {
         }}
       >
         <FormControl sx={{ m: 1 }} variant="outlined" style={{ width: 450 }}>
-          <InputLabel className="shrink-label" htmlFor="outlined-adornment-password">
+          <InputLabel
+            className="shrink-label"
+            htmlFor="outlined-adornment-password"
+          >
             {placeholder}
           </InputLabel>
 
           <OutlinedInput
-           
             sx={{
               "&.MuiOutlinedInput-root.Mui-focused": {
                 "& > fieldset": {
@@ -76,7 +78,6 @@ function ShowAndHidePassword({placeholder}) {
               </InputAdornment>
             }
             label="Password"
-            
           />
         </FormControl>
       </Box>

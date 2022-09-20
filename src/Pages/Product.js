@@ -28,6 +28,7 @@ export default function Product({}) {
   let styleName = location.state?.stylename;
   let amount = location.state?.price;
   let uniqueId = location.state?.uniqueId;
+  let description = location.state?.description;
 
   // console.log(location.state.stylename)
   // console.log(location.state.id);
@@ -43,13 +44,14 @@ export default function Product({}) {
     itemQty: 1,
     totalPrice: amount,
     id: uniqueId,
+    description: description,
   };
 
   const addToCart = () => {
     setShowCart(!showCart);
 
     const checkItem = cartItems.find((cartItem) => cartItem.id == item.id);
-    console.log(item.id);
+    // console.log(item.id);
     if (checkItem) {
       return;
     }
@@ -75,7 +77,7 @@ export default function Product({}) {
           <div className="p_div">
             <div className="p_description">
               <p>{styleName}</p>
-              <p>Olympia, Multi Colored Ankara</p>
+              <p>{description}</p>
               <p>
                 {" "}
                 <NumberFormat
@@ -107,7 +109,7 @@ export default function Product({}) {
               <div className="div_btn">
                 <ButtonContainer
                   onClick={() =>
-                    navigate("/customizeform", {
+                    navigate("/tailoring/customizeform", {
                       state: {
                         src: orderImage,
                         stylename: styleName,
@@ -133,12 +135,16 @@ export default function Product({}) {
                   <img src={Vector} />
                   <span>Fit Guarantee</span>
                 </span>
+                <span>
+                  <img src={Vector} />
+                  <span>10 Days</span>
+                </span>
               </div>
               <div className="fabric_desc">
                 <div className="dbr"></div>
+                <p>Duration: 10 Days</p>
                 <p>Fabric: Olympia, Multi Colored Ankara</p>
                 <p>Pattern Type: Random Patterns</p>
-                <p>Colors: Yellow, Blue, Green, Black, White, Orange</p>
               </div>
             </div>
           </div>

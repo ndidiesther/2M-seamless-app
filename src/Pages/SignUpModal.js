@@ -42,7 +42,7 @@ const FirstStep = ({
 }) => {
   return (
     <>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <button
           onClick={() => {
             setModalShow2(false);

@@ -2,66 +2,58 @@ import { useState, React } from "react";
 import "../../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import Logo from "../../Assets/Images/seamless_logo.png";
-import Stroke from "../../Assets/Images/Stroke.png";
 import Search from "../../Assets/Images/Search.png";
 import Bag from "../../Assets/Images/Bag.png";
 import { NavLink } from "react-router-dom";
+import Profile from "./Profile";
+import SearchIcon from "./SearchIcon";
 
 export default function Navbar({ setModalShow, setGenderModal }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <>
+      {/* Desktop view of Navbar */}
       <div className="col-12 navbar">
+        {/* Top Nav containing social media links */}
         <div className="top-nav col-12">
           <span className="nav-icons">
             <span>
-              <Link to="">
+              <Link to="#">
                 <i className="fa-brands fa-facebook-f"></i>
               </Link>
             </span>
             <span>
-              <Link to="">
+              <Link to="#">
                 <i className="fa-brands fa-twitter"></i>
               </Link>
             </span>
             <span>
-              <Link to="">
+              <Link to="#">
                 <i className="fa-brands fa-instagram"></i>
               </Link>
             </span>
             <span>About Us</span>
             <span>Contact </span>
           </span>
-          <span className="nav-mini">
-            {" "}
-            {/* <Login /> */}
-            <button
-              className="gf_btn"
-              onClick={() => {
-                setModalShow(true);
-                setGenderModal(false);
-              }}
-            >
-              Login
-            </button>
-          </span>
         </div>
+        {/* Main Nav for desktop view */}
         <div className="main-nav col-12">
-          <div className="nav-list col-lg-5 col-sm-6 col-xs-6">
+          <div className="nav-list col-lg-5 col-sm-5 col-xs-6">
             <ul>
               <li>
                 <i className="fa-solid fa-bars"></i>
               </li>
               <li>
-                <NavLink
+                <a
                   className={({ isActive }) =>
                     isActive ? "link-activ" : "lin"
                   }
-                  to="#"
+                  href="http://2mseamless.com/"
                 >
                   Home - Classic
-                </NavLink>
+                </a>
               </li>
               <li>
                 <span>
@@ -69,7 +61,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                     className={({ isActive }) =>
                       isActive ? "link-active" : "link"
                     }
-                    to="/"
+                    to="/tailoring"
                   >
                     Tailoring
                   </NavLink>
@@ -87,42 +79,47 @@ export default function Navbar({ setModalShow, setGenderModal }) {
               </li>
             </ul>
           </div>
-          <div className="nav-logo col-lg-2 col-sm-6 col-xs-6">
+          <div className="nav-logo col-lg-2 col-sm-2 col-xs-6">
             <div>
-              <Link to="/">
+              <Link to="#">
                 <img src={Logo} />
                 <p className="site_name">2M Seamless</p>
               </Link>
             </div>
           </div>
-          <div className=" nav-sublist col-lg-5">
+          <div className=" nav-sublist col-lg-5 col-sm-5">
             <span>
               <ul>
-                <li>
+                {/* <li>
                   {" "}
-                  {/* <Login /> */}
+                 
                   <button className="gf_btn" onClick={() => setModalShow(true)}>
                     Login
                   </button>
-                </li>
-                <li>
+                </li> */}
+                <li onClick={() => setShowSearch(true)}>
                   <img src={Search} />
                 </li>
+
+                <Link to="/cartitem">
+                  <li>
+                    <img src={Bag} />
+                  </li>
+                </Link>
+
                 <li>
-                  <img src={Stroke} />
-                </li>
-                <li>
-                  <img src={Bag} />
+                  <Profile />
                 </li>
               </ul>
             </span>
           </div>
         </div>
       </div>
+      {showSearch && <SearchIcon {...{ showSearch, setShowSearch }} />}
 
       <nav className="navigation">
         <div>
-          <Link to="">
+          <Link to="#">
             <img src={Logo} />
           </Link>
 
@@ -157,27 +154,27 @@ export default function Navbar({ setModalShow, setGenderModal }) {
         >
           <div className="menu">
             <ul>
-              <li>
+              <li onClick={() => setIsNavExpanded(false)}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "link-activ" : "lin"
                   }
-                  to=""
+                  to="#"
                 >
                   Home - Classic
                 </NavLink>
               </li>
-              <li>
+              <li onClick={() => setIsNavExpanded(false)}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "menulink-active" : "menulink"
                   }
-                  to="/"
+                  to="/tailoring"
                 >
                   Tailoring
                 </NavLink>
               </li>
-              <li>
+              <li onClick={() => setIsNavExpanded(false)}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "menulink-active" : "menulink"
@@ -187,15 +184,44 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   Laundry
                 </NavLink>
               </li>
-              <li>
-                <Link to="">Search</Link>
+              <li
+                onClick={() => {
+                  setIsNavExpanded(false);
+                  setShowSearch(true);
+                }}
+              >
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "link-activ" : "lin"
+                  }
+                  to="#"
+                >
+                  Search
+                </NavLink>
               </li>
-              <li>
-                <Link to="">Favourites</Link>
+              <li onClick={() => setIsNavExpanded(false)}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "menulink-active" : "menulink"
+                  }
+                  to="/tailoring/tailoringhistory"
+                >
+                  Profile
+                </NavLink>
               </li>
-              <li>
-                <Link to="">Cart</Link>
+              <li onClick={() => setIsNavExpanded(false)}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "menulink-active" : "menulink"
+                  }
+                  to="/cartitem"
+                >
+                  Cart
+                </NavLink>
               </li>
+              {/* <li>
+                <Link to="/laundryhistory">View Profile</Link>
+              </li> */}
               <hr className="hr_mb" />
               <li className="log_li">
                 {/* <Link to="">
@@ -215,14 +241,31 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   Login
                 </button>
               </li>
+              {/* <li className="log_li">
+                <button
+                  className="gf_btn"
+                  onClick={() => {
+                    if (true) {
+                      // console.log("true");
+                      setIsNavExpanded(false);
+                      setGenderModal(false);
+                    }
+                  }}
+                >
+                  Log Out
+                </button>
+              </li> */}
+              {/* <li>
+                <Link to="#">Logout</Link>
+              </li> */}
               <li className="social_list">
-                <Link to="">
+                <Link to="#">
                   <i className="fa-brands fa-facebook-f"></i>
                 </Link>
-                <Link to="">
+                <Link to="#">
                   <i className="fa-brands fa-twitter"></i>
                 </Link>
-                <Link to="">
+                <Link to="#">
                   <i className="fa-brands fa-instagram"></i>
                 </Link>
               </li>

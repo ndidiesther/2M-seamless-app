@@ -1,30 +1,37 @@
-import React, { useEffect, useRef, useContext, useState } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../../App";
 import NumberFormat from "react-number-format";
+import TrashCan from "../../Assets/Images/Trash_can.png";
 
 import { ButtonContainer } from "../../Components/Shared/ButtonComponent";
 
-const CartItem = ({ chooseSex }) => {
+const CartItem = () => {
   let location = useLocation();
-  const { state } = location;
-  let orderImage = location.state?.src;
-  let price = location.state?.price;
-  let styleName = location.state?.stylename;
+
   const ImageRef = useRef();
 
+  const { state } = location;
+  let chooseSex = location.state?.id;
+
   const cartContext = useContext(CartContext);
-  const { cartItems, setCartItems, subTotalValue, setSubTotalValue } =
-    cartContext;
+  const {
+    cartItems,
+    setCartItems,
+    subTotalValue,
+    setSubTotalValue,
+    totalValue,
+    setTotalValue,
+  } = cartContext;
 
   const deleteItem = (id) => {
-    const itemsLeft = cartItems.filter((item) => item.id != id);
+    const itemsLeft = cartItems.filter((item) => item.id !== id);
     // console.log(itemsLeft);
     setCartItems(itemsLeft);
   };
   const updatePrice = (id) => {
     let changePrice = cartItems.map((item) => {
-      if (id == item.id) {
+      if (id === item.id) {
         let amount = parseFloat(item.price) * Number(item.itemQty);
         let totalAmount = amount;
         // console.log(amount);
@@ -39,7 +46,7 @@ const CartItem = ({ chooseSex }) => {
 
   const incrementItem = (id) => {
     const updatedItems = cartItems.map((item) => {
-      if (item.id == id) {
+      if (item.id === id) {
         item.itemQty = item.itemQty + 1;
         return item;
       } else {
@@ -51,7 +58,7 @@ const CartItem = ({ chooseSex }) => {
   };
   const decrementItem = (id) => {
     const updatedItems = cartItems.map((item) => {
-      if (item.id == id) {
+      if (item.id === id) {
         if (item.itemQty > 1) {
           item.itemQty = item.itemQty - 1;
         }
@@ -65,13 +72,15 @@ const CartItem = ({ chooseSex }) => {
   };
   useEffect(() => {
     const subTotal = cartItems.reduce((total, item) => {
-      console.log(item);
+      // console.log(item);
       total = total + parseFloat(item.totalPrice);
 
       return total;
     }, 0);
     // console.log(subTotal);
     setSubTotalValue(subTotal.toFixed(2));
+    let Total = subTotal + 10000;
+    setTotalValue(Total.toFixed(2));
     // // console.log(typeof(subTotalValue));
     // console.log(subTotal.toFixed(2));
   }, [cartItems]);
@@ -85,7 +94,11 @@ const CartItem = ({ chooseSex }) => {
       <h2>Cart</h2>
       <div>
         <p>
-          <Link to={chooseSex == 1 ? "/malestyle" : "/femalestyle"}>
+          <Link
+            to={
+              chooseSex == 1 ? "/tailoring/malestyle" : "/tailoring/femalestyle"
+            }
+          >
             <button className="male_backarrow">
               <i className="fa-solid fa-arrow-left"></i>
             </button>
@@ -94,7 +107,11 @@ const CartItem = ({ chooseSex }) => {
             <strong>Continue Shopping</strong>
           </span>
         </p>
-        <div>{cartItems.length == 0 && <p>Your Cart is Empty</p>}</div>
+        <div>
+          {cartItems.length == 0 && (
+            <p className="empty_cart">Your Cart is Empty</p>
+          )}
+        </div>
 
         <div className="cart-details">
           <div>
@@ -108,6 +125,7 @@ const CartItem = ({ chooseSex }) => {
                     {" "}
                     <strong>{item.name}</strong>
                   </span>
+                  <div>{item.description}</div>
                 </div>
                 <div className="change_quantity">
                   <span
@@ -129,7 +147,7 @@ const CartItem = ({ chooseSex }) => {
                   </span>
                 </div>
                 <div onClick={() => deleteItem(item.id)}>
-                  <i className="fa-solid fa-trash"></i>
+                  <img src={TrashCan} />
                 </div>
                 <div>
                   <span>
@@ -146,12 +164,12 @@ const CartItem = ({ chooseSex }) => {
                 </div>
               </div>
             ))}
-             {cartItems.length > 0 && (
-            <div className="cart-coupon">
-              <input className="coupon_input" placeholder="Coupon code" />
-              <button className="coupon_btn">Apply Coupon</button>
-            </div>
-             )}
+            {cartItems.length > 0 && (
+              <div className="cart-coupon">
+                <input className="coupon_input" placeholder="Coupon code" />
+                <button className="coupon_btn">Apply Coupon</button>
+              </div>
+            )}
           </div>
           {cartItems.length > 0 && (
             <div className="cart-summary">
@@ -171,11 +189,15 @@ const CartItem = ({ chooseSex }) => {
                     </td>
                   </tr>
                   <tr>
+                    <td>DELIVERY</td>
+                    <td>#10,000.00</td>
+                  </tr>
+                  <tr>
                     <td>TOTAL</td>
                     <td>
                       {" "}
                       <NumberFormat
-                        value={subTotalValue}
+                        value={totalValue}
                         displayType={"text"}
                         thousandSeparator={true}
                         prefix={"#"}

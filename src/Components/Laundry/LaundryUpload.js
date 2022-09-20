@@ -6,7 +6,6 @@ import { CartContext } from "../../App";
 import styled from "styled-components";
 import LaundryPayment from "../../Pages/LaundryPayment";
 
-
 // import ShowImage from "./ShowImage";
 
 const getColor = (props) => {
@@ -74,11 +73,12 @@ const UploadStyles = ({
   setUploadStyle,
   checkLength,
   setLaundryUpload,
+  setLaundryDetails,
+  setLaundrySummary,
   ...props
 }) => {
   const [images, setImages] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
-
 
   const handleTest = (file) => {
     // console.log("before");
@@ -155,7 +155,8 @@ const UploadStyles = ({
                 to be washed
               </p>
             </div>
-          </div> <br />
+          </div>{" "}
+          <br />
           <div className="laundry-content">
             <ShowImage images={images} />{" "}
             {images.length < 1 ? (
@@ -163,7 +164,11 @@ const UploadStyles = ({
                 {...getRootProps({ isDragAccept, isFocused, isDragReject })}
               >
                 <div className="upload_media">
-                  {images.length === 0 ? <img className="laundryImg" src={UploadMedia} /> : ""}
+                  {images.length === 0 ? (
+                    <img className="laundryImg" src={UploadMedia} />
+                  ) : (
+                    ""
+                  )}
 
                   <div>
                     <p>
@@ -186,23 +191,33 @@ const UploadStyles = ({
                 </div>
               </UploadContainer>
             ) : null}
-           
-          </div> <br />
+          </div>{" "}
+          <br />
           <div className="laundry-footer upload-footer">
             <div>
-              <ButtonContainer onClick={showLaundryPayment} >Proceed to Pay</ButtonContainer>
+              <ButtonContainer onClick={showLaundryPayment}>
+                Proceed to Pay
+              </ButtonContainer>
             </div>
-           
           </div>
         </div>
       </div>
       <div
         className={
-          laundryPayment ? "laundryPayment-menu-expanded" : "laundryPayment-menu"
+          laundryPayment
+            ? "laundryPayment-menu-expanded"
+            : "laundryPayment-menu"
         }
       >
         <div>
-          <LaundryPayment {...{ setLaundryPayment }} />
+          <LaundryPayment
+            {...{
+              setLaundryPayment,
+              setLaundryDetails,
+              setLaundrySummary,
+              setLaundryUpload,
+            }}
+          />
         </div>
       </div>
     </div>

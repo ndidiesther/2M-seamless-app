@@ -96,7 +96,7 @@ a {
   margin-block-start: 1em;
 }
 .product_content {
-  padding: 10px 60px;
+  padding: 2% 3% 2% 4%;
 }
 a {
   text-decoration: none;
@@ -153,6 +153,9 @@ a {
   margin-block-end: 2em;
   font-size: 18px;
   text-align: justify;
+}
+.view_btn {
+  display: none;
 }
 @media only screen and (min-width: 992px) {
   .mini_banner {
@@ -223,7 +226,7 @@ a {
     text-align: center;
   }
   .chat_icon {
-    top: 500px;
+    top: 700px;
     right: 70px;
     position: absolute;
   }
@@ -242,7 +245,7 @@ a {
     padding-bottom: 30px;
   }
   .view_banner > div:nth-child(2) {
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
   }
@@ -254,9 +257,10 @@ a {
     height: auto;
   }
   .view_banner > div:nth-child(2) > div > a > img {
-    width: 375px;
-    height: 400px;
+    width: 340px;
+    height: 375px;
   }
+
   .lady_one,
   .mask_group {
     width: 250px;
@@ -278,6 +282,19 @@ a {
   .mini_banner {
     margin-top: 0;
     margin-bottom: 80px;
+  }
+  .view_banner > div:nth-child(2) {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+  .view_banner > div:nth-child(2) > div {
+    flex-basis: 50%;
+  }
+  .product_content {
+    padding: 2% 10% 2% 0;
+  }
+  .view_banner {
+    padding: 0px 20px 120px 50px;
   }
 }
 
@@ -313,9 +330,14 @@ a {
     text-align: center;
   }
   .product_content > p:nth-child(2) {
-    margin-block-start: 0em;
-    float: none;
+    display: none;
+  }
+  .view_btn {
+    display: block;
+    margin-block-start: 0.7em;
     text-align: center;
+    color: #bc9a43;
+    cursor: pointer;
   }
 
   .mini_banner {
@@ -333,7 +355,7 @@ a {
     padding: 50px 30px;
   }
   .chat_icon {
-    top: 550px;
+    top: 580px;
   }
   .mini_banner > div:first-child > div > p:first-child {
     font-size: 2.4rem;
@@ -347,10 +369,13 @@ a {
     position: relative;
     left: -35px;
   }
+  .view_banner {
+    padding: 0px 50px 120px 50px;
+  }
 }
 @media only screen and (max-width: 500px) {
   .banner {
-    padding: 20px 20px 0;
+    padding: 20px 20px 40px;
   }
 
   .product_content {
@@ -461,15 +486,27 @@ a {
     top: 0;
   }
   .select_gender > a > button {
-    width:230px;
+    width: 230px;
     height: auto;
     margin-bottom: 30px;
   }
-  .select_gender > a > button > img{
-    width:150px;
+  .select_gender > a > button > img {
+    width: 150px;
     height: auto;
   }
-  .select_gender > a > button > p{
-    top:50px;
+  .select_gender > a > button > p {
+    top: 50px;
+  }
+  .banner > div:nth-child(2) {
+    text-align: left;
+  }
+  .banner_img,
+  .lady_one,
+  .mask_group {
+    display: none;
+  }
+  .banner_content > p:nth-child(2),
+  .mini_banner > div:first-child {
+    text-align: left;
   }
 }

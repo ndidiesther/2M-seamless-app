@@ -20,7 +20,9 @@ const PasswordSuccessful = ({ passwordSuccessful, setPasswordSuccessful }) => {
           <h2>
             <strong>Successful</strong>
           </h2>
-          <h5 className="password_success">Your pasword has successfully been changed</h5>
+          <h5 className="password_success">
+            Your pasword has successfully been changed
+          </h5>
           <ButtonContainer onClick={() => setPasswordSuccessful(false)}>
             Done
           </ButtonContainer>

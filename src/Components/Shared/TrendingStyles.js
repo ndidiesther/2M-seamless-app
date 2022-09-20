@@ -24,7 +24,7 @@ const TrendingStyles = ({ paragraph }) => {
           <div>
             <Link to="">
               <img src={ImageFive} />
-              <p>Six Pieces African Print Skirt and Peplum Blouse</p>
+              <p>Six Pieces African Print Skirt</p>
             </Link>
           </div>
           <div>
@@ -39,6 +39,9 @@ const TrendingStyles = ({ paragraph }) => {
               <p>Ankara Bohemian Gown</p>
             </Link>
           </div>
+        </div>
+        <div className="view_btn">
+          <p>View More</p>
         </div>
       </div>
     </div>

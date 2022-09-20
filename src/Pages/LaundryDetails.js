@@ -91,7 +91,7 @@ const LaundryDetails = ({ setLaundryDetails }) => {
           }
         >
           <div>
-            <LaundrySummary {...{ setLaundrySummary }} />
+            <LaundrySummary {...{ setLaundrySummary, setLaundryDetails }} />
           </div>
         </div>
       </div>
