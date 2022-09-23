@@ -106,6 +106,7 @@ const AddToCart = ({ setShowCart }) => {
                   <div className="cartname">
                     <div>{item.name}</div>
                     <div>{item.description}</div>
+                    <div>{item.size}</div>
                   </div>
                   <div className="change_quantity cart-quantity">
                     <span
@@ -133,6 +134,7 @@ const AddToCart = ({ setShowCart }) => {
                 <span onClick={() => deleteItem(item.id)}>
                   <img src={TrashCan} />
                 </span>
+              
                 <span>
                   <NumberFormat
                     value={item.totalPrice}
@@ -159,35 +161,22 @@ const AddToCart = ({ setShowCart }) => {
                 </span>
               </div>
 
-              <div className="cart-shipping">
+              {/* <div className="cart-shipping">
                 <p>You have got free shipping </p>
                 <span className="progress_bar">
                   <span></span>
                   <span>100%</span>
                 </span>
-              </div>
+              </div> */}
               <ButtonContainer
-                cart
+               
                 onClick={() =>
                   navigate("/cartitem", { state: { id: chooseSex } })
                 }
               >
                 View Cart
               </ButtonContainer>
-              <ButtonContainer
-                onClick={() =>
-                  navigate("/tailoring/customizeform", {
-                    state: {
-                      src: orderImage,
-                      stylename: styleName,
-                      id: chooseSex,
-                      price: amount,
-                    },
-                  })
-                }
-              >
-                Customize
-              </ButtonContainer>
+              <ButtonContainer  cart onClick={() => {setCartItems([])}}>Clear Cart</ButtonContainer>
             </div>
           )}
         </div>

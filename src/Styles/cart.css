@@ -91,7 +91,7 @@
   font-weight: bold;
 }
 .cart-quantity {
-  padding-top: 47px;
+  padding-top: 23px;
 }
 .change_quantity > span:first-child {
   background-color: #c4c0bf;
@@ -120,13 +120,14 @@
 .cart-subtotal {
   border-top: 1px solid #bc9a43;
   padding: 20px 0 50px;
+  margin-bottom: 40px;
 }
 .cart-subtotal > span:first-child {
-  font-weight: 22px;
+  font-weight: bold;
+  font-size: 20px;
   float: left;
 }
 .cart-subtotal > span:last-child {
-  font-weight: 22px;
   float: right;
   font-weight: bold;
 }
@@ -192,13 +193,13 @@
   padding: 20px 0;
 }
 .cart-details > div:first-child {
-  width: 70%;
+  width: 50%;
   height: fit-content;
 }
 .cart-summary {
   border: 1px solid #000;
   padding: 20px;
-  width: 27%;
+  width: 37%;
   height: fit-content;
 }
 #cart-sum {

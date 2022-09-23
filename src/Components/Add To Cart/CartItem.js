@@ -116,60 +116,52 @@ const CartItem = () => {
         <div className="cart-details">
           <div>
             {cartItems.map((item, index) => (
-              <div key={index} className="cart-list">
-                <div className="cart_img cartItem_img">
+              <div key={index} className="cart-content col-12">
+                <div className="cart_img">
                   <img ref={ImageRef} src={item.imgSrc} />
+                  <div className="cart_name">
+                    <div className="cartname">
+                      <div>{item.name}</div>
+                      <div>{item.description}</div>
+                      <div>{item.size}</div>
+                    </div>
+                    <div className="change_quantity cart-quantity">
+                      <span
+                        onClick={() => {
+                          decrementItem(item.id);
+                          updatePrice(item.id);
+                        }}
+                      >
+                        <i className="fa-solid fa-minus"></i>
+                      </span>
+                      <span>{item.itemQty}</span>
+                      <span
+                        onClick={() => {
+                          incrementItem(item.id);
+                          updatePrice(item.id);
+                        }}
+                      >
+                        <i className="fa-solid fa-plus"></i>
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div>
+
+                <div className="cart_price">
+                  <span onClick={() => deleteItem(item.id)}>
+                    <img src={TrashCan} />
+                  </span>
                   <span>
-                    {" "}
-                    <strong>{item.name}</strong>
-                  </span>
-                  <div>{item.description}</div>
-                </div>
-                <div className="change_quantity">
-                  <span
-                    onClick={() => {
-                      decrementItem(item.id);
-                      updatePrice(item.id);
-                    }}
-                  >
-                    <i className="fa-solid fa-minus"></i>
-                  </span>
-                  <span>{item.itemQty}</span>
-                  <span
-                    onClick={() => {
-                      incrementItem(item.id);
-                      updatePrice(item.id);
-                    }}
-                  >
-                    <i className="fa-solid fa-plus"></i>
-                  </span>
-                </div>
-                <div onClick={() => deleteItem(item.id)}>
-                  <img src={TrashCan} />
-                </div>
-                <div>
-                  <span>
-                    <strong>
-                      {" "}
-                      <NumberFormat
-                        value={item.totalPrice}
-                        displayType={"text"}
-                        thousandSeparator={true}
-                        prefix={"#"}
-                      />
-                    </strong>{" "}
+                    <NumberFormat
+                      value={item.totalPrice}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      prefix={"#"}
+                    />
                   </span>
                 </div>
               </div>
             ))}
-            {cartItems.length > 0 && (
-              <div className="cart-coupon">
-                <input className="coupon_input" placeholder="Coupon code" />
-                <button className="coupon_btn">Apply Coupon</button>
-              </div>
-            )}
           </div>
           {cartItems.length > 0 && (
             <div className="cart-summary">

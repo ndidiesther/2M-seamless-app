@@ -11,9 +11,13 @@ import SimilarMaleStyles from "../Components/Styles/SimilarMaleStyles";
 import AddToCart from "./AddToCart";
 import { CartContext } from "../App";
 import NumberFormat from "react-number-format";
+import CustomizeForm from "./CustomizeForm";
+import Form from "../Components/Form/Form";
 
 export default function Product({}) {
   const [showCart, setShowCart] = useState(false);
+  const [selectSize, setSelectSize] = useState("");
+  const [checkFabric, setCheckFabric] = useState("null");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -45,6 +49,7 @@ export default function Product({}) {
     totalPrice: amount,
     id: uniqueId,
     description: description,
+    size: selectSize,
   };
 
   const addToCart = () => {
@@ -63,6 +68,7 @@ export default function Product({}) {
       navigate("/");
     }
   }, []);
+  console.log(checkFabric);
 
   return (
     <>
@@ -87,15 +93,18 @@ export default function Product({}) {
                   prefix={"#"}
                 />
               </p>
-              <span className="c_star">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-              </span>
-              <span className="p_star">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-              </span>
-              <span>(124 customer ratings)</span>
+              <p>
+                <span className="c_star">
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                </span>
+                <span className="p_star">
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                </span>
+                <span>(124 customer ratings)</span>
+              </p>
+
               <p className="p_content">
                 Our state-of-the-art Non Iron dress shirt in mid blue twill
                 ensures a high-quality fit and feel throughout the day with
@@ -106,31 +115,48 @@ export default function Product({}) {
                 surroundings and make a smooth statement, this is definitely a
                 dress shirt worthy of its name. Made to your measurements.
               </p>
+              <div className="custom_form">
+                <Form
+                  chooseSex={chooseSex}
+                  {...{ selectSize, setSelectSize, setCheckFabric }}
+                />
+              </div>
+
               <div className="div_btn">
                 <ButtonContainer
-                  onClick={() =>
-                    navigate("/tailoring/customizeform", {
+                  className={
+                    checkFabric == "null" && "disabled complete-disabled"
+                  }
+                  onClick={() => {
+                    {
+                      addToCart();
+                    }
+                    navigate("/tailoring/orderdetails", {
                       state: {
                         src: orderImage,
                         stylename: styleName,
                         id: chooseSex,
                         price: amount,
+                        uniqueId: uniqueId,
+                        description: description,
                       },
-                    })
-                  }
+                    });
+                  }}
                 >
-                  Customize
+                  Proceed to Pay
                 </ButtonContainer>
 
-                <ButtonContainer cart onClick={addToCart}>
+                <ButtonContainer
+                  className={
+                    checkFabric == "null" && "disabled complete-disabled"
+                  }
+                  cart
+                  onClick={addToCart}
+                >
                   <img src={Bag} /> <span>Add to Cart</span>
                 </ButtonContainer>
               </div>
               <div className="vector_div">
-                <span>
-                  <img src={Vector} />
-                  <span>Free delivery for orders above 10pcs</span>
-                </span>
                 <span>
                   <img src={Vector} />
                   <span>Fit Guarantee</span>
