@@ -46,14 +46,14 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 <i className="fa-solid fa-bars"></i>
               </li>
               <li>
-                <NavLink
+                <a
                   className={({ isActive }) =>
                     isActive ? "link-activ" : "lin"
                   }
-                  to="#"
+                  href="http://2mseamless.com/"
                 >
                   Home - Classic
-                </NavLink>
+                </a>
               </li>
               <li>
                 <span>
