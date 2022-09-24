@@ -115,7 +115,7 @@ export default function Product({}) {
                 surroundings and make a smooth statement, this is definitely a
                 dress shirt worthy of its name. Made to your measurements.
               </p>
-              
+
               <div className="custom_form">
                 <Form
                   chooseSex={chooseSex}
