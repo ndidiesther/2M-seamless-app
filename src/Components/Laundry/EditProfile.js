@@ -100,12 +100,11 @@ const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
       reader.readAsDataURL(file);
       return file;
     });
-  }, [handleTest]);
+  });
 
   const {
     getRootProps,
     getInputProps,
-    acceptedFiles,
     open,
     isDragAccept,
     isFocused,

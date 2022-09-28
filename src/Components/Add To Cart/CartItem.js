@@ -83,7 +83,7 @@ const CartItem = () => {
     setTotalValue(Total.toFixed(2));
     // // console.log(typeof(subTotalValue));
     // console.log(subTotal.toFixed(2));
-  }, [cartItems]);
+  }, [cartItems, setSubTotalValue, setTotalValue]);
 
   // console.log(location.state.id)
   // useEffect(() => {

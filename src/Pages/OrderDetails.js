@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import ItemDetails from "../Components/Styles/ItemDetails";
 import SpecificStyle from "../Components/Styles/SpecificStyle";

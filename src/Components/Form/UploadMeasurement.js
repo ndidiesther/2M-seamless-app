@@ -103,13 +103,12 @@ const UploadMeasurement = ({
       reader.readAsDataURL(file);
       return file;
     });
-  }, [handleTest]);
+  });
   const closeModal = () => setUploadMeasurement(false);
 
   const {
     getRootProps,
     getInputProps,
-    acceptedFiles,
     open,
     isDragAccept,
     isFocused,
