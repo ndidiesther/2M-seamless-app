@@ -32,13 +32,13 @@ const DoLaundry = () => {
 
   const checkedSelected = (e) => {
     // console.log("I am selected");
-    if (e.target.value != 2) {
+    if (e.target.value !== 2) {
       setNoOnsite(!e.target.value);
     }
   };
 
   const homeDeliverySelected = (e) => {
-    if (e.target.value != 2) {
+    if (e.target.value !== 2) {
       setNoHomeDelivery(!e.target.value);
     }
   };

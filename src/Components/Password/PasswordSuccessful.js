@@ -16,7 +16,7 @@ const PasswordSuccessful = ({ passwordSuccessful, setPasswordSuccessful }) => {
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div className="payment_success">
-          <img src={Successful} />
+          <img alt="img" src={Successful} />
           <h2>
             <strong>Successful</strong>
           </h2>

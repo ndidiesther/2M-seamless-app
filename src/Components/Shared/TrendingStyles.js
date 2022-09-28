@@ -17,25 +17,25 @@ const TrendingStyles = ({ paragraph }) => {
         <div className="col-12 ">
           <div>
             <Link to="">
-              <img src={ImageFour} />
+              <img alt="img" src={ImageFour} />
               <p>African Print Styles for Men</p>
             </Link>
           </div>
           <div>
             <Link to="">
-              <img src={ImageFive} />
+              <img alt="img" src={ImageFive} />
               <p>Six Pieces African Print Skirt</p>
             </Link>
           </div>
           <div>
             <Link to="">
-              <img src={ImageSix} />
+              <img alt="img" src={ImageSix} />
               <p>Plain Kaftan for Men</p>
             </Link>
           </div>
           <div>
             <Link to="">
-              <img src={ImageSeven} />
+              <img alt="img" src={ImageSeven} />
               <p>Ankara Bohemian Gown</p>
             </Link>
           </div>

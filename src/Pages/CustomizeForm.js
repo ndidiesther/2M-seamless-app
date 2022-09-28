@@ -5,17 +5,18 @@ import SpecificStyle from "../Components/Styles/SpecificStyle";
 
 const CustomizeForm = () => {
   let location = useLocation();
-  const { state } = location;
+  
   let orderImage = location.state?.src;
   let chooseSex = location.state?.id;
   let styleName = location.state?.stylename;
   let text = location.state?.content;
-  let amount = location.state?.stylePrice;
+  
 
   // console.log(location.state.id)
-  useEffect(() => {
-    orderImage = location.state?.src;
-  }, [orderImage]);
+  // useEffect(() => {
+  //   orderImage = location.state?.src;
+  //   ImageRef.current.src = orderImage;
+  // }, [orderImage]);
 
   return (
     <>

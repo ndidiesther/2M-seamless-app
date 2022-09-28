@@ -21,7 +21,7 @@ function LaundryOrders({
 
   function updateStatus() {
     let updatedArray = orderArr.map((item) => {
-      if (item.orderId == selectedOrder.orderId) {
+      if (item.orderId === selectedOrder.orderId) {
         return { ...item, status: "Delivered" };
       } else {
         return item;
@@ -52,13 +52,13 @@ function LaundryOrders({
           </div>
           <div className="Laundry-Orders">
             <div className="laundry-order-page on_laundry">
-              {imageNull == null ? (
+              {imageNull === null ? (
                 <div>
-                  <img src={ImageNull} />
+                  <img alt="img" src={ImageNull} />
                 </div>
               ) : (
                 <div>
-                  <img src={LaundryOrderImg} />
+                  <img alt="img" src={LaundryOrderImg} />
                 </div>
               )}
               <div>
@@ -146,7 +146,7 @@ function LaundryOrders({
               updateStatus();
             }}
             className={
-              selectedOrder.status == "Delivered" &&
+              selectedOrder.status === "Delivered" &&
               "disabled complete-disabled"
             }
           >
@@ -178,7 +178,7 @@ const PaymentSuccessful = ({ laundryOrderSuccess, setLaundryOrderSuccess }) => {
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div className="payment_success order-success">
-          <img src={Successful} />
+          <img alt="img" src={Successful} />
           <h2>
             <strong>Order Confirmation Successful</strong>
           </h2>

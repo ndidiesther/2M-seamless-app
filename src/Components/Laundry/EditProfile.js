@@ -4,7 +4,6 @@ import UploadMedia from "../../Assets/Images/male_avatar.png";
 import { ButtonContainer } from "../Shared/ButtonComponent";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import Union from "../../Assets/Images/Union.png";
 import Input from "../Modal/Input";
 import ShowAndHidePassword from "../Modal/PasswordInput";
@@ -74,7 +73,7 @@ const ShowImage = ({ images }) => {
 const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
   const [images, setImages] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const handleTest = (file) => {
     // console.log("before");
@@ -101,7 +100,7 @@ const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
       reader.readAsDataURL(file);
       return file;
     });
-  }, []);
+  }, [handleTest]);
 
   const {
     getRootProps,
@@ -118,9 +117,9 @@ const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
     noKeyboard: true,
   });
 
-  const lists = acceptedFiles.map((list) => (
-    <li key={list.path}>{/* {list.path} - {list.size} bytes */}</li>
-  ));
+  // const lists = acceptedFiles.map((list) => (
+  //   <li key={list.path}>{/* {list.path} - {list.size} bytes */}</li>
+  // ));
 
   const closeModalHandler = () => setEditProfile(false);
   return (
@@ -150,7 +149,7 @@ const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
                 >
                   {" "}
                   {images.length === 0 ? (
-                    <img className="img_media" src={UploadMedia} />
+                    <img alt="media" className="img_media" src={UploadMedia} />
                   ) : (
                     <ShowImage images={images} />
                   )}
@@ -167,7 +166,7 @@ const EditProfile = ({ editProfile, setEditProfile, setProfilePic }) => {
                 />
                 Drag Picture to frame or <br />
                 <button type="button" className="profile_btn" onClick={open}>
-                  <img src={Union} />
+                  <img alt="img" src={Union} />
                   Select Photo
                 </button>
               </p>

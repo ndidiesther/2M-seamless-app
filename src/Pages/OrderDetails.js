@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 import ItemDetails from "../Components/Styles/ItemDetails";
 import SpecificStyle from "../Components/Styles/SpecificStyle";
 import ImageUploaded from "../Components/UploadStyles/ImageUploaded";
-import NaijaStates from 'naija-state-local-government';
+
 
 const OrderDetails = () => {
   let location = useLocation();
-  const { state } = location;
+
   let orderImage = location.state?.src;
   let chooseSex = location.state?.id;
   let orderSummary = "Order Summary";
@@ -16,10 +16,10 @@ const OrderDetails = () => {
   let amount = location.state?.price;
   let description = location.state?.description;
   // console.log(chooseSex);
-  useEffect(() => {
-    orderImage = location.state?.src;
-    // console.log(chooseSex);
-  }, [orderImage]);
+  // useEffect(() => {
+  //   orderImage = location.state?.src;
+  //   // console.log(chooseSex);
+  // }, [orderImage]);
 //  console.log(state)
 
   return (
@@ -27,7 +27,7 @@ const OrderDetails = () => {
       <div className="col-12 product form_div">
         <div className="order_details">
           <div>
-            {chooseSex == 10 ? (
+            {chooseSex === 10 ? (
               <ImageUploaded orderImage={orderImage} />
             ) : (
               <SpecificStyle

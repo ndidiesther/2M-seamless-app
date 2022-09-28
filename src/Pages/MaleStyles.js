@@ -40,7 +40,7 @@ const MaleStyles = ({ orderStyle, setOrderStyle }) => {
               return (
                 <button
                   onClick={() => setActiveButton(item)}
-                  className={activeButton == item ? "active" : undefined}
+                  className={activeButton === item ? "active" : undefined}
                   key={index}
                 >
                   {item}

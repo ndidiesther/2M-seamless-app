@@ -35,13 +35,13 @@ const LaundryAbout = () => {
             </div>
           </div>
           <div className="col-lg-6 ">
-            <img className="laundryBanner_img" src={LaundryHero} />
+            <img alt="img" className="laundryBanner_img" src={LaundryHero} />
           </div>
         </div>
         <div className="col-12 laundryAbout">
           <div className="col-lg-5 col-xs-12 col-sm-12 col-md-5">
             <div>
-              <img src={LaundryBanner} />
+              <img alt="img" src={LaundryBanner} />
             </div>
           </div>
           <div className="col-lg-7 col-xs-12 col-sm-12 col-md-7 aboutDetails">

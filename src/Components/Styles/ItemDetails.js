@@ -39,11 +39,11 @@ const ItemDetails = ({ styleName, uniqueId, amount, description }) => {
   };
 
   const updatePrice = (id) => {
-    let changePrice = cartItems.map((item) => {
-      if (id == item.id) {
+    cartItems.map((item) => {
+      if (id === item.id) {
         let amount = parseFloat(item.price) * Number(item.itemQty);
 
-        let totalAmount = amount;
+        // let totalAmount = amount;
         // console.log(amount);
         item.totalPrice = amount.toFixed(2);
         let totalSum = parseFloat(item.totalPrice) + 15000;

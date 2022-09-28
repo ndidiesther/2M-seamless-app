@@ -14,7 +14,7 @@ const ImageUploaded = () => {
   const { state } = location;
   let orderImage = location.state?.src;
   let chooseSex = location.state?.id;
-  let styleName = location.state?.stylename;
+
 
   console.log(chooseSex);
   const reader = new FileReader();
@@ -40,13 +40,13 @@ const ImageUploaded = () => {
 
               <span>Ankara Bohemian Gown</span>
             </p>
-            <img className="product_img" ref={ImageRef} src={orderImage} />
+            <img alt="img" className="product_img" ref={ImageRef} src={orderImage} />
           </div>
           <div className="sProduct">
-            <img ref={ImageRef1} src={orderImage} />
-            <img ref={ImageRef2} src={orderImage} />
-            <img ref={ImageRef3} src={orderImage} />
-            <img ref={ImageRef4} src={orderImage} />
+            <img alt="img" ref={ImageRef1} src={orderImage} />
+            <img alt="img" ref={ImageRef2} src={orderImage} />
+            <img alt="img" ref={ImageRef3} src={orderImage} />
+            <img alt="img" ref={ImageRef4} src={orderImage} />
           </div>
         </div>
       </div>

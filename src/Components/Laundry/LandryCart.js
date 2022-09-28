@@ -23,7 +23,7 @@ const LandryCart = ({ services }) => {
 
   const addToCart = () => {
     let CheckItem = laundryCartItems.find(
-      (laundryItem) => item.name == laundryItem.name
+      (laundryItem) => item.name === laundryItem.name
     );
     if (CheckItem) {
       return;
@@ -35,7 +35,7 @@ const LandryCart = ({ services }) => {
 
   const deleteItem = (id) => {
     let remainingItems = laundryCartItems.filter(
-      (laundryItem) => laundryItem.id != id
+      (laundryItem) => laundryItem.id !== id
     );
     setLaundryCartItems(remainingItems);
   };

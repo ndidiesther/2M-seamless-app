@@ -22,7 +22,7 @@ const FemaleSizeChart = ({ viewModal, setViewModal }) => {
             <span className="angle-left disabled">
               <i className="fa-solid fa-angle-left"></i>
             </span>
-            <img className="chart_img" src={ChartImage} />
+            <img alt="chartimg" className="chart_img" src={ChartImage} />
             <span
               onClick={() => {
                 setChartImage(2);
@@ -59,7 +59,7 @@ const FemaleSizeChart = ({ viewModal, setViewModal }) => {
             >
               <i className="fa-solid fa-angle-left"></i>
             </span>
-            <img className="chart_img" src={FemaleChartOne} />
+            <img alt="chartimg" className="chart_img" src={FemaleChartOne} />
             <span
               onClick={() => {
                 setChartImage(3);
@@ -95,7 +95,7 @@ const FemaleSizeChart = ({ viewModal, setViewModal }) => {
             >
               <i className="fa-solid fa-angle-left"></i>
             </span>
-            <img className="chart_img" src={FemaleChartTwo} />
+            <img alt="chartimg" className="chart_img" src={FemaleChartTwo} />
             <span
               onClick={() => {
                 setChartImage(4);
@@ -131,7 +131,7 @@ const FemaleSizeChart = ({ viewModal, setViewModal }) => {
             >
               <i className="fa-solid fa-angle-left"></i>
             </span>
-            <img className="chart_img" src={FemaleChartThree} />
+            <img alt="chartimg" className="chart_img" src={FemaleChartThree} />
             <span className="angle-right disabled">
               <i className="fa-solid fa-angle-right"></i>
             </span>

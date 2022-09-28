@@ -105,8 +105,8 @@ const UploadStyles = ({
       reader.readAsDataURL(file);
       return file;
     });
-  }, []);
-  const closeModalHandler = () => setUploadStyle(false);
+  }, [handleTest]);
+ 
 
   const {
     getRootProps,
@@ -123,9 +123,9 @@ const UploadStyles = ({
     noKeyboard: true,
   });
 
-  const lists = acceptedFiles.map((list) => (
-    <li key={list.path}>{/* {list.path} - {list.size} bytes */}</li>
-  ));
+  // const lists = acceptedFiles.map((list) => (
+  //   <li key={list.path}>{/* {list.path} - {list.size} bytes */}</li>
+  // ));
 
   const cartContext = useContext(CartContext);
   const { laundryPayment, setLaundryPayment } = cartContext;
@@ -165,7 +165,7 @@ const UploadStyles = ({
               >
                 <div className="upload_media">
                   {images.length === 0 ? (
-                    <img className="laundryImg" src={UploadMedia} />
+                    <img alt="img" className="laundryImg" src={UploadMedia} />
                   ) : (
                     ""
                   )}

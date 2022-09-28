@@ -35,10 +35,10 @@ const LaundrySummary = ({ setLaundrySummary, setLaundryDetails }) => {
   ];
 
   const setPrices = () => {
-    const returnPrice = laundryCartItems.map((item, index) => {
+    laundryCartItems.map((item, index) => {
       const serviceName = ourServices.find((services) => {
         // console.log(services);
-        return services.name == item.name;
+        return services.name === item.name;
       });
       item.price = serviceName.price;
       item.totalPrice = serviceName.price * item.quantity;

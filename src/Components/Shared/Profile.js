@@ -10,7 +10,7 @@ const Profile = () => {
       <Dropdown>
         <Dropdown.Toggle variant="" id="dropdown-basic">
           <span className="title-span">
-            <img src={Logo} />
+            <img alt="img" src={Logo} />
             <span>Joan</span>
             <i className="fa-solid fa-caret-down"></i>
           </span>

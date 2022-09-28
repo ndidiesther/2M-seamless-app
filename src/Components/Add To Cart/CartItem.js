@@ -11,7 +11,7 @@ const CartItem = () => {
 
   const ImageRef = useRef();
 
-  const { state } = location;
+  // const { state } = location;
   let chooseSex = location.state?.id;
 
   const cartContext = useContext(CartContext);
@@ -30,10 +30,10 @@ const CartItem = () => {
     setCartItems(itemsLeft);
   };
   const updatePrice = (id) => {
-    let changePrice = cartItems.map((item) => {
+    cartItems.map((item) => {
       if (id === item.id) {
         let amount = parseFloat(item.price) * Number(item.itemQty);
-        let totalAmount = amount;
+        // let totalAmount = amount;
         // console.log(amount);
         item.totalPrice = amount.toFixed(2);
         return item;
@@ -96,7 +96,7 @@ const CartItem = () => {
         <p>
           <Link
             to={
-              chooseSex == 1 ? "/tailoring/malestyle" : "/tailoring/femalestyle"
+              chooseSex === 1 ? "/tailoring/malestyle" : "/tailoring/femalestyle"
             }
           >
             <button className="male_backarrow">
@@ -108,7 +108,7 @@ const CartItem = () => {
           </span>
         </p>
         <div>
-          {cartItems.length == 0 && (
+          {cartItems.length === 0 && (
             <p className="empty_cart">Your Cart is Empty</p>
           )}
         </div>
@@ -118,7 +118,7 @@ const CartItem = () => {
             {cartItems.map((item, index) => (
               <div key={index} className="cart-content col-12">
                 <div className="cart_img">
-                  <img ref={ImageRef} src={item.imgSrc} />
+                  <img alt="img" ref={ImageRef} src={item.imgSrc} />
                   <div className="cart_name">
                     <div className="cartname">
                       <div>{item.name}</div>
@@ -149,7 +149,7 @@ const CartItem = () => {
 
                 <div className="cart_price">
                   <span onClick={() => deleteItem(item.id)}>
-                    <img src={TrashCan} />
+                    <img alt="trashcan" src={TrashCan} />
                   </span>
                   <span>
                     <NumberFormat

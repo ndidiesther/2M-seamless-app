@@ -5,12 +5,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import "../../Styles/styles.css";
-import { ButtonContainer } from "../Shared/ButtonComponent";
 import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import { useNavigate } from "react-router-dom";
 import UploadMeasurement from "./UploadMeasurement";
 import "react-dropzone-uploader/dist/styles.css";
 import MaleSizeChart from "./MaleSizeChart";
@@ -47,7 +42,7 @@ const PickUpLocation = () => {
   const [noHomeDelivery, setNoHomeDelivery] = useState(false);
 
   const homeDeliverySelected = (e) => {
-    if (e.target.value != 2) {
+    if (e.target.value !== 2) {
       setNoHomeDelivery(!e.target.value);
     }
   };
@@ -76,7 +71,7 @@ const DeliveryLocation = () => {
   const [noOnsite, setNoOnsite] = useState(false);
   const checkedSelected = (e) => {
     // console.log("I am selected");
-    if (e.target.value != 2) {
+    if (e.target.value !== 2) {
       setNoOnsite(!e.target.value);
     }
   };
@@ -103,7 +98,7 @@ const DeliveryLocation = () => {
 };
 
 const SelectSize = ({ chooseSex, selectSize, setSelectSize }) => {
-  const [size, setSize] = React.useState("");
+
   const [viewChart, setViewChart] = useState(false);
   const [viewModal, setViewModal] = useState(false);
   const [uploadMeasurement, setUploadMeasurement] = useState(false);
@@ -161,7 +156,7 @@ const SelectSize = ({ chooseSex, selectSize, setSelectSize }) => {
         <option value="US 16/ UK 20">US 16/ UK 20</option>
       </select>
         <div className="view_sizebtn">
-          {chooseSex == 1 ? (
+          {chooseSex === 1 ? (
             <button className="size_btn" onClick={() => setViewChart(true)}>
               View Size Chart
             </button>
@@ -172,7 +167,7 @@ const SelectSize = ({ chooseSex, selectSize, setSelectSize }) => {
           )}
         </div>
 
-        {selectedImage == null ? (
+        {selectedImage === null ? (
           <div className="uploadimage">
             <button
               className="uploadimage_btn"
@@ -225,7 +220,6 @@ const Form = ({ orderImage, styleName, chooseSex, selectSize, setSelectSize, set
 
  
 
-  const navigate = useNavigate();
 
 
   return (

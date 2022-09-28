@@ -72,7 +72,7 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
           <div>
             <p className="profiles">Profile</p>
             <div className="profile_img">
-              <img src={EmptyImg} />
+              <img alt="" src={EmptyImg} />
             </div>
 
             <div className="profilename">
@@ -89,7 +89,7 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
           <div>
             <div>
               <p className="profile">Profile</p>
-              <img className="select_img" ref={ImageRef} src={EmptyImg} />
+              <img alt="" className="select_img" ref={ImageRef} src={EmptyImg} />
             </div>
 
             <div className="profilename">
@@ -169,17 +169,17 @@ const LaundryHistory = ({ editProfile, setEditProfile }) => {
                   </div>
                   <div className="col-xsm-12">
                     <span>
-                      <img src={PickUp} />
+                      <img alt="" src={PickUp} />
                       <span className="hr-sepe"></span>
                     </span>
 
                     {/* <span className="hr-seperator"></span> */}
                     <span>
-                      <img src={Washing} />
+                      <img alt="" src={Washing} />
                       <span className="hr-sepe"></span>
                     </span>
                     <span>
-                      <img src={Delivery} />
+                      <img alt="" src={Delivery} />
                     </span>
                   </div>
                 </div>

@@ -28,7 +28,7 @@ const CustomStyles = ({ orderStyle, setOrderStyle }) => {
               setOrderStyle(false);
             }}
           >
-            <img src={WhatsApp} /> <span>Chat with us on WhatsApp</span>
+            <img alt="img" src={WhatsApp} /> <span>Chat with us on WhatsApp</span>
           </ButtonContainer>
         </div>
       </Modal.Body>

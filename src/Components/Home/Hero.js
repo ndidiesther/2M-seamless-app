@@ -8,7 +8,7 @@ const Hero = ({ setGenderModal }) => {
     <div className="col-12 home">
       <div className="col-12 banner">
         <div className="col-lg-5 ">
-          <img className="banner_img" src={Banner} />
+          <img alt="img" className="banner_img" src={Banner} />
         </div>
         <div className="col-lg-7 ">
           <div className="banner_content">
@@ -35,7 +35,7 @@ const Hero = ({ setGenderModal }) => {
         </div>
         <div className="chat_icon">
           <span>
-            <img src={Message} />
+            <img alt="img" src={Message} />
           </span>
         </div>
       </div>

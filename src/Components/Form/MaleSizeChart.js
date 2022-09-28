@@ -22,7 +22,7 @@ const MaleSizeChart = ({ viewChart, setViewChart }) => {
             <span className="angle-left disabled">
               <i className="fa-solid fa-angle-left"></i>
             </span>
-            <img className="chart_img" src={ChartImage} />
+            <img alt="chartimg" className="chart_img" src={ChartImage} />
             <span
               onClick={() => {
                 setChartImage(2);
@@ -59,7 +59,7 @@ const MaleSizeChart = ({ viewChart, setViewChart }) => {
             >
               <i className="fa-solid fa-angle-left"></i>
             </span>
-            <img className="chart_img" src={MaleChart} />
+            <img alt="chartimg" className="chart_img" src={MaleChart} />
             <span
               onClick={() => {
                 setChartImage(2);

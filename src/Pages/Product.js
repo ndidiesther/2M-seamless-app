@@ -11,7 +11,6 @@ import SimilarMaleStyles from "../Components/Styles/SimilarMaleStyles";
 import AddToCart from "./AddToCart";
 import { CartContext } from "../App";
 import NumberFormat from "react-number-format";
-import CustomizeForm from "./CustomizeForm";
 import Form from "../Components/Form/Form";
 
 export default function Product({}) {
@@ -26,7 +25,6 @@ export default function Product({}) {
   // console.log(cartItems);
   // console.log(setCartItems);
 
-  const { state } = location;
   let orderImage = location.state?.src;
   let chooseSex = location.state?.id;
   let styleName = location.state?.stylename;
@@ -55,7 +53,7 @@ export default function Product({}) {
   const addToCart = () => {
     setShowCart(!showCart);
 
-    const checkItem = cartItems.find((cartItem) => cartItem.id == item.id);
+    const checkItem = cartItems.find((cartItem) => cartItem.id === item.id);
     // console.log(item.id);
     if (checkItem) {
       return;
@@ -64,10 +62,10 @@ export default function Product({}) {
     // console.log(item.price)
   };
   useEffect(() => {
-    if (chooseSex == undefined || chooseSex == null) {
+    if (chooseSex === undefined || chooseSex === null) {
       navigate("/");
     }
-  }, []);
+  });
   console.log(checkFabric);
 
   return (
@@ -126,12 +124,10 @@ export default function Product({}) {
               <div className="div_btn">
                 <ButtonContainer
                   className={
-                    checkFabric == "null" && "disabled complete-disabled"
+                    checkFabric === "null" && "disabled complete-disabled"
                   }
                   onClick={() => {
-                    {
-                      addToCart();
-                    }
+                    addToCart();
                     navigate("/tailoring/orderdetails", {
                       state: {
                         src: orderImage,
@@ -149,21 +145,21 @@ export default function Product({}) {
 
                 <ButtonContainer
                   className={
-                    checkFabric == "null" && "disabled complete-disabled"
+                    checkFabric === "null" && "disabled complete-disabled"
                   }
                   cart
                   onClick={addToCart}
                 >
-                  <img src={Bag} /> <span>Add to Cart</span>
+                  <img alt="" src={Bag} /> <span>Add to Cart</span>
                 </ButtonContainer>
               </div>
               <div className="vector_div">
                 <span>
-                  <img src={Vector} />
+                  <img alt="" src={Vector} />
                   <span>Fit Guarantee</span>
                 </span>
                 <span>
-                  <img src={Vector} />
+                  <img alt="" src={Vector} />
                   <span>10 Days</span>
                 </span>
               </div>

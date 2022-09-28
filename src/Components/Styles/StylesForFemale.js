@@ -10,7 +10,7 @@ const StylesForFemale = () => {
     <div className="col-12 styles_for_female">
       <div>
         <div>
-          <img
+          <img alt="img"
             onClick={() =>
               navigate("/tailoring/product", {
                 state: {
@@ -31,7 +31,7 @@ const StylesForFemale = () => {
           </p>
         </div>
         <div>
-          <img
+          <img alt="img"
             onClick={() =>
               navigate("/tailoring/product", {
                 state: {
@@ -52,7 +52,7 @@ const StylesForFemale = () => {
           </p>
         </div>
         <div>
-          <img
+          <img alt="img"
             onClick={() =>
               navigate("/tailoring/product", {
                 state: {

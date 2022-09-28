@@ -71,7 +71,7 @@ const PaymentSuccessful = ({ isPaymentSuccessful, setIsPaymentSuccessful }) => {
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div className="payment_success">
-          <img src={Successful} />
+          <img alt="" src={Successful} />
           <h2>
             <strong>Order Successful</strong>
           </h2>

@@ -5,7 +5,7 @@ import { ButtonContainer } from "../Shared/ButtonComponent";
 import { useDropzone } from "react-dropzone";
 
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+
 
 // import ShowImage from "./ShowImage";
 
@@ -79,7 +79,7 @@ const UploadMeasurement = ({
 }) => {
   const [images, setImages] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
-  let navigate = useNavigate();
+ 
 
   const handleTest = (file) => {
     // console.log("before");
@@ -103,7 +103,7 @@ const UploadMeasurement = ({
       reader.readAsDataURL(file);
       return file;
     });
-  }, []);
+  }, [handleTest]);
   const closeModal = () => setUploadMeasurement(false);
 
   const {
@@ -121,16 +121,16 @@ const UploadMeasurement = ({
     noKeyboard: true,
   });
 
-  const files = acceptedFiles.map((file, i) => (
-    <li key={file.path} className="selected-file-item">
-      {file.path}{" "}
-      <i className="fa fa-trash text-red" onClick={() => remove(i)}></i>
-    </li>
-  ));
-  const remove = (file) => {
-    const newFiles = [...files]; // make a var for the new array
-    acceptedFiles.splice(file, 1); // remove the file from the array
-  };
+  // const files = acceptedFiles.map((file, i) => (
+  //   <li key={file.path} className="selected-file-item">
+  //     {file.path}{" "}
+  //     <i className="fa fa-trash text-red" onClick={() => remove(i)}></i>
+  //   </li>
+  // ));
+  // const remove = (file) => {
+  //   const newFiles = [...files]; // make a var for the new array
+  //   acceptedFiles.splice(file, 1); // remove the file from the array
+  // };
 
   // console.log(acceptedFiles)
   // console.log(test)
@@ -162,7 +162,7 @@ const UploadMeasurement = ({
               {...getRootProps({ isDragAccept, isFocused, isDragReject })}
             >
               <div className="upload_media">
-                {images.length === 0 ? <img src={UploadMedia} /> : ""}
+                {images.length === 0 ? <img alt="uploadimg" src={UploadMedia} /> : ""}
 
                 <div>
                   <p>

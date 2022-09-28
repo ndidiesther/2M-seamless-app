@@ -54,13 +54,13 @@ const Gender = ({ genderModal, setGenderModal, ...props }) => {
               id={"1"}
               onClick={handleClick}
             >
-              <img
+              <img alt=""
                 key={1}
                 id={"1"}
                 onClick={handleClick}
-                src={active == "1" ? MaleSelect : MaleAvatar}
+                src={active === "1" ? MaleSelect : MaleAvatar}
               />
-              <p className={active == "1" ? "gender_p" : "selected_p"}>Male</p>
+              <p className={active === "1" ? "gender_p" : "selected_p"}>Male</p>
             </button>
           </DelayedLink>
           <DelayedLink delay={2000} to="/tailoring/femalestyle">
@@ -70,13 +70,13 @@ const Gender = ({ genderModal, setGenderModal, ...props }) => {
               id={"2"}
               onClick={handleClick}
             >
-              <img
+              <img alt=""
                 key={2}
                 id={"2"}
                 onClick={handleClick}
-                src={active == "2" ? FemaleSelect : FemaleAvatar}
+                src={active === "2" ? FemaleSelect : FemaleAvatar}
               />
-              <p className={active == "2" ? "gender_p" : "selected_p"}>
+              <p className={active === "2" ? "gender_p" : "selected_p"}>
                 Female
               </p>
             </button>

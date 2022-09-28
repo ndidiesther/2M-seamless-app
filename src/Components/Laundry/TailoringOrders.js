@@ -18,7 +18,7 @@ const TailoringOrders = ({
   const [imageNull, setImageNull] = useState("");
   function updateStatus() {
     let updatedArray = orderArr.map((item) => {
-      if (item.orderId == selectedOrder.orderId) {
+      if (item.orderId === selectedOrder.orderId) {
         return { ...item, status: "Delivered" };
       } else {
         return item;
@@ -51,11 +51,11 @@ const TailoringOrders = ({
             <div className="laundry-order-page">
               {imageNull == null ? (
                 <div>
-                  <img src={ImageNull} />
+                  <img alt="img" src={ImageNull} />
                 </div>
               ) : (
                 <div>
-                  <img src={TailoringOrderImg} />
+                  <img alt="img" src={TailoringOrderImg} />
                 </div>
               )}
 
@@ -147,7 +147,7 @@ const TailoringOrders = ({
               updateStatus();
             }}
             className={
-              selectedOrder.status == "Delivered" &&
+              selectedOrder.status === "Delivered" &&
               "disabled complete-disabled"
             }
           >
@@ -184,7 +184,7 @@ const PaymentSuccessful = ({
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div className="payment_success order-success">
-          <img src={Successful} />
+          <img alt="img" src={Successful} />
           <h2>
             <strong>Order Confirmation Successful</strong>
           </h2>

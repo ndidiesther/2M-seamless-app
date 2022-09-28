@@ -46,14 +46,17 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                 <i className="fa-solid fa-bars"></i>
               </li>
               <li>
-                <a
-                  className={({ isActive }) =>
-                    isActive ? "link-activ" : "lin"
-                  }
-                  href="http://2mseamless.com/"
-                >
-                  Home - Classic
-                </a>
+                <span>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "link-activ" : "lin"
+                    }
+                    to="#"
+                  >
+                    Home - Classic
+                  </NavLink>
+                </span>
+               
               </li>
               <li>
                 <span>
@@ -82,7 +85,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
           <div className="nav-logo col-lg-2 col-sm-2 col-xs-6">
             <div>
               <Link to="#">
-                <img src={Logo} />
+                <img alt="img" src={Logo} />
                 <p className="site_name">2M Seamless</p>
               </Link>
             </div>
@@ -98,12 +101,12 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                   </button>
                 </li> */}
                 <li onClick={() => setShowSearch(true)}>
-                  <img src={Search} />
+                  <img alt="img" src={Search} />
                 </li>
 
                 <Link to="/cartitem">
                   <li>
-                    <img src={Bag} />
+                    <img alt="img" src={Bag} />
                   </li>
                 </Link>
 
@@ -120,7 +123,7 @@ export default function Navbar({ setModalShow, setGenderModal }) {
       <nav className="navigation">
         <div>
           <Link to="#">
-            <img src={Logo} />
+            <img alt="img" src={Logo} />
           </Link>
 
           <p className="site_name">2M Seamless</p>

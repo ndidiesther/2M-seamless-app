@@ -71,7 +71,7 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
           <div>
             <p className="profiles">Profile</p>
             <div className="profile_img">
-              <img src={EmptyImg} />
+              <img alt="" src={EmptyImg} />
             </div>
 
             <div className="profilename">
@@ -88,7 +88,7 @@ const TailoringHistory = ({ editProfile, setEditProfile }) => {
           <div>
             <div>
               <p className="profile">Profile</p>
-              <img className="select_img" ref={ImageRef} src={EmptyImg} />
+              <img alt="" className="select_img" ref={ImageRef} src={EmptyImg} />
             </div>
 
             <div className="profilename">

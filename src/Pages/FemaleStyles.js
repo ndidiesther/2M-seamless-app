@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../Styles/styles.css";
 import { ButtonContainer } from "../Components/Shared/ButtonComponent";
 import StylesForFemale from "../Components/Styles/StylesForFemale";
-import SelectStyles, { CustomStyle } from "../Components/Styles/SelectStyles";
+import SelectStyles from "../Components/Styles/SelectStyles";
 import { useNavigate } from "react-router-dom";
 
 const FemaleStyles = ({ orderStyle, setOrderStyle }) => {
@@ -41,7 +41,7 @@ const FemaleStyles = ({ orderStyle, setOrderStyle }) => {
               return (
                 <button
                   onClick={() => setActiveButton(item)}
-                  className={activeButton == item ? "active" : undefined}
+                  className={activeButton === item ? "active" : undefined}
                   key={index}
                 >
                   {item}

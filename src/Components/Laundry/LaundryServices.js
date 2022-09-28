@@ -21,25 +21,25 @@ const LaundryServices = () => {
         <p>What we do</p>
         <div className="first_services">
           <div>
-            <img src={WetWash} />
+            <img alt="img" src={WetWash} />
             <p>Wet Wash</p>
           </div>
           <div>
-            <img src={DryClean} />
+            <img alt="img" src={DryClean} />
             <p>Dry Clean</p>
           </div>
           <div>
-            <img src={SteamIron} />
+            <img alt="img" src={SteamIron} />
             <p>Steam Iron</p>
           </div>
         </div>
         <div className="second_services">
           <div>
-            <img src={WashFold} />
+            <img alt="img" src={WashFold} />
             <p>Wash and Fold</p>
           </div>
           <div>
-            <img src={WashIron} />
+            <img alt="img" src={WashIron} />
             <p>Wash and Iron</p>
           </div>
         </div>

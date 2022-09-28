@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Banner from "../Components/Home/Banner";
 import GridDisplay from "../Components/Home/GridDisplay";
 import Hero from "../Components/Home/Hero";

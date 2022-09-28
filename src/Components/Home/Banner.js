@@ -32,8 +32,8 @@ const Banner = ({ setGenderModal }) => {
           </div>
         </div>
         <div className="col-lg-5 col-md-5">
-          <img className="mask_group" src={LadyTwo} />
-          <img className="lady_one" src={LadyOne} />
+          <img alt="img" className="mask_group" src={LadyTwo} />
+          <img alt="img" className="lady_one" src={LadyOne} />
         </div>
       </div>
     </div>

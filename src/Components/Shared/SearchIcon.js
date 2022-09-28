@@ -1,6 +1,4 @@
 import React, { useState, useContext } from "react";
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
 import { ProductsContext } from "../../App";
 
 const SearchIcon = ({ showSearch, setShowSearch }) => {
@@ -46,7 +44,7 @@ const SearchIcon = ({ showSearch, setShowSearch }) => {
         <div className="product_result">
           {searchResult.map((product, index) => (
             <div key={index}>
-              <img src={product.img} />
+              <img alt="img" src={product.img} />
               <div>
                 <p>{product.stylename}</p>
                 <p>{product.price} </p>
