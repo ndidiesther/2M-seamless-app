@@ -47,7 +47,7 @@ const Gender = ({ genderModal, setGenderModal, ...props }) => {
       </Modal.Header>
       <Modal.Body className="gender_body">
         <div className="select_gender">
-          <DelayedLink delay={2000} to="/tailoring/malestyle">
+          <DelayedLink delay={1000} to="/tailoring/malestyle">
             <button
               key={1}
               className={active === "1" ? "activeGender" : undefined}
@@ -63,7 +63,7 @@ const Gender = ({ genderModal, setGenderModal, ...props }) => {
               <p className={active === "1" ? "gender_p" : "selected_p"}>Male</p>
             </button>
           </DelayedLink>
-          <DelayedLink delay={2000} to="/tailoring/femalestyle">
+          <DelayedLink delay={1000} to="/tailoring/femalestyle">
             <button
               key={2}
               className={active === "2" ? "activeGender" : undefined}
