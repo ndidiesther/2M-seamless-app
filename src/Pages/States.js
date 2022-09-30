@@ -15,12 +15,16 @@ const States = () => {
   };
   return (
     <div className="state_selector">
-      <Select
-        state={state}
-        lga={lga}
-        changeState={handleStateChange}
-        changeLga={handleLgaChange}
-      />
+      <p>States in Nigeria</p>
+      <p>Additional Information</p>
+      <div>
+        <Select
+          state={state}
+          lga={lga}
+          changeState={handleStateChange}
+          changeLga={handleLgaChange}
+        />
+      </div>
     </div>
   );
 };

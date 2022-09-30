@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 import "../../Styles/styles.css";
 import Box from "@mui/material/Box";
-import UploadMeasurement from "./UploadMeasurement";
 import "react-dropzone-uploader/dist/styles.css";
 import MaleSizeChart from "./MaleSizeChart";
 import FemaleSizeChart from "./FemaleSizeChart";
@@ -15,64 +9,94 @@ import States from "../../Pages/States";
 const HomeDelivery = () => {
   return (
     <>
-      <p className="p_add">Delivery Address</p>
-      <textarea
-        placeholder="Enter Delivery Address"
-        className="style_textarea"
-      ></textarea>
+      <div className="home_delivery">
+        <p className="p_add">Delivery Address</p>
+        <textarea
+          placeholder="Enter Delivery Address"
+          className="style_textarea"
+        ></textarea>
 
-      <States />
+        <States />
+      </div>
     </>
   );
 };
 const Onsite = () => {
+  const [yesAbuja, setYesAbuja] = useState(false);
+  const [yesKaduna, setYesKaduna] = useState(false);
+
+  const handlePickup = (e) => {
+    let currentState = e.target.value;
+    if (currentState === "abuja") {
+      setYesAbuja(true);
+      setYesKaduna(false);
+    } else {
+      setYesAbuja(false);
+      setYesKaduna(true);
+    }
+  };
   return (
     <>
-      <p className="p_add">PickUp Address</p>
-      <textarea
-        placeholder="Enter Drop-off address"
-        className="style_textarea"
-      ></textarea>
+      <div>
+        <p className="p_add">State in Nigeria</p>
+        <select
+          className="form-select style_form form-select-lg mb-3 shadow-none"
+          aria-label=".form-select-lg example"
+          // checked={yesOnsite}
+          onChange={(e) => {
+            handlePickup(e);
+          }}
+        >
+          <option hidden value="">
+            Select Abuja/Kaduna
+          </option>
+          <option value="abuja">Abuja</option>
+          <option value="kaduna">Kaduna</option>
+        </select>
+        <div className="delivery_address">{yesAbuja && <AbujaPickUp />}</div>
+        <div className="delivery_address">{yesKaduna && <KadunaPickUp />}</div>
+      </div>
     </>
   );
 };
 
-const PickUpLocation = () => {
-  const [yesHomeDelivery, setYesHomeDelivery] = useState(false);
-  const [noHomeDelivery, setNoHomeDelivery] = useState(false);
-
-  const homeDeliverySelected = (e) => {
-    if (e.target.value !== 2) {
-      setNoHomeDelivery(!e.target.value);
-    }
-  };
+const AbujaPickUp = () => {
   return (
-    <div className="fabric_pickup">
-      <p>Fabric PickUp</p>
-      <select
-        className="form-select style_form form-select-lg mb-3 shadow-none"
-        aria-label=".form-select-lg example"
-        checked={!!yesHomeDelivery}
-        onChange={(e) => {
-          setYesHomeDelivery(!e.target.value);
-          setNoHomeDelivery(e.target.value);
-          homeDeliverySelected(e);
-        }}
-      >
-        <option value="1">On Site</option>
-        <option value="2">Home Pickup</option>
-      </select>
-      <div>{noHomeDelivery && <Onsite />}</div>
-    </div>
+    <>
+      <div className="pickup_location">
+        <p className="p_add ">PickUp Location</p>
+        <div>No. 28 Tennesse Crescent, Ministers hill Maitama, Abuja</div>
+      </div>
+    </>
   );
 };
+
+const KadunaPickUp = () => {
+  return (
+    <>
+      <div className="k_location">
+        <p className="p_add ">PickUp Location</p>
+        <div>
+          Suite 4 Ground Floor, Hamza Zayad House, NO 10 Muhammadu Buhari Way,
+          City Centre 800283, Kaduna
+        </div>
+      </div>
+    </>
+  );
+};
+
 const DeliveryLocation = () => {
-  const [yesOnsite, setYesOnsite] = useState(false);
+  const [yesOnsite, setYesOnsite] = useState(true);
   const [noOnsite, setNoOnsite] = useState(false);
   const checkedSelected = (e) => {
-    // console.log("I am selected");
-    if (e.target.value !== 2) {
-      setNoOnsite(!e.target.value);
+    let currentState = e.target.value;
+    if (currentState === "onsite") {
+      console.log("onsite");
+      setNoOnsite(false);
+      setYesOnsite(true);
+    } else {
+      setNoOnsite(true);
+      setYesOnsite(false);
     }
   };
 
@@ -82,79 +106,47 @@ const DeliveryLocation = () => {
       <select
         className="form-select style_form form-select-lg mb-3 shadow-none"
         aria-label=".form-select-lg example"
-        checked={!!yesOnsite}
+        // checked={yesOnsite}
         onChange={(e) => {
-          setYesOnsite(!e.target.value);
-          setNoOnsite(e.target.value);
           checkedSelected(e);
         }}
       >
-        <option value="1">On Site</option>
-        <option value="2">Home Delivery</option>
+        <option value="onsite">On Site</option>
+        <option value="home">Home Delivery</option>
       </select>
       <div className="delivery_address">{noOnsite && <HomeDelivery />}</div>
+      <div className="delivery_address">{yesOnsite && <Onsite />}</div>
     </div>
   );
 };
 
-const SelectSize = ({ chooseSex, selectSize, setSelectSize }) => {
-
+const SelectSize = ({ chooseSex, setSelectSize, setCheckFabric }) => {
   const [viewChart, setViewChart] = useState(false);
   const [viewModal, setViewModal] = useState(false);
-  const [uploadMeasurement, setUploadMeasurement] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  // const [selectSize, setSelectSize] = useState('')
-  
-
-  // const [selectedImages, setSelectedImages] = useState([]);
-  // const closeModalHandler = () => setViewChart(false);
-
-  // const handleChange = (event) => {
-  //   setSize(event.target.value);
-  // };
-  function trimContent(imgName) {
-    console.log(imgName.length);
-    console.log(imgName);
-    if (imgName.length < 15) {
-      return imgName;
-    }
-    let start = imgName.slice(0, 10);
-    let end = imgName.slice(-5);
-    let trimmedString = start + "..." + end;
-    return trimmedString;
-  }
 
   const handleSize = (event) => {
     // console.log(event.target.value)
-    setSelectSize(event.target.value)
-  }
-  // console.log(selectSize)
-  // console.log(chooseSex);
+    setSelectSize(event.target.value);
+  };
 
-  // console.log(selectedImage);
   return (
     <div className="select_size">
       <Box sx={{ minWidth: 120 }}>
-        <select 
-        className="form-select form-select-lg mb-3 shadow-none style_form"
-        aria-label=".form-select-lg example"
-        onChange={handleSize}
-        // checked={!!yesOnsite}
-        // onChange={(e) => {
-        //   setYesOnsite(!e.target.value);
-        //   setNoOnsite(e.target.value);
-        //   checkedSelected(e);
-        // }}
-      >        
-        <option hidden defaultValue="0">Select a Size</option>
-        <option value="US 4/ UK 8">US 4/ UK 8</option>
-        <option value="US 6/ UK 10">US 6/ UK 10</option>
-        <option value="US 8/ UK 12">US 8/ UK 12</option>
-        <option value="US 10/ UK 14">US 10/ UK 14</option>
-        <option value="US 12/ UK 16">US 12/ UK 16</option>
-        <option value="US 14/ UK 18">US 14/ UK 18</option>
-        <option value="US 16/ UK 20">US 16/ UK 20</option>
-      </select>
+        <p>Please select a size</p>
+        <select
+          className="form-select form-select-lg mb-3 shadow-none style_form"
+          aria-label=".form-select-lg example"
+          onChange={handleSize}
+        >
+          <option defaultValue="Select a Size">Select a Size</option>
+          <option value="US 4/ UK 8">US 4/ UK 8</option>
+          <option value="US 6/ UK 10">US 6/ UK 10</option>
+          <option value="US 8/ UK 12">US 8/ UK 12</option>
+          <option value="US 10/ UK 14">US 10/ UK 14</option>
+          <option value="US 12/ UK 16">US 12/ UK 16</option>
+          <option value="US 14/ UK 18">US 14/ UK 18</option>
+          <option value="US 16/ UK 20">US 16/ UK 20</option>
+        </select>
         <div className="view_sizebtn">
           {chooseSex === 1 ? (
             <button className="size_btn" onClick={() => setViewChart(true)}>
@@ -167,43 +159,6 @@ const SelectSize = ({ chooseSex, selectSize, setSelectSize }) => {
           )}
         </div>
 
-        {selectedImage === null ? (
-          <div className="uploadimage">
-            <button
-              className="uploadimage_btn"
-              onClick={() => setUploadMeasurement(true)}
-            >
-              Or Upload an image of your measurements
-            </button>
-          </div>
-        ) : (
-          <div className="selected_image">
-            <div>
-              {" "}
-              <span>{selectedImage && trimContent(selectedImage.name)} </span>
-              <span onClick={() => setSelectedImage(null)}>
-                <i className="fa-solid fa-xmark"></i>
-              </span>
-            </div>
-            <div
-              onClick={() => {
-                setUploadMeasurement(true);
-                // setSelectedImages([]);
-              }}
-            >
-              Change
-            </div>
-          </div>
-        )}
-
-        <UploadMeasurement
-          {...{
-            uploadMeasurement,
-            setUploadMeasurement,
-            setSelectedImage,
-          }}
-        />
-
         <MaleSizeChart {...{ viewChart, setViewChart }} />
         <FemaleSizeChart {...{ viewModal, setViewModal }} />
       </Box>
@@ -211,153 +166,14 @@ const SelectSize = ({ chooseSex, selectSize, setSelectSize }) => {
   );
 };
 
-const Form = ({ orderImage, styleName, chooseSex, selectSize, setSelectSize, setCheckFabric }) => {
-  const [yesFabric, setyesFabric] = useState(false);
-  const [noFabric, setnoFabric] = useState(false);
-
-  const [yesMeasurement, setyesMeasurement] = useState(false);
-  const [noMeasurement, setnoMeasurement] = useState(false);
-
- 
-
-
-
+const Form = ({ chooseSex, selectSize, setSelectSize, setCheckFabric }) => {
   return (
     <>
-      <div className="fabric_radio">
-        <FormControl>
-          <FormLabel
-            id="demo-row-radio-buttons-group-label"
-            className="form_label"
-          >
-            Do you have your fabric?
-          </FormLabel>
-          <RadioGroup
-            className="label_class"
-            row
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group"
-          >
-            <FormControlLabel
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "#bc9a43",
-                    },
-                  }}
-                />
-              }
-              label="Yes I do"
-              checked={!!yesFabric}
-              onChange={(e) => {
-                setyesFabric(!e.target.value);
-                setnoFabric(e.target.value);
-                setCheckFabric(e.target.value)
-              }}
-            />
-            <FormControlLabel
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "#bc9a43",
-                    },
-                  }}
-                />
-              }
-              label="No I don't"
-              checked={!!noFabric}
-              onChange={(e) => {
-                setnoFabric(!e.target.value);
-                setyesFabric(e.target.value);
-              }}
-            />
-          </RadioGroup>
-        </FormControl>
-      </div>
-      <div className="measurement_radio">
-        <FormControl>
-          <FormLabel
-            id="demo-row-radio-buttons-group-label"
-            className="form_label"
-          >
-            Do you have your measurement?
-          </FormLabel>
-          <RadioGroup
-            className="label_class"
-            row
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group"
-          >
-            <FormControlLabel
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "#bc9a43",
-                    },
-                  }}
-                />
-              }
-              label="Yes I do"
-              checked={!!yesMeasurement}
-              onChange={(e) => {
-                setyesMeasurement(!e.target.value);
-                setnoMeasurement(e.target.value);
-              }}
-            />
-            <FormControlLabel
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "#bc9a43",
-                    },
-                  }}
-                />
-              }
-              label="No I don't"
-              checked={!!noMeasurement}
-              onChange={(e) => {
-                setnoMeasurement(!e.target.value);
-                setyesMeasurement(e.target.value);
-              }}
-            />
-          </RadioGroup>
-        </FormControl>
-      </div>
+      <SelectSize
+        {...{ chooseSex, selectSize, setSelectSize, setCheckFabric }}
+      />
 
-      <div>
-        {yesMeasurement && (
-          <>
-            <SelectSize {...{ chooseSex, selectSize, setSelectSize }} />
-          </>
-        )}
-        {noMeasurement && <SelectSize {...{ chooseSex, selectSize, setSelectSize }} />}
-      </div>
-
-      <div>
-        {yesFabric && (
-          <>
-            <PickUpLocation />
-            <DeliveryLocation />
-          </>
-        )}
-        {noFabric && <DeliveryLocation />}
-      </div>
-
-      {/* <div className="form_button">
-        <ButtonContainer
-          onClick={() =>
-            navigate("/tailoring/orderdetails", {
-              state: { src: orderImage, stylename: styleName, id: chooseSex },
-            })
-          }
-        >
-          Proceed
-        </ButtonContainer>
-      </div> */}
+      <div>{selectSize !== "Select a Size" && <DeliveryLocation />}</div>
     </>
   );
 };

@@ -43,7 +43,7 @@ const LaundryDetails = ({ setLaundryDetails }) => {
                 <select
                   value={services}
                   onChange={handleChange}
-                  className="form-select laundry-form form-select-lg mb-3 shadow-none"
+                  className="form-select style_form form-select-lg mb-3 shadow-none"
                   aria-label=".form-select-lg example"
                 >
                   <option value="Wet Wash">Wet Wash</option>
@@ -56,7 +56,7 @@ const LaundryDetails = ({ setLaundryDetails }) => {
               <div>
                 <p>Gender</p>
                 <select
-                  className="form-select laundry-form form-select-lg mb-3 shadow-none"
+                  className="form-select style_form form-select-lg mb-3 shadow-none"
                   aria-label=".form-select-lg example"
                 >
                   <option value="1">Male</option>

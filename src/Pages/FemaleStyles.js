@@ -26,7 +26,6 @@ const FemaleStyles = ({ orderStyle, setOrderStyle }) => {
     "Artsy",
     "Grunge",
     "Gowns",
-    "Custom",
   ];
   const [activeButton, setActiveButton] = useState("All Styles");
 

@@ -15,7 +15,7 @@ import Form from "../Components/Form/Form";
 
 export default function Product({}) {
   const [showCart, setShowCart] = useState(false);
-  const [selectSize, setSelectSize] = useState("");
+  const [selectSize, setSelectSize] = useState("Select a Size");
   const [checkFabric, setCheckFabric] = useState("null");
   const location = useLocation();
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ export default function Product({}) {
       navigate("/");
     }
   });
-  console.log(checkFabric);
+  // console.log(selectSize);
 
   return (
     <>
@@ -99,6 +99,7 @@ export default function Product({}) {
                 <span className="p_star">
                   <i className="fas fa-star"></i>
                   <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
                 </span>
                 <span>(124 customer ratings)</span>
               </p>
@@ -124,7 +125,8 @@ export default function Product({}) {
               <div className="div_btn">
                 <ButtonContainer
                   className={
-                    checkFabric === "null" && "disabled complete-disabled"
+                    selectSize === "Select a Size" &&
+                    "disabled complete-disabled"
                   }
                   onClick={() => {
                     addToCart();
@@ -145,7 +147,8 @@ export default function Product({}) {
 
                 <ButtonContainer
                   className={
-                    checkFabric === "null" && "disabled complete-disabled"
+                    selectSize === "Select a Size" &&
+                    "disabled complete-disabled"
                   }
                   cart
                   onClick={addToCart}
@@ -158,16 +161,10 @@ export default function Product({}) {
                   <img alt="" src={Vector} />
                   <span>Fit Guarantee</span>
                 </span>
-                <span>
-                  <img alt="" src={Vector} />
-                  <span>10 Days</span>
-                </span>
               </div>
               <div className="fabric_desc">
                 <div className="dbr"></div>
-                <p>Duration: 10 Days</p>
                 <p>Fabric: Olympia, Multi Colored Ankara</p>
-                <p>Pattern Type: Random Patterns</p>
               </div>
             </div>
           </div>

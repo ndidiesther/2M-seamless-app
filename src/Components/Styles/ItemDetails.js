@@ -97,10 +97,6 @@ const ItemDetails = ({ styleName, uniqueId, amount, description }) => {
 
       <div>
         <p>
-          <span className="duration">Duration:</span>
-          <span> 10 days</span>
-        </p>
-        <p>
           <span className="outfit">Outfit:</span>
 
           {cartItems.map((item, index) => {

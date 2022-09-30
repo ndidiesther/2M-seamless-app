@@ -7,6 +7,7 @@ import Bag from "../../Assets/Images/Bag.png";
 import { NavLink } from "react-router-dom";
 import Profile from "./Profile";
 import SearchIcon from "./SearchIcon";
+import Notification from "../../Assets/Images/notification.png"
 
 export default function Navbar({ setModalShow, setGenderModal }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -100,12 +101,16 @@ export default function Navbar({ setModalShow, setGenderModal }) {
                     Login
                   </button>
                 </li> */}
+                  <li className="notification" onClick={() =>{}}>
+                  <img alt="img" src={Notification} />
+                  <span>1</span>
+                </li>
                 <li onClick={() => setShowSearch(true)}>
                   <img alt="img" src={Search} />
                 </li>
 
                 <Link to="/cartitem">
-                  <li>
+                  <li className="bag">
                     <img alt="img" src={Bag} />
                   </li>
                 </Link>

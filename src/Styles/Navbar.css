@@ -236,7 +236,7 @@
 }
 .profile_div {
   position: absolute;
-  right: 190px;
+  right: 230px;
   /* top:80px; */
 }
 
@@ -325,6 +325,9 @@
   }
   .main-nav {
     padding: 15px 10px 8px 10px;
+  }
+  .bag {
+    padding-right: 0!important;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {

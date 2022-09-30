@@ -683,19 +683,32 @@ a {
   padding-bottom: 20px;
   letter-spacing: 0.06em;
 }
-.state_selector > div:nth-child(2) {
+/* .state_selector > div:nth-child(2) {
+  display: none !important;
+} */
+/* .state_selector > div:first-child {
+  padding-top: 20px;
+} */
+.state_selector > div > div > label {
   display: none !important;
 }
-.state_selector > div:first-child {
+.state_selector {
+  position: relative;
   padding-top: 20px;
 }
-.state_selector > div:first-child > label {
+.state_selector > p {
   color: #000 !important;
   font-family: "Jost", sans-serif !important;
   font-size: 1.2rem !important;
-  font-weight: normal !important;
 }
-.state_selector > div:first-child > select {
+.state_selector > p:nth-child(2) {
+  position: absolute;
+  top: 155px;
+}
+.state_selector > div > div:nth-child(2) {
+  padding-top: 60px !important;
+}
+.state_selector > div > div > select {
   border: 1px solid #bc9a43 !important;
   margin-left: 0 !important;
   font-size: 16px !important;
@@ -714,6 +727,7 @@ a {
   background-position: right 0.75rem center;
   background-size: 16px 12px;
 }
+
 .quan_p > span:first-child {
   padding-right: 20px;
   font-size: 20px;
@@ -725,10 +739,15 @@ a {
 }
 .proceed_disabled {
   pointer-events: none;
-  background-color: -internal-light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3));
+  background-color: -internal-light-dark(
+    rgba(239, 239, 239, 0.3),
+    rgba(19, 1, 1, 0.3)
+  );
   color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
-  border-color: -internal-light-dark(rgba(118, 118, 118, 0.3), rgba(195, 195, 195, 0.3));
-
+  border-color: -internal-light-dark(
+    rgba(118, 118, 118, 0.3),
+    rgba(195, 195, 195, 0.3)
+  );
 }
 
 @media only screen and (max-width: 991px) {
@@ -925,10 +944,42 @@ a {
   font-size: 1.2rem !important;
 }
 .p_add {
-  margin-top: 1.8rem !important;
   color: #000 !important;
   font-family: "Jost", sans-serif !important;
   font-size: 1.2rem !important;
+}
+.pickup_location {
+  padding-top: 20px;
+}
+.pickup_location > div, .k_location > div {
+  border: 1px solid #bc9a43 !important;
+  margin-left: 0 !important;
+  font-size: 17px !important;
+  padding: 1rem 10px;
+  font-weight: bold;
+  border-radius: 0 !important;
+  width: 100%;
+}
+.home_delivery {
+  padding-top: 20px;
+}
+.notification {
+  position: relative;
+}
+.notification > img {
+  width: 20px !important;
+}
+
+.notification > span {
+  position: absolute;
+  font-size: 9px;
+  border-radius: 50%;
+  background-color: #DF0F0F;
+  color:white;
+  padding: 2px 7px 3px;
+  font-weight: bold;
+  left:7px;
+  top:-6px;
 }
 .css-ahj2mt-MuiTypography-root {
   font-weight: bold !important;
@@ -957,9 +1008,11 @@ textarea {
   color: #0e172c;
 }
 
-.select_size,
 .input_measurement {
   padding-top: 40px;
+}
+.select_size > div > p {
+  font-size: 20px;
 }
 .fabric_pickup {
   padding-top: 25px;
@@ -972,7 +1025,6 @@ textarea {
   border: 1px solid #bc9a43 !important;
 }
 .size_btn {
-  padding-top: 20px;
   outline: none;
   background-color: transparent;
   border: 0;
